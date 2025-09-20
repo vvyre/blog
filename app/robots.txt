@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.wyre.run/
+
+# Sitemaps
+Sitemap: https://www.wyre.run/sitemap.xml

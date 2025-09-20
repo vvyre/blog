@@ -14,6 +14,16 @@
     "indentStyle": "space",
     "indentWidth": 2
   },
+  "javascript": {
+    "formatter": {
+      "semicolons": "asNeeded",
+      "arrowParentheses": "asNeeded",
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "trailingCommas": "es5",
+      "lineWidth": 150
+    }
+  },
   "linter": {
     "enabled": true,
     "rules": {
