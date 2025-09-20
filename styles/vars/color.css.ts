@@ -1,0 +1,28 @@
+import { createVar } from '@vanilla-extract/css'
+
+export const color = {
+  background: createVar(),
+  text: createVar(),
+  accent: createVar(),
+  link: createVar(),
+  notion_default: createVar(),
+  notion_gray: createVar(),
+  notion_brown: createVar(),
+  notion_orange: createVar(),
+  notion_yellow: createVar(),
+  notion_green: createVar(),
+  notion_blue: createVar(),
+  notion_purple: createVar(),
+  notion_pink: createVar(),
+  notion_red: createVar(),
+  notion_background_default: createVar(),
+  notion_background_gray: createVar(),
+  notion_background_brown: createVar(),
+  notion_background_orange: createVar(),
+  notion_background_yellow: createVar(),
+  notion_background_green: createVar(),
+  notion_background_blue: createVar(),
+  notion_background_purple: createVar(),
+  notion_background_pink: createVar(),
+  notion_background_red: createVar(),
+}
