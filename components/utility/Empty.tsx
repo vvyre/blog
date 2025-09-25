@@ -1,3 +1,3 @@
 export function Empty() {
-  return <div />
+  return <></>
 }
