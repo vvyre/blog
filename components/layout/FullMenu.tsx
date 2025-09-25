@@ -4,7 +4,7 @@ import * as css from './FullMenu.css'
 import Link from 'next/link'
 import { useMediaQuery } from 'utils/hooks/useMediaQuery'
 import { useAtomValue } from 'jotai'
-import { yearGroupedPostsAtom, yearsAtom } from 'atom/yearGroupedPosts'
+import { yearGroupedPostsAtom, yearsAtom } from 'atoms/yearGroupedPosts'
 import { pageMeta } from 'features/notion/pageMeta'
 
 export function FullMenu({ open, ...props }: { open: boolean; onClose: () => void } & ComponentProps<'div'>) {
