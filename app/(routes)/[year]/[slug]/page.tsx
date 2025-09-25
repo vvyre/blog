@@ -4,7 +4,7 @@ import { Top } from 'components/layout/Top'
 import { Metadata } from 'next'
 import { ENV } from 'static/env'
 import { pageMeta } from 'features/notion/pageMeta'
-import { processedBlock } from 'features/notion/process-block'
+import { processBlock } from 'features/notion/processBlock'
 import { getCachedPostList, getPost } from 'features/notion/fetch'
 import NotionPage from 'components/notion/NotionPage'
 
@@ -48,7 +48,7 @@ export default async function Post({ params }: PostPageProps) {
   const { slug } = await params
   const [matchPost] = posts.filter(post => pageMeta(post).slug === slug)
   const meta = pageMeta(matchPost)
-  const blocks = await processedBlock(await getPost(matchPost.id))
+  const blocks = await processBlock(await getPost(matchPost.id))
 
   return (
     <>

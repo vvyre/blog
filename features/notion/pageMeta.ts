@@ -1,4 +1,4 @@
-import { NotionPageMeta } from 'types/notion.types'
+import { NotionPageMeta } from 'types/notion/base'
 import dayjs from 'dayjs'
 
 export const pageMeta = (meta: NotionPageMeta) => ({

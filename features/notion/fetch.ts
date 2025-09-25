@@ -5,7 +5,7 @@ import type {
   PartialBlockObjectResponse,
   QueryDataSourceParameters,
 } from '@notionhq/client/build/src/api-endpoints'
-import { NotionPageMeta } from 'types/notion.types'
+import { NotionPageMeta } from 'types/notion/base'
 import { Client } from '@notionhq/client'
 import { ENV } from 'static/env'
 
@@ -48,7 +48,7 @@ export const getPostList = async (database_id: string): Promise<NotionPageMeta[]
     const response = await notion.dataSources.query(query)
     return response.results as NotionPageMeta[]
   } catch (err) {
-    console.error('\n', data_source_id, err, '\n', '<<<< POSTLIST FETCH ERROR')
+    console.error('\n', data_source_id, err, '\n', 'xxxx POSTLIST FETCH ERROR')
     return []
   }
 }
@@ -56,7 +56,7 @@ export const getPostList = async (database_id: string): Promise<NotionPageMeta[]
 export const getCachedPostList = async (database_id: string) => {
   if (!POST_LIST_CACHE[database_id]) {
     POST_LIST_CACHE[database_id] = getPostList(database_id)
-  } else console.warn('**' + database_id.slice(-4), '>>>> CACHED POSTLIST')
+  } else console.warn('**' + database_id.slice(-4), 'vvvv CACHED POSTLIST')
 
   return POST_LIST_CACHE[database_id]
 }
@@ -68,7 +68,7 @@ export const getPostMetaData = async (page_id: string): Promise<NotionPageMeta> 
 }
 
 const getChildrenBlocks = async (parent_block_id: string): Promise<(BlockObjectResponse | PartialBlockObjectResponse)[]> => {
-  console.warn('**' + parent_block_id.slice(-4), '>>>> BLOCK FETCH CALL')
+  console.warn('**' + parent_block_id.slice(-4), '>>>> BLOCK FETCH')
   let results = []
   let blocks = await notion.blocks.children.list({
     block_id: parent_block_id,
@@ -106,6 +106,6 @@ export const getPost = async (block_id: string): Promise<BlockObjectResponse[]> 
 }
 
 export const getSingleBlock = async (block_id: string): Promise<GetBlockResponse> => {
-  console.warn('************' + block_id.slice(-4), '>>>> SINGLE BLOCK FETCH CALL')
+  console.warn('************' + block_id.slice(-4), '>>>> SINGLE BLOCK FETCH')
   return await notion.blocks.retrieve({ block_id })
 }

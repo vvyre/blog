@@ -1,4 +1,4 @@
-import { NotionPageMeta } from 'types/notion.types'
+import { NotionPageMeta } from 'types/notion/base'
 import Link from 'next/link'
 import * as css from './PostThumbnail.css'
 import { pageMeta } from 'features/notion/pageMeta'
