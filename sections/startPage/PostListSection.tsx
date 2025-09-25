@@ -1,6 +1,6 @@
 'use client'
 import * as css from './PostListSection.css'
-import { yearGroupedPostsAtom, yearsAtom } from 'atom/yearGroupedPosts'
+import { yearGroupedPostsAtom, yearsAtom } from 'atoms/yearGroupedPosts'
 import { PostThumbnail } from 'components/_post/PostThumbnail'
 import { useAtomValue } from 'jotai'
 

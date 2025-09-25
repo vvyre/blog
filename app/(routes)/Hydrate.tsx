@@ -1,8 +1,8 @@
 'use client'
-import { postsAtom } from 'atom/yearGroupedPosts'
+import { postsAtom } from 'atoms/yearGroupedPosts'
 import { useSetAtom } from 'jotai'
 import { PropsWithChildren, useEffect } from 'react'
-import { NotionPageMeta } from 'types/notion.types'
+import { NotionPageMeta } from 'types/notion/base'
 
 interface Props extends PropsWithChildren {
   state: {

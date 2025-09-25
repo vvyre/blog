@@ -6,7 +6,7 @@ import { ENV } from 'static/env'
 import { pageMeta } from 'features/notion/pageMeta'
 import { processBlock } from 'features/notion/processBlock'
 import { getCachedPostList, getPost } from 'features/notion/fetch'
-import NotionPage from 'components/notion/NotionPage'
+import RenderNotion from 'components/notion/_render/_RenderNotion'
 
 export interface PostPageProps {
   params: Promise<{
@@ -55,7 +55,7 @@ export default async function Post({ params }: PostPageProps) {
       <Top title={`${meta.title}`} />
       <Divider size={1} />
       <Section>
-        <NotionPage blocks={blocks} />
+        <RenderNotion blocks={blocks} />
       </Section>
     </>
   )
