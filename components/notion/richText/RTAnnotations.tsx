@@ -5,7 +5,7 @@ import { Underline } from './RTUnderline'
 import { Code } from './RTInlineCode'
 import type { ReactNode } from 'react'
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import { Wrapper } from 'components/util/wrapper'
+import { Wrapper } from 'components/utility/Wrapper'
 
 interface AnnotationsProps {
   bold?: boolean

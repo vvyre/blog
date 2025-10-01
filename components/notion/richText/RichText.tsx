@@ -1,14 +1,15 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
+import { Annotations } from './RTAnnotations'
 
 export function RichText({ richText }: { richText: RichTextItemResponse }) {
   const isLink = richText.href
   if (isLink) {
     return (
-      <a href={isLink} {...richText.annotations}>
-        {richText.plain_text}
+      <a href={isLink}>
+        <Annotations {...richText.annotations}>{richText.plain_text}</Annotations>
       </a>
     )
   }
 
-  return <span {...richText.annotations}>{richText.plain_text}</span>
+  return <Annotations {...richText.annotations}>{richText.plain_text}</Annotations>
 }
