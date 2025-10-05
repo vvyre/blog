@@ -20,7 +20,7 @@ type CTAProps =
 
 export function FixedCTA(props: CTAProps) {
   return (
-    <div className={css.FRAME}>
+    <div className={css.frame}>
       {(() => {
         switch (propcss.gridType) {
           case '1Col': {
@@ -30,7 +30,7 @@ export function FixedCTA(props: CTAProps) {
           case '2ColA': {
             const { confirmTxt, cancelTxt, onConfirm, onCancel } = props
             return (
-              <div className={css.GRID_2COL_A}>
+              <div className={css.grid2ColA}>
                 <CancelBtn onClick={onCancel}>{cancelTxt}</CancelBtn>
                 <PrimaryBtn onClick={onConfirm}>{confirmTxt}</PrimaryBtn>
               </div>
@@ -39,7 +39,7 @@ export function FixedCTA(props: CTAProps) {
           case '2ColB': {
             const { confirmTxt, cancelTxt, onConfirm, onCancel } = props
             return (
-              <div className={css.GRID_2COL_B}>
+              <div className={css.grid2ColB}>
                 <CancelBtn onClick={onCancel}>{cancelTxt}</CancelBtn>
                 <PrimaryBtn onClick={onConfirm}>{confirmTxt}</PrimaryBtn>
               </div>

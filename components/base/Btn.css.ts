@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-export const BASE = style({
+export const base = style({
   border: '1px solid transparent',
   borderRadius: '0.3rem',
   cursor: 'pointer',
@@ -19,12 +19,12 @@ export const BASE = style({
   },
 })
 
-export const CANCEL = style({
+export const cancel = style({
   backgroundColor: '#f6f6f6',
   color: 'black',
 })
 
-export const PRIMARY = style({
+export const primary = style({
   backgroundColor: 'springgreen',
   color: 'black',
 })

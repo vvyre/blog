@@ -37,10 +37,7 @@ export function BottomSheet({ size, unmount, ...props }: Props) {
     isDraggingRef.current = false
     setDragging(false)
 
-    const snapped = SNAP_POINTS.reduce(
-      (acc, s) => (Math.abs(s - pos) < Math.abs(acc - pos) ? s : acc),
-      SNAP_POINTS[0]
-    )
+    const snapped = SNAP_POINTS.reduce((acc, s) => (Math.abs(s - pos) < Math.abs(acc - pos) ? s : acc), SNAP_POINTS[0])
 
     if (snapped === 0) {
       setPos(0)
@@ -61,10 +58,7 @@ export function BottomSheet({ size, unmount, ...props }: Props) {
   const handlePointerCancel = () => {
     isDraggingRef.current = false
     setDragging(false)
-    const snapped = SNAP_POINTS.reduce(
-      (acc, s) => (Math.abs(s - pos) < Math.abs(acc - pos) ? s : acc),
-      SNAP_POINTS[0]
-    )
+    const snapped = SNAP_POINTS.reduce((acc, s) => (Math.abs(s - pos) < Math.abs(acc - pos) ? s : acc), SNAP_POINTS[0])
     if (snapped === 0) {
       setPos(0)
       unmount()
@@ -75,12 +69,12 @@ export function BottomSheet({ size, unmount, ...props }: Props) {
 
   return (
     <div
-      className={css.FRAME}
+      className={css.frame}
       style={{
         display: pos === 0 ? 'hidden' : 'block',
       }}>
       <div
-        className={css.BACKDROP}
+        className={css.backdrop}
         style={{
           opacity: pos,
         }}
@@ -91,7 +85,7 @@ export function BottomSheet({ size, unmount, ...props }: Props) {
         aria-hidden>
         <div
           ref={sheetRef}
-          className={css.BASE}
+          className={css.base}
           style={{
             transform: `translateY(${(1 - pos) * 3.5}%)`,
             opacity: pos === 0 ? 0 : 1,
@@ -103,13 +97,10 @@ export function BottomSheet({ size, unmount, ...props }: Props) {
           role="dialog"
           aria-modal="true">
           <div>
-            <button
-              className={css.HANDLE_AREA}
-              onPointerDown={handlePointerDown}
-              aria-label="바텀시트 핸들">
-              <span className={css.HANDLE_BAR} />
+            <button className={css.handleArea} onPointerDown={handlePointerDown} aria-label="바텀시트 핸들">
+              <span className={css.handleBar} />
             </button>
-            <div className={css.CONTENT_WRAPPER}>{props.children}</div>
+            <div className={css.contentFrame}>{props.children}</div>
           </div>
         </div>
       </div>

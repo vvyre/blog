@@ -7,7 +7,7 @@ import * as css from './Divider.css'
 export function Divider({ size }: { size: number }) {
   return (
     <div
-      className={css.BASE}
+      className={css.base}
       style={{
         borderBottom: `${size}rem solid transparent`,
       }}

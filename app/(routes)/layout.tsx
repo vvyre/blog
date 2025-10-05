@@ -1,11 +1,13 @@
 import type { Metadata } from 'next'
 import 'styles/global.css'
 import 'styles/font.css'
-import { Navigation } from 'components/layout/Navigation'
+import 'styles/themes.css'
+import { Navigation } from 'features/navigation/Navigation'
 import { Footer } from 'components/layout/Footer'
 import meta from 'assets/meta'
-import { Hydrate } from './Hydrate'
-import { startPageLoader } from './loader'
+import { Hydrate } from './(util)/Hydrate'
+import { startPageLoader } from './server'
+import { Providers } from './(util)/Providers'
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -21,11 +23,12 @@ export default async function RootLayout({
   return (
     <html lang="ko">
       <body>
-        <Hydrate state={{ posts }}>
+        <Providers>
+          <Hydrate state={{ posts }} />
           <Navigation />
-        </Hydrate>
-        <main>{children}</main>
-        <Footer />
+          <main>{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

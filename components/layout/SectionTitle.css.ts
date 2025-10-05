@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css'
 
-export const FRAME = style({
+export const frame = style({
   marginBottom: '1.5rem',
 })
 
-export const TITLE = style({
+export const title = style({
   lineHeight: 1.3,
   fontSize: '1.15rem',
   fontWeight: 500,
@@ -12,6 +12,6 @@ export const TITLE = style({
   marginInline: 0,
 })
 
-export const SUBTITLE = style({
+export const subtitle = style({
   marginTop: '0.5rem',
 })

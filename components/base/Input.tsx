@@ -8,9 +8,9 @@ import * as css from './Input.css'
  */
 export function Input({ icon, ...props }: { icon?: ReactNode } & ComponentProps<'input'>) {
   return (
-    <div className={css.FRAME}>
-      <span className={css.ICON_WRAPPER}>{icon}</span>
-      <input type="text" {...props} className={icon ? css.BASE.withIcon : css.BASE.default} />
+    <div className={css.frame}>
+      <span className={css.iconFrame}>{icon}</span>
+      <input type="text" {...props} className={icon ? css.base.withIcon : css.base.default} />
     </div>
   )
 }

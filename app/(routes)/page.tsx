@@ -1,14 +1,13 @@
 import { Section } from 'components/layout/Section'
-import { Top } from 'components/layout/Top'
+import { Top } from 'features/post/containers/Top'
 import meta from 'assets/meta'
-import { PostListSection } from 'sections/startPage/PostListSection'
+import { PostListContainer } from 'features/postList'
 
 export default async function Home() {
   return (
     <>
-      <Top title={meta.title} />
       <Section>
-        <PostListSection />
+        <PostListContainer />
       </Section>
     </>
   )

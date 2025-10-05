@@ -1,4 +1,4 @@
-import { getSingleBlock } from 'features/notion/fetch'
+import { getSingleBlock } from 'features/notion/utils/notionFetch.util'
 import { NextRequest } from 'next/server'
 
 export async function POST(req: NextRequest) {

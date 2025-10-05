@@ -1,6 +1,6 @@
 import { style } from '@vanilla-extract/css'
 
-export const FRAME = style({
+export const frame = style({
   zIndex: 99,
   position: 'fixed',
   paddingInline: '1rem',
@@ -15,20 +15,20 @@ export const FRAME = style({
   },
 })
 
-const GRID_BASE = style({
+const gridBase = style({
   display: 'grid',
   gap: '0.5rem',
 })
 
-export const GRID_2COL_A = style([
-  GRID_BASE,
+export const grid2ColA = style([
+  gridBase,
   {
     gridTemplateColumns: '1fr 1fr',
   },
 ])
 
-export const GRID_2COL_B = style([
-  GRID_BASE,
+export const grid2ColB = style([
+  gridBase,
   {
     gridTemplateColumns: '2fr 3fr',
   },

@@ -1,4 +1,4 @@
-import { Top } from 'components/layout/Top'
+import { Top } from 'features/post/containers/Top'
 
 export default function AboutPage() {
   return (

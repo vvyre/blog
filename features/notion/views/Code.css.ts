@@ -1,0 +1,40 @@
+import { globalStyle, style } from '@vanilla-extract/css'
+import { dp } from 'styles/size'
+import { color } from 'styles/vars/color.css'
+
+globalStyle('pre', {
+  margin: 0,
+  fontFamily: 'IBM Plex Mono, monospace',
+  fontSize: '0.9rem',
+  lineHeight: 1.5,
+})
+
+export const codeFrame = style({
+  backgroundColor: color.notion_background_gray,
+  outline: `${dp(4)} solid ${color.notion_background_gray}`,
+  borderRadius: dp(1),
+  padding: dp(2),
+  overflowX: 'auto',
+  marginBlock: dp(8),
+})
+
+export const codeHeader = style({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginBottom: dp(4),
+})
+
+export const codeLang = style({
+  fontSize: '0.85rem',
+  fontWeight: 600,
+  color: color.notion_default,
+})
+
+export const copyCode = style({
+  paddingInline: dp(1),
+  paddingBlock: dp(1),
+  backgroundColor: 'transparent',
+  border: 'none',
+  cursor: 'pointer',
+})

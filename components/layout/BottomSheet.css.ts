@@ -1,21 +1,21 @@
-import { style } from '@vanilla-extract/css';
+import { style } from '@vanilla-extract/css'
 
-export const FRAME = style({
+export const frame = style({
   zIndex: 9999,
   position: 'fixed',
   inset: 0,
   pointerEvents: 'none',
-});
+})
 
-export const BACKDROP = style({
+export const backdrop = style({
   position: 'absolute',
   inset: 0,
   background: 'rgba(0, 0, 0, 0.35)',
   transition: 'opacity 150ms ease',
   pointerEvents: 'auto',
-});
+})
 
-export const BASE = style({
+export const base = style({
   position: 'absolute',
   left: 0,
   right: 0,
@@ -34,18 +34,18 @@ export const BASE = style({
       height: 'calc(100dvh)',
     },
   },
-});
+})
 
-export const HANDLE_AREA = style({
+export const handleArea = style({
   width: '100%',
   textAlign: 'center',
   border: 'none',
   padding: '0.5rem 0',
   touchAction: 'none',
   cursor: 'grab',
-});
+})
 
-export const HANDLE_BAR = style({
+export const handleBar = style({
   display: 'inline-block',
   width: '3rem',
   height: '0.25rem',
@@ -55,8 +55,8 @@ export const HANDLE_BAR = style({
   ':active': {
     scale: '0.85',
   },
-});
+})
 
-export const CONTENT_WRAPPER = style({
+export const contentFrame = style({
   padding: '1.5rem',
-});
+})

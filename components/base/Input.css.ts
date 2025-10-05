@@ -1,6 +1,6 @@
 import { style, styleVariants } from '@vanilla-extract/css'
 
-export const FRAME = style({
+export const frame = style({
   display: 'inline-flex',
   width: '100%',
   height: '3.15rem',
@@ -10,7 +10,7 @@ export const FRAME = style({
   marginBottom: '1rem',
 })
 
-export const ICON_WRAPPER = style({
+export const iconFrame = style({
   cursor: 'default',
   width: '3.15rem',
   height: '3.15rem',
@@ -20,7 +20,7 @@ export const ICON_WRAPPER = style({
   position: 'absolute',
 })
 
-const BASE_INPUT = style({
+const baseInput = style({
   flex: 1,
   position: 'absolute',
   margin: 0,
@@ -39,7 +39,7 @@ const BASE_INPUT = style({
   },
 })
 
-export const BASE = styleVariants({
-  default: [BASE_INPUT, { padding: '0 0.8rem' }],
-  withIcon: [BASE_INPUT, { padding: '0 0.8rem 0 2.75rem' }],
+export const base = styleVariants({
+  default: [baseInput, { padding: '0 0.8rem' }],
+  withIcon: [baseInput, { padding: '0 0.8rem 0 2.75rem' }],
 })
