@@ -3,7 +3,6 @@ import 'styles/global.css'
 import 'styles/font.css'
 import 'styles/themes.css'
 import { Navigation } from 'features/navigation/Navigation'
-import { Footer } from 'components/layout/Footer'
 import meta from 'assets/meta'
 import { Hydrate } from './(util)/Hydrate'
 import { startPageLoader } from './server'
@@ -27,7 +26,6 @@ export default async function RootLayout({
           <Hydrate state={{ posts }} />
           <Navigation />
           <main>{children}</main>
-          <Footer />
         </Providers>
       </body>
     </html>

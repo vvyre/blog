@@ -7,6 +7,7 @@ import { pageMeta } from 'features/notion/utils/pageMeta.util'
 import { processBlock } from 'features/notion/utils/processBlock'
 import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
 import { RenderNotion } from 'features/notion'
+import { Spacing } from 'components/base/Spacing'
 
 export interface PostPageProps {
   params: Promise<{
@@ -22,7 +23,7 @@ export async function generateStaticParams() {
 
   return posts.map(post => {
     return {
-      year: String(pageMeta(post).date.year()),
+      year: String(pageMeta(post).date.slice(0, 4)),
       slug: pageMeta(post).slug,
     }
   })
@@ -53,7 +54,7 @@ export default async function Post({ params }: PostPageProps) {
   return (
     <>
       <Top meta={meta} />
-      <Divider size={1} />
+      <Spacing size={12} />
       <Section>
         <RenderNotion blocks={blocks} />
       </Section>

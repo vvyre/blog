@@ -1,14 +1,12 @@
 import { Section } from 'components/layout/Section'
-import { Top } from 'features/post/containers/Top'
-import meta from 'assets/meta'
 import { PostListContainer } from 'features/postList'
+import { Spacing } from 'components/base/Spacing'
 
 export default async function Home() {
   return (
     <>
-      <Section>
-        <PostListContainer />
-      </Section>
+      <Spacing size={24} />
+      <PostListContainer />
     </>
   )
 }

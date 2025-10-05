@@ -6,5 +6,6 @@ export const paragraph = style({
   lineHeight: 1.65,
   fontSize: dp(4.5),
   color: 'black',
+  marginInline: dp(6),
   wordBreak: 'break-word',
 })

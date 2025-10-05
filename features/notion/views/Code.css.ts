@@ -11,11 +11,11 @@ globalStyle('pre', {
 
 export const codeFrame = style({
   backgroundColor: color.notion_background_gray,
-  outline: `${dp(4)} solid ${color.notion_background_gray}`,
   borderRadius: dp(1),
-  padding: dp(2),
+  padding: dp(5),
   overflowX: 'auto',
   marginBlock: dp(8),
+  marginInline: dp(3),
 })
 
 export const codeHeader = style({

@@ -10,6 +10,7 @@ export const figureDefault = style({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
+  marginInline: dp(3),
 })
 export const figureZoomed = style({
   cursor: 'zoom-out',
