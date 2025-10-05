@@ -5,6 +5,7 @@ export const color = {
   text: createVar(),
   accent: createVar(),
   link: createVar(),
+  white: createVar(),
   notion_default: createVar(),
   notion_gray: createVar(),
   notion_brown: createVar(),

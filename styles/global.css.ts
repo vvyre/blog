@@ -31,11 +31,6 @@ globalStyle('body', {
 globalStyle('main', {
   margin: '0 auto',
   width: '100%',
-  '@media': {
-    'screen and (min-width: 600px)': {
-      paddingTop: dp(32),
-    },
-  },
 })
 
 globalStyle('article, section, nav, p, h1, h2, h3, h4, h5, h6', {

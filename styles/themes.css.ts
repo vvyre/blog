@@ -8,8 +8,9 @@ globalStyle(':root', {
   },
 })
 
-globalStyle('html[data-mode="light"]', {
+globalStyle('html[data-mode="light"], html', {
   vars: {
+    [color.white]: '#ffffff',
     [color.background]: '#ffffff',
     [color.text]: '#0b0b0b',
     [color.link]: 'springgreen',
@@ -25,7 +26,7 @@ globalStyle('html[data-mode="light"]', {
     [color.notion_pink]: '#B35488',
     [color.notion_red]: '#C4554D',
     [color.notion_background_default]: '#FFFFFF',
-    [color.notion_background_gray]: '#F1F1EF',
+    [color.notion_background_gray]: '#F8F9F9',
     [color.notion_background_brown]: '#F3EEEE',
     [color.notion_background_orange]: '#F8ECDF',
     [color.notion_background_yellow]: '#FAF3DD',
@@ -39,6 +40,7 @@ globalStyle('html[data-mode="light"]', {
 
 globalStyle('html[data-mode="dark"]', {
   vars: {
+    [color.white]: '#ffffff',
     [color.background]: '#191919',
     [color.text]: '#eaeaea',
     [color.link]: 'springgreen',
