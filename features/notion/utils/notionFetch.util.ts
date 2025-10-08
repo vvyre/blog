@@ -5,9 +5,9 @@ import type {
   PartialBlockObjectResponse,
   QueryDataSourceParameters,
 } from '@notionhq/client/build/src/api-endpoints'
-import { NotionPageMeta } from 'features/notion/base'
 import { Client } from '@notionhq/client'
 import { ENV } from 'static/env'
+import { NotionPageMeta } from '../types/meta'
 
 const createNotionClient = () => new Client({ auth: ENV.NOTION_KEY })
 export const notion: Client = createNotionClient()
