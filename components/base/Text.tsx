@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Annotations } from 'components/notion/annotations/annotations'
+import { Annotations } from 'features/notion/views/richText/RTAnnotations'
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import { ComponentProps, memo, type ElementType } from 'react'
 import { color } from 'styles/vars/color.css'
