@@ -8,6 +8,7 @@ import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.ut
 import { RenderNotion } from 'features/notion'
 import { Spacing } from 'components/base/Spacing'
 import { BlockObjectResponse } from '@notionhq/client'
+import { Comments } from 'features/post/components/Comments'
 
 export interface PostPageProps {
   params: Promise<{
@@ -64,7 +65,10 @@ export default async function Post({ params }: PostPageProps) {
       <Spacing size={12} />
       <Section>
         <RenderNotion blocks={blocks} />
+        <Spacing size={12} />
+        <Comments />
       </Section>
+      <Spacing size={20} />
     </>
   )
 }
