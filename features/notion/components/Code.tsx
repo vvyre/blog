@@ -5,12 +5,12 @@ import { getCodeLang } from 'features/notion/utils/getCodeLang.util'
 import type { NotionComponentProps } from 'features/notion'
 import { useTextCopy } from '@frfla/react-hooks'
 import { CopyIcon, RocketIcon } from '@radix-ui/react-icons'
-import { Btn } from 'components/base/Btn'
 import * as css from './Code.css'
+import { getPlainText } from '../utils/getPlainText.util'
 
 export function Code({ block }: NotionComponentProps<'code'>) {
   const codeLang = getCodeLang(block.code.language)
-  const codeText = block.code.rich_text.map(txt => txt.plain_text).join('')
+  const codeText = getPlainText(block.code.rich_text)
   const codeHtml = hljs.highlight(codeText, {
     language: block.code.language,
   }).value

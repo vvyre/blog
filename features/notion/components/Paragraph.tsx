@@ -5,9 +5,10 @@ import { RichText } from './richText/RichText'
 import { Youtube } from './customBlocks/Youtube'
 import { hasChildren } from 'features/notion'
 import * as css from './Paragraph.css'
+import { getPlainText } from '../utils/getPlainText.util'
 
 export function Paragraph({ block }: NotionComponentProps<'paragraph'>) {
-  const flattenTxt: string = block.paragraph.rich_text.map((txt: RichTextItemResponse) => txt.plain_text).join('')
+  const flattenTxt: string = getPlainText(block.paragraph.rich_text)
   if (flattenTxt.includes('<<https://youtu.be') && flattenTxt.includes('>>')) {
     return <Youtube src={flattenTxt} />
   }

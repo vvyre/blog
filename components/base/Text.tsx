@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import { Annotations } from 'features/notion/views/richText/RTAnnotations'
+import { Annotations } from 'features/notion/components/richText/RTAnnotations'
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import { ComponentProps, memo, type ElementType } from 'react'
 import { color } from 'styles/vars/color.css'
+import clsx from 'clsx'
 
 export type TextVariants = {
   bold?: boolean
@@ -33,8 +34,7 @@ function T<T extends ElementType>({
   ...props
 }: TextProps<T>) {
   const COLOR = richText ? richText.annotations.color : color
-  const classNames = [props.className]
-  let cn = classNames.join(' ')
+  let cn = clsx(props.className)
 
   let Component = as ?? 'span'
 
