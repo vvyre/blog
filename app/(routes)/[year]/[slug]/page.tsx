@@ -1,4 +1,3 @@
-import { Divider } from 'components/base/Divider'
 import { Section } from 'components/layout/Section'
 import { Top } from 'features/post/containers/Top'
 import { Metadata } from 'next'
@@ -8,6 +7,7 @@ import { processBlock } from 'features/notion/utils/processBlock'
 import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
 import { RenderNotion } from 'features/notion'
 import { Spacing } from 'components/base/Spacing'
+import { BlockObjectResponse } from '@notionhq/client'
 
 export interface PostPageProps {
   params: Promise<{
@@ -20,7 +20,6 @@ export const revalidate = 3600
 
 export async function generateStaticParams() {
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
-
   return posts.map(post => {
     return {
       year: String(pageMeta(post).date.slice(0, 4)),
@@ -49,7 +48,15 @@ export default async function Post({ params }: PostPageProps) {
   const { slug } = await params
   const [matchPost] = posts.filter(post => pageMeta(post).slug === slug)
   const meta = pageMeta(matchPost)
-  const blocks = await processBlock(await getPost(matchPost.id))
+  let post: BlockObjectResponse[] = []
+
+  try {
+    post = await getPost(matchPost.id)
+  } catch (err) {
+    console.info(err)
+  }
+
+  const blocks = await processBlock(post)
 
   return (
     <>

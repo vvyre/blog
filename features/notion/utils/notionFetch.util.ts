@@ -68,7 +68,7 @@ export const getPostMetaData = async (page_id: string): Promise<NotionPageMeta> 
 }
 
 const getChildrenBlocks = async (parent_block_id: string): Promise<(BlockObjectResponse | PartialBlockObjectResponse)[]> => {
-  console.warn('**' + parent_block_id.slice(-4), '>>>> BLOCK FETCH')
+  console.warn('**' + parent_block_id.slice(-4), '>>>> CHILDREN BLOCK FETCH')
   let results = []
   let blocks = await notion.blocks.children.list({
     block_id: parent_block_id,

@@ -1,19 +1,40 @@
 import { ExtendedBookmarkObjectResponse } from 'features/notion'
 import { BookmarkBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import { unfurl } from 'unfurl.js'
-import { Metadata } from 'unfurl.js/dist/types'
+import { parseHTML } from 'linkedom'
 
-export interface BookmarkMeta extends Metadata {
+export type BookmarkMeta = {
   url: string
+  title?: string
+  description?: string
+  image?: string
 }
 const fetchMeta = async (url: string): Promise<BookmarkMeta> => {
-  const response = await unfurl(url, {
-    oembed: true,
-    timeout: 2000,
-  })
-  return { ...response, url }
-}
+  try {
+    const response = await fetch(url)
+    const html = await response.text()
+    const { document } = parseHTML(html)
 
+    const getMeta = (names: string[]) => {
+      for (const name of names) {
+        const el = document.querySelector(`meta[property="${name}"]`) || document.querySelector(`meta[name="${name}"]`)
+        if (el?.getAttribute('content')) {
+          return el.getAttribute('content')
+        }
+      }
+      return null
+    }
+
+    return {
+      url,
+      title: getMeta(['og:title', 'twitter:title']) || document.querySelector('title')?.textContent || undefined,
+      description: getMeta(['og:description', 'twitter:description', 'description']) || undefined,
+      image: getMeta(['og:image', 'twitter:image']) || undefined,
+    }
+  } catch (error) {
+    console.error(`Failed to fetch metadata for ${url}:`, error)
+    return { url }
+  }
+}
 export const getBookmarkMetadata = async (block: BookmarkBlockObjectResponse): Promise<ExtendedBookmarkObjectResponse> => {
   const url = block.bookmark.url
 
