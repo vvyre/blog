@@ -1,14 +1,15 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
 import { color } from 'styles/vars/color.css'
+import { layouts } from 'styles/vars/layouts.css'
 
 export const bookmarkFrame = style({
   display: 'block',
   backgroundColor: color.notion_background_gray,
   borderRadius: dp(2.5),
-  padding: dp(6),
+  padding: layouts.paragraph,
   marginBlock: dp(8),
-  marginInline: dp(3),
+  marginInline: layouts.full,
   wordBreak: 'break-all',
 })
 
@@ -35,7 +36,7 @@ export const bookmarkTitle = style({
 })
 
 export const bookmarkUrl = style({
-  fontSize: dp(3),
+  fontSize: layouts.full,
   fontWeight: 500,
   fontFamily: '"IBM Plex Mono", "Pretendard", sans-serif',
   wordSpacing: '-0.3rem',

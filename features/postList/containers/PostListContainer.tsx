@@ -1,6 +1,6 @@
 'use client'
 import { postGroupByYearAtom, yearsAtom } from '../postList.atom'
-import { PostListView } from '../views/PostListView'
+import { PostListView } from '../components/PostListView'
 import { useAtomValue } from 'jotai'
 
 export function PostListContainer() {

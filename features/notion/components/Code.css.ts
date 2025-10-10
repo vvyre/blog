@@ -1,6 +1,7 @@
 import { globalStyle, style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
 import { color } from 'styles/vars/color.css'
+import { layouts } from 'styles/vars/layouts.css'
 
 globalStyle('pre', {
   margin: 0,
@@ -15,7 +16,7 @@ export const codeFrame = style({
   padding: dp(5),
   overflowX: 'auto',
   marginBlock: dp(8),
-  marginInline: dp(3),
+  marginInline: layouts.full,
 })
 
 export const codeHeader = style({

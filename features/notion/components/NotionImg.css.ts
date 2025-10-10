@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
+import { layouts } from 'styles/vars/layouts.css'
 
 export const figureDefault = style({
   cursor: 'zoom-in',
@@ -10,7 +11,7 @@ export const figureDefault = style({
   alignItems: 'center',
   display: 'flex',
   flexDirection: 'column',
-  marginInline: dp(3),
+  marginInline: layouts.full,
 })
 export const figureZoomed = style({
   cursor: 'zoom-out',

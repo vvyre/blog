@@ -1,10 +1,11 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
 import { color } from 'styles/vars/color.css'
+import { layouts } from 'styles/vars/layouts.css'
 
 export const postListFrame = style({
   columnCount: 1,
-  paddingInline: dp(6),
+  paddingInline: layouts.paragraph,
   '@media': {
     'screen and (min-width: 600px)': {
       columnCount: 2,

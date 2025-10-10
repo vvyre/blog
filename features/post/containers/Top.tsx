@@ -1,7 +1,7 @@
 'use client'
-import { PostInfo } from '../views/PostInfo'
-import { PostTitle } from '../views/PostTitle'
-import { Tags } from '../views/Tags'
+import { PostInfo } from '../components/PostInfo'
+import { PostTitle } from '../components/PostTitle'
+import { Tags } from '../components/Tags'
 import * as css from './Top.css'
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
 

@@ -1,9 +1,10 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
+import { layouts } from 'styles/vars/layouts.css'
 
 export const frame = style({
   margin: '0 auto',
-  paddingInline: dp(6),
+  paddingInline: layouts.paragraph,
   paddingTop: dp(12),
   maxWidth: '45rem',
   '@media': {
