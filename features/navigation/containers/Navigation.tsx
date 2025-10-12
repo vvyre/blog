@@ -47,7 +47,11 @@ function NavigationContent() {
           </>
         )}
       </div>
-      <ExpandedNav isOpen={isOpen} onClose={() => setOpenState({ type: 'close' })} content={<Menu isOpen={isOpen} onClose={() => {}} />} />
+      <ExpandedNav
+        isOpen={isOpen}
+        onClose={() => setOpenState({ type: 'close' })}
+        content={<Menu isOpen={isOpen} onClose={() => setOpenState({ type: 'close' })} />}
+      />
     </>
   )
 }
