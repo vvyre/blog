@@ -19,15 +19,15 @@ export function ExpandedNav({ isOpen, content, onClose, ...props }: { isOpen: bo
 
   return (
     <div
-      data-menu-root
       className={css.wrapper}
       style={{
-        display: isOpen ? 'block' : 'hidden',
+        visibility: isOpen ? 'visible' : 'hidden',
+        pointerEvents: isOpen ? 'auto' : 'none',
         translate: isOpen ? 0 : '100%',
         transform: isOpen ? 'translateY(0)' : isMobile ? 'translateY(5%)' : 'translateY(-5%)',
         opacity: isOpen ? 1 : 0,
       }}>
-      <div className={css.frame} style={{}} {...props}>
+      <div data-menu-root className={css.frame} style={{}} {...props}>
         <div className={css.contentFrame}>{content}</div>
       </div>
     </div>
