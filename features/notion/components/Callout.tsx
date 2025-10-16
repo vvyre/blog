@@ -1,5 +1,5 @@
-import type { NotionComponentProps } from 'features/notion'
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
+import type { NotionComponentProps } from 'features/notion'
 import { RichText } from './richText/RichText'
 
 export function Callout({ block }: NotionComponentProps<'callout'>) {
@@ -8,7 +8,7 @@ export function Callout({ block }: NotionComponentProps<'callout'>) {
       <p>
         <span>{'emoji' in block.callout.icon! && block.callout.icon.emoji}</span>
         {block.callout.rich_text.map((txt: RichTextItemResponse, idx) => (
-          <RichText key={idx} richText={txt} />
+          <RichText key={`${txt.type}${idx}`} richText={txt} />
         ))}
       </p>
     </div>

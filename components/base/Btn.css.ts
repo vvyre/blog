@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { color } from 'styles/vars/color.css'
 
 export const base = style({
   border: '1px solid transparent',
@@ -21,10 +22,10 @@ export const base = style({
 
 export const cancel = style({
   backgroundColor: '#f6f6f6',
-  color: 'black',
+  color: color.text,
 })
 
 export const primary = style({
   backgroundColor: 'springgreen',
-  color: 'black',
+  color: color.text,
 })

@@ -1,3 +1,3 @@
 export function Mention() {
-  return <></>
+  return <div />
 }

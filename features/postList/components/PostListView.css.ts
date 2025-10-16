@@ -46,7 +46,7 @@ export const postLinkFrame = style({
   '@media': {
     '(hover: hover) and (pointer: fine)': {
       ':hover': {
-        color: 'black',
+        color: color.text,
       },
     },
   },

@@ -1,4 +1,5 @@
 import { style, styleVariants } from '@vanilla-extract/css'
+import { color } from 'styles/vars/color.css'
 
 export const frame = style({
   display: 'inline-flex',
@@ -34,7 +35,7 @@ const baseInput = style({
     cursor: 'not-allowed',
   },
   ':focus': {
-    outline: '1.5px solid black',
+    outline: `1.5px solid ${color.text}`,
     outlineOffset: '0.15rem',
   },
 })

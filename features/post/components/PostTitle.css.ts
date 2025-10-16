@@ -1,10 +1,11 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
+import { color } from 'styles/vars/color.css'
 
 export const title = style({
   fontSize: dp(7),
   marginTop: dp(8),
-  color: 'black',
+  color: color.text,
   textAlign: 'left',
   verticalAlign: 'middle',
   fontWeight: 900,

@@ -1,11 +1,11 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import { NotionComponentProps } from 'features/notion'
-import { RichText } from './richText/RichText'
-import * as css from './Bookmark.css'
 import { Spacing } from 'components/base/Spacing'
+import type { NotionComponentProps } from 'features/notion'
+import * as css from './Bookmark.css'
+import { RichText } from './richText/RichText'
 
 export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
-  const icon = block.bookmarkInfo.favicon
+  const icon = block.bookmarkInfo.image ?? ''
   const editedUrl = (url: string) => {
     const edited = url.replace(/^(http?:\/\/)?(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')
     const idx = edited.indexOf('/')
@@ -13,7 +13,7 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
   }
 
   const editedTitle = (title: string) => {
-    return title.length > 30 ? title.slice(0, 30) + '...' : title
+    return title.length > 30 ? `${title.slice(0, 30)}...` : title
   }
 
   return (
@@ -21,7 +21,8 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
       className={css.bookmarkFrame}
       href={block.bookmark.url}
       target="_blank"
-      aria-label={`Bookmark: ${block.bookmarkInfo.title ?? 'No title available'}`}>
+      aria-label={`Bookmark: ${block.bookmarkInfo.title ?? 'No title available'}`}
+    >
       <div className={css.bookmarkInner}>
         <h4 className={css.bookmarkTitle}>
           {icon && (
@@ -30,7 +31,6 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
               style={{
                 backgroundImage: `url('${icon}')`,
               }}
-              aria-label="site favicon"
             />
           )}
           <span>{editedTitle(block.bookmarkInfo.title ?? '')}</span>
@@ -49,7 +49,7 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
         )}
 
         {block.bookmark.caption.map((txt: RichTextItemResponse, idx) => (
-          <RichText key={idx} richText={txt} />
+          <RichText key={`${txt.type}${idx}`} richText={txt} />
         ))}
       </div>
     </a>
