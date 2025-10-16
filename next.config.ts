@@ -1,7 +1,13 @@
-import type { NextConfig } from 'next'
 import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
+import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {}
+const nextConfig: NextConfig = {
+  experimental: {
+    reactCompiler: {
+      compilationMode: 'annotation',
+    },
+  },
+}
 
 const vExPlugin = createVanillaExtractPlugin()
 const config = compose(vExPlugin)
