@@ -1,16 +1,16 @@
 'use client'
-import { default as Img } from 'next/image'
-import { getPlainText } from 'features/notion/utils/getPlainText.util'
-import { useEffect, useState } from 'react'
 import type { NotionComponentProps } from 'features/notion'
+import { getPlainText } from 'features/notion/utils/getPlainText.util'
 import { useNotionImg } from 'features/notion/utils/processBlock/useNotionImg.hook'
+import { default as Img } from 'next/image'
 import { overlay } from 'overlay-kit'
+import { useEffect, useState } from 'react'
 import * as css from './NotionImg.css'
 
 export function NotionImg({ block }: NotionComponentProps<'image'>) {
   const { imgUrl, reload, isReloading } = useNotionImg(block)
   const [[width, height], setImgSize] = useState<[number, number]>([400, 300])
-  const [zoomed, setZoomed] = useState<boolean>(false)
+  const [_, setZoomed] = useState<boolean>(false)
 
   useEffect(() => {
     const img = new Image()
@@ -29,7 +29,14 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
         onClick={() => {
           setZoomed(false)
           unmount()
-        }}>
+        }}
+        onKeyUp={e => {
+          if (e.key === 'enter') {
+            setZoomed(false)
+            unmount()
+          }
+        }}
+      >
         <Img
           className={css.imgZoomed}
           unoptimized
@@ -47,7 +54,15 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
   }
 
   return (
-    <figure onClick={() => handleZoomImg()} className={css.figureDefault}>
+    <figure
+      onClick={() => handleZoomImg()}
+      className={css.figureDefault}
+      onKeyUp={e => {
+        if (e.key === 'enter') {
+          handleZoomImg()
+        }
+      }}
+    >
       <Img
         className={css.imgDefault}
         unoptimized
