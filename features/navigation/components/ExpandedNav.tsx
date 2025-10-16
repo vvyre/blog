@@ -1,6 +1,6 @@
-import { useEffect, type ReactNode } from 'react'
-import * as css from './ExpandedNav.css'
 import { useMediaQuery } from 'hooks/useMediaQuery.hook'
+import { type ReactNode, useEffect } from 'react'
+import * as css from './ExpandedNav.css'
 
 export function ExpandedNav({ isOpen, content, onClose, ...props }: { isOpen: boolean; content: ReactNode; onClose: () => void }) {
   const isMobile = useMediaQuery('(max-width: 600px)')
@@ -26,7 +26,8 @@ export function ExpandedNav({ isOpen, content, onClose, ...props }: { isOpen: bo
         translate: isOpen ? 0 : '100%',
         transform: isOpen ? 'translateY(0)' : isMobile ? 'translateY(5%)' : 'translateY(-5%)',
         opacity: isOpen ? 1 : 0,
-      }}>
+      }}
+    >
       <div data-menu-root className={css.frame} style={{}} {...props}>
         <div className={css.contentFrame}>{content}</div>
       </div>

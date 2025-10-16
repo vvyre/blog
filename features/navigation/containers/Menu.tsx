@@ -1,11 +1,11 @@
 'use client'
-import { type ComponentProps } from 'react'
-import Link from 'next/link'
-import { useAtomValue } from 'jotai'
-import { postGroupByYearAtom, yearsAtom } from 'features/postList/postList.atom'
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
+import { postGroupByYearAtom, yearsAtom } from 'features/postList/postList.atom'
+import { useAtomValue } from 'jotai'
+import Link from 'next/link'
+import type { ComponentProps } from 'react'
 
-export function Menu({ onClose }: { isOpen: boolean; onClose: () => void } & ComponentProps<'div'>) {
+export function Menu({ onClose }: { onClose: () => void } & ComponentProps<'ul'>) {
   const YEAR_GROUPED_POSTS = useAtomValue(postGroupByYearAtom)
   const YEARS = useAtomValue(yearsAtom)
 

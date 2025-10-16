@@ -1,14 +1,14 @@
 'use client'
-import { ComponentProps, useContext, useEffect, useState } from 'react'
-import { Menu } from './Menu'
-import * as css from './Navigation.css'
 import { HamburgerMenuIcon, Link2Icon } from '@radix-ui/react-icons'
 import { useMediaQuery } from 'hooks/useMediaQuery.hook'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
 import Image from 'next/image'
-import { NavContext, NavProvider } from './NavigationProvider'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { ComponentProps, useContext } from 'react'
 import { ExpandedNav } from '../components/ExpandedNav'
+import { Menu } from './Menu'
+import * as css from './Navigation.css'
+import { NavContext, NavProvider } from './NavigationProvider'
 
 export function Navigation() {
   return (
@@ -26,31 +26,27 @@ function NavigationContent() {
     <>
       <div className={css.frame}>
         {!isMobile ? (
-          <>
-            <div>
-              <HamburgerMenuBtn
-                onClick={e => {
-                  e.stopPropagation()
-                  setOpenState({ type: 'toggle' })
-                }}
-              />
-            </div>
-          </>
-        ) : (
-          <>
+          <div>
             <HamburgerMenuBtn
               onClick={e => {
                 e.stopPropagation()
                 setOpenState({ type: 'toggle' })
               }}
             />
-          </>
+          </div>
+        ) : (
+          <HamburgerMenuBtn
+            onClick={e => {
+              e.stopPropagation()
+              setOpenState({ type: 'toggle' })
+            }}
+          />
         )}
       </div>
       <ExpandedNav
         isOpen={isOpen}
         onClose={() => setOpenState({ type: 'close' })}
-        content={<Menu isOpen={isOpen} onClose={() => setOpenState({ type: 'close' })} />}
+        content={<Menu onClose={() => setOpenState({ type: 'close' })} />}
       />
     </>
   )
@@ -64,14 +60,14 @@ function LeftMenuGroup() {
 
   return (
     <>
-      <button className={css.categoryBtn}>
+      <button type="button" className={css.categoryBtn}>
         <Link href="/">
           <Image unoptimized src="" alt="logo" />
         </Link>
       </button>
 
       {!isStartPage && (
-        <button className={css.categoryBtn}>
+        <button type="button" className={css.categoryBtn}>
           <Link2Icon color={ICON_COLOR} />
         </button>
       )}
@@ -81,7 +77,7 @@ function LeftMenuGroup() {
 
 function HamburgerMenuBtn({ ...props }: ComponentProps<'button'>) {
   return (
-    <button data-menu-trigger onClick={props.onClick} className={css.categoryBtn}>
+    <button type="button" data-menu-trigger onClick={props.onClick} className={css.categoryBtn}>
       <HamburgerMenuIcon color="white" width="21" height="21" />
     </button>
   )

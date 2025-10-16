@@ -1,6 +1,6 @@
 'use client'
-import { createContext, Reducer, useReducer } from 'react'
-import type { ActionDispatch, PropsWithChildren } from 'react'
+import type { ActionDispatch, PropsWithChildren, Reducer } from 'react'
+import { createContext, useReducer } from 'react'
 
 type Actions = 'open' | 'close' | 'toggle'
 type NavContextType = {
