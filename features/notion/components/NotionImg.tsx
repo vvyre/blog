@@ -24,21 +24,52 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
   const handleZoomImg = () => {
     setZoomed(true)
     overlay.open(({ unmount }) => (
-      <figure
-        className={css.figureZoomed}
+      <button
+        type="button"
         onClick={() => {
           setZoomed(false)
           unmount()
         }}
-        onKeyUp={e => {
-          if (e.key === 'enter') {
+        onKeyDown={e => {
+          if (e.key === 'Enter' || e.key === ' ') {
             setZoomed(false)
             unmount()
           }
         }}
+        className={css.figureWrapper}
       >
+        <figure className={css.figureZoomed}>
+          <Img
+            className={css.imgZoomed}
+            unoptimized
+            key={imgUrl}
+            src={isReloading ? '' : imgUrl}
+            alt={getPlainText(block?.image?.caption)}
+            priority
+            onError={() => reload()}
+            width={width}
+            height={height}
+          />
+          {block.image.caption.length > 0 && <figcaption className={css.figcaptionZoomed}>{getPlainText(block.image.caption)}</figcaption>}
+        </figure>
+      </button>
+    ))
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => handleZoomImg()}
+      className={css.figureWrapper}
+      onKeyDown={e => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          handleZoomImg()
+        }
+      }}
+    >
+      <figure className={css.figureDefault}>
         <Img
-          className={css.imgZoomed}
+          className={css.imgDefault}
           unoptimized
           key={imgUrl}
           src={isReloading ? '' : imgUrl}
@@ -48,33 +79,8 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
           width={width}
           height={height}
         />
-        {block.image.caption.length > 0 && <figcaption className={css.figcaptionZoomed}>{getPlainText(block.image.caption)}</figcaption>}
+        {block.image.caption.length > 0 && <figcaption className={css.figcaption}>{getPlainText(block.image.caption)}</figcaption>}
       </figure>
-    ))
-  }
-
-  return (
-    <figure
-      onClick={() => handleZoomImg()}
-      className={css.figureDefault}
-      onKeyUp={e => {
-        if (e.key === 'enter') {
-          handleZoomImg()
-        }
-      }}
-    >
-      <Img
-        className={css.imgDefault}
-        unoptimized
-        key={imgUrl}
-        src={isReloading ? '' : imgUrl}
-        alt={getPlainText(block?.image?.caption)}
-        priority
-        onError={() => reload()}
-        width={width}
-        height={height}
-      />
-      {block.image.caption.length > 0 && <figcaption className={css.figcaption}>{getPlainText(block.image.caption)}</figcaption>}
-    </figure>
+    </button>
   )
 }

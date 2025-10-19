@@ -2,8 +2,21 @@ import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
 import { layouts } from 'styles/vars/layouts.css'
 
+export const figureWrapper = style({
+  all: 'unset',
+  cursor: 'pointer',
+  display: 'block',
+  margin: 0,
+  padding: 0,
+  border: 'none',
+  backgroundColor: 'transparent',
+  selectors: {
+    '&:active': {
+      backgroundColor: 'transparent',
+    },
+  },
+})
 export const figureDefault = style({
-  cursor: 'zoom-in',
   margin: 0,
   marginBlock: dp(8),
   padding: 0,
@@ -14,7 +27,6 @@ export const figureDefault = style({
   marginInline: layouts.full,
 })
 export const figureZoomed = style({
-  cursor: 'zoom-out',
   display: 'flex',
   flexDirection: 'column',
   position: 'fixed',
@@ -48,6 +60,11 @@ export const imgDefault = style({
   borderRadius: dp(1),
   height: 'auto',
   maxWidth: '100%',
+  '@media': {
+    'screen and (min-width: 600px)': {
+      maxWidth: '100%',
+    },
+  },
 })
 
 export const imgZoomed = style({
