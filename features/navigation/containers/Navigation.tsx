@@ -26,7 +26,7 @@ function NavigationContent() {
       <div className={css.frame}>
         <HamburgerMenuBtn onClick={handleHamburgerButton} />
       </div>
-      <ExpandedNav isOpen={!key === null} onClose={handleMenuClose} content={<HamburgerMenu onClose={handleMenuClose} />} />
+      <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={<HamburgerMenu onClose={handleMenuClose} />} />
     </>
   )
 }
