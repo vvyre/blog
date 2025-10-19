@@ -1,34 +1,32 @@
 'use client'
 import type { ActionDispatch, PropsWithChildren, Reducer } from 'react'
-import { createContext, useReducer } from 'react'
+import { createContext, useMemo, useReducer } from 'react'
 
-type Actions = 'open' | 'close' | 'toggle'
+type MenuKeys = 'hamburger' | 'about' | null
+type Actions = 'open' | 'close'
+type ActionParams = {
+  type: Actions
+  key?: MenuKeys
+}
 type NavContextType = {
-  isOpen: boolean
-  setOpenState: ActionDispatch<
-    [
-      action: {
-        type: Actions
-      },
-    ]
-  >
+  key?: MenuKeys
+  setOpenState: ActionDispatch<[action: ActionParams]>
 }
 
-export const NavContext = createContext<NavContextType>({ isOpen: false, setOpenState: () => {} })
+export const NavContext = createContext<NavContextType>({ key: null, setOpenState: () => {} })
 
 export function NavProvider({ children }: PropsWithChildren) {
-  const [isOpen, setOpenState] = useReducer(reducer, false)
+  const [key, dispatch] = useReducer(reducer, null)
+  const value = useMemo(() => ({ key, setOpenState: dispatch }), [key])
 
-  return <NavContext.Provider value={{ isOpen, setOpenState }}>{children}</NavContext.Provider>
+  return <NavContext.Provider value={value}>{children}</NavContext.Provider>
 }
 
-const reducer: Reducer<boolean, { type: Actions }> = (prev, action) => {
+const reducer: Reducer<MenuKeys, ActionParams> = (_, action) => {
   switch (action.type) {
     case 'open':
-      return true
+      return action.key ?? null
     case 'close':
-      return false
-    case 'toggle':
-      return !prev
+      return null
   }
 }
