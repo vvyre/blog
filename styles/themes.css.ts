@@ -1,8 +1,8 @@
 import { globalStyle } from '@vanilla-extract/css'
-import { color } from './vars/color.css'
-import { dp_scale } from './vars/typography.css'
-import { layouts } from './vars/layouts.css'
 import { dp } from './size'
+import { color } from './vars/color.css'
+import { layouts } from './vars/layouts.css'
+import { dp_scale } from './vars/typography.css'
 
 globalStyle(':root', {
   vars: {
@@ -16,11 +16,11 @@ globalStyle('html[data-mode="light"], html', {
   vars: {
     [color.white]: '#ffffff',
     [color.background]: '#ffffff',
-    [color.text]: '#0b0b0b',
+    [color.text]: '#222428',
     [color.link]: 'springgreen',
     [color.accent]: 'red',
-    [color.notion_default]: '#0b0b0b',
-    [color.notion_gray]: '#787774',
+    [color.notion_default]: '#222428',
+    [color.notion_gray]: '#656769',
     [color.notion_brown]: '#976D57',
     [color.notion_orange]: '#CC782F',
     [color.notion_yellow]: '#C29343',
@@ -45,11 +45,11 @@ globalStyle('html[data-mode="light"], html', {
 globalStyle('html[data-mode="dark"]', {
   vars: {
     [color.white]: '#ffffff',
-    [color.background]: '#191919',
-    [color.text]: '#eaeaea',
+    [color.background]: '#191A1E',
+    [color.text]: '#f2f4f8',
     [color.link]: 'springgreen',
     [color.accent]: 'red',
-    [color.notion_default]: '#eaeaea',
+    [color.notion_default]: '#f2f4f8',
     [color.notion_gray]: '#9B9B9B',
     [color.notion_brown]: '#A27763',
     [color.notion_orange]: '#CB7B37',
@@ -59,7 +59,7 @@ globalStyle('html[data-mode="dark"]', {
     [color.notion_purple]: '#865DBB',
     [color.notion_pink]: '#BA4A78',
     [color.notion_red]: '#BE524B',
-    [color.notion_background_default]: '#191919',
+    [color.notion_background_default]: '#191A1E',
     [color.notion_background_gray]: '#252525',
     [color.notion_background_brown]: '#2E2724',
     [color.notion_background_orange]: '#36291F',
