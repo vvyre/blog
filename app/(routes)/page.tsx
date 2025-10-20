@@ -1,6 +1,5 @@
-import { Section } from 'components/layout/Section'
-import { PostListContainer } from 'features/postList'
 import { Spacing } from 'components/base/Spacing'
+import { PostListContainer } from 'features/postList'
 
 export default async function Home() {
   return (
