@@ -13,8 +13,8 @@ export const frame = style({
   alignItems: 'center',
   transform: 'translateY(calc(100dvh - 100%))',
   position: 'fixed',
-  backgroundColor: color.notion_default,
-  color: color.white,
+  backgroundColor: 'transparent',
+  color: color.notion_default,
   flexDirection: 'row-reverse',
   '@media': {
     'screen and (min-width: 600px)': {
@@ -34,11 +34,4 @@ export const categoryBtn = style({
   width: '1.25rem',
   height: '1.5rem',
   cursor: 'pointer',
-})
-
-export const menuList = style({
-  listStyleType: 'none',
-  padding: 0,
-  margin: '0 0 1rem 0',
-  lineHeight: 1,
 })

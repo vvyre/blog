@@ -1,14 +1,11 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/size'
-import { color } from 'styles/vars/color.css'
 
 export const wrapper = style({
   width: '100vw',
   height: '100dvh',
-  background: `rgba(255, 255, 255, 0.51)`,
-  boxShadow: `0 4px 30px rgba(0, 0, 0, 0.1)`,
-  backdropFilter: `blur(4.1px)`,
-  WebkitBackdropFilter: `blur(4.1px)`,
+  backdropFilter: `blur(${dp(4)})`,
+  WebkitBackdropFilter: `blur(${dp(4)})`,
   zIndex: 999,
   position: 'fixed',
   right: 0,
@@ -17,10 +14,8 @@ export const wrapper = style({
 })
 
 export const frame = style({
-  backgroundColor: color.notion_default,
-  color: color.white,
+  backgroundColor: 'transparent',
   paddingTop: dp(24),
-  paddingInline: dp(6),
   paddingBottom: dp(12),
   width: '100%',
   height: '100%',
