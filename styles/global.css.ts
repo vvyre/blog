@@ -30,7 +30,6 @@ globalStyle('body', {
 globalStyle('main', {
   padding: 0,
   margin: '0 auto',
-  width: '100vw',
 })
 
 globalStyle('article, section, nav, p, h1, h2, h3, h4, h5, h6', {
