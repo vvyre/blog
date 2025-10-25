@@ -3,9 +3,9 @@ import { aboutPostBlockAtom } from 'features/navigation/aboutPost.atom'
 import type { NotionPageMeta, TraversableBlock } from 'features/notion'
 import { postsAtom } from 'features/postList/postList.atom'
 import { useSetAtom } from 'jotai'
-import { type PropsWithChildren, useEffect } from 'react'
+import { useEffect } from 'react'
 
-interface Props extends PropsWithChildren {
+interface Props {
   state: {
     posts: NotionPageMeta[]
     about: TraversableBlock[]
