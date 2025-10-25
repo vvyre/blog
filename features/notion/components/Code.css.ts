@@ -5,7 +5,7 @@ import { layouts } from 'styles/vars/layouts.css'
 
 globalStyle('pre', {
   margin: 0,
-  fontFamily: 'IBM Plex Mono, monospace',
+  fontFamily: 'Google Sans Code, monospace',
   fontSize: '0.85rem',
   lineHeight: 1.5,
 })

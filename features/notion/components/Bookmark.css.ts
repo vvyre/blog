@@ -37,7 +37,7 @@ export const bookmarkTitle = style({
 export const bookmarkUrl = style({
   fontSize: layouts.full,
   fontWeight: 500,
-  fontFamily: '"IBM Plex Mono", "Pretendard", sans-serif',
+  fontFamily: '"Google Sans Code", "Pretendard", sans-serif',
   wordSpacing: '-0.3rem',
   color: color.notion_gray,
 })
