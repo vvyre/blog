@@ -1,10 +1,17 @@
-import { getCachedPostList } from 'features/notion/utils/notionFetch.util'
+import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
+import { processBlock } from 'features/notion/utils/processBlock'
 import { ENV } from 'static/env'
 
 export async function startPageLoader() {
-  const settled = await Promise.allSettled([getCachedPostList(ENV.NOTION_DATABASE_ID)])
-  settled.filter(r => r.status === 'rejected').forEach(r => console.warn(r.reason))
+  const settled = await Promise.allSettled([getCachedPostList(ENV.NOTION_DATABASE_ID), getPost(ENV.NOTION_POST_ID_ABOUT)])
+  settled
+    .filter(r => r.status === 'rejected')
+    .forEach(r => {
+      console.warn(r.reason)
+    })
 
-  const [posts] = settled.map(r => (r.status === 'fulfilled' ? r.value : []))
-  return { posts }
+  const posts = settled[0].status === 'fulfilled' ? settled[0].value : []
+  const aboutResponse = settled[1].status === 'fulfilled' ? settled[1].value : []
+  const aboutBlocks = await processBlock(aboutResponse)
+  return { posts, about: aboutBlocks }
 }

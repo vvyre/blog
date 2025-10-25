@@ -1,9 +1,13 @@
 'use client'
+import { HamburgerMenuIcon, InfoCircledIcon } from '@radix-ui/react-icons'
+import { About } from 'features/navigation/containers/About'
 import { type MouseEvent, useContext } from 'react'
+import { color } from 'styles/vars/color.css'
 import { ExpandedNav } from '../components/ExpandedNav'
-import { HamburgerMenu, HamburgerMenuBtn } from './HamburgerMenu'
+import { HamburgerMenu } from './HamburgerMenu'
+import { MenuBtn } from './MenuButton'
 import * as css from './Navigation.css'
-import { NavContext, NavProvider } from './NavigationProvider'
+import { type MenuKeys, NavContext, NavProvider } from './NavigationProvider'
 
 export function Navigation() {
   return (
@@ -16,17 +20,34 @@ export function Navigation() {
 function NavigationContent() {
   const { key, setOpenState } = useContext(NavContext)
   const handleMenuClose = () => setOpenState({ type: 'close' })
-  const handleHamburgerButton = (e: MouseEvent) => {
+  const handleMenuButton = (e: MouseEvent, to: MenuKeys) => {
     e.stopPropagation()
-    return key === 'hamburger' ? handleMenuClose() : setOpenState({ type: 'open', key: 'hamburger' })
+    if (key === to) handleMenuClose()
+    else setOpenState({ type: 'open', key: to })
+  }
+
+  const expandedNavContent = (key?: MenuKeys) => {
+    switch (key) {
+      case 'hamburger':
+        return <HamburgerMenu onClose={handleMenuClose} />
+      case 'about':
+        return <About />
+      default:
+        return null
+    }
   }
 
   return (
     <>
       <div className={css.frame}>
-        <HamburgerMenuBtn onClick={handleHamburgerButton} />
+        <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
+          <HamburgerMenuIcon color={color.notion_default} width="21" height="21" />
+        </MenuBtn>
+        <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
+          <InfoCircledIcon color={color.notion_default} width="21" height="21" />
+        </MenuBtn>
       </div>
-      <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={<HamburgerMenu onClose={handleMenuClose} />} />
+      <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={expandedNavContent(key)} />
     </>
   )
 }

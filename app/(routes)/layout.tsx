@@ -2,11 +2,11 @@ import type { Metadata } from 'next'
 import 'styles/global.css'
 import 'styles/font.css'
 import 'styles/themes.css'
-import { Navigation } from 'features/navigation/containers/Navigation'
 import meta from 'assets/meta'
+import { Navigation } from 'features/navigation/containers/Navigation'
 import { Hydrate } from './(util)/Hydrate'
-import { startPageLoader } from './server'
 import { Providers } from './(util)/Providers'
+import { startPageLoader } from './server'
 
 export const metadata: Metadata = {
   title: meta.title,
@@ -18,12 +18,12 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const { posts } = await startPageLoader()
+  const { posts, about } = await startPageLoader()
   return (
     <html lang="ko">
       <body>
         <Providers>
-          <Hydrate state={{ posts }} />
+          <Hydrate state={{ posts, about }} />
           <Navigation />
           <main>{children}</main>
         </Providers>

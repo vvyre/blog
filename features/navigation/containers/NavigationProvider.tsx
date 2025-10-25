@@ -2,8 +2,8 @@
 import type { ActionDispatch, PropsWithChildren, Reducer } from 'react'
 import { createContext, useMemo, useReducer } from 'react'
 
-type MenuKeys = 'hamburger' | 'about' | null
-type Actions = 'open' | 'close'
+export type MenuKeys = 'hamburger' | 'about' | null
+export type Actions = 'open' | 'close'
 type ActionParams = {
   type: Actions
   key?: MenuKeys
