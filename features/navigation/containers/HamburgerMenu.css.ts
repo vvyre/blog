@@ -3,9 +3,10 @@ import { dp } from 'styles/size'
 
 export const menuList = style({
   listStyleType: 'none',
-  paddingInline: dp(6),
-  margin: '0 0 1rem 0',
+  paddingInline: dp(3),
+  margin: '0 0 2rem 0',
   lineHeight: 1,
+  textAlign: 'right',
 })
 
 export const year = style({

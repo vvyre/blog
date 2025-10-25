@@ -6,6 +6,6 @@ export const aboutFrame = style({
   width: 'clamp(20rem, 100%, 45rem)',
   margin: '0 auto',
   display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  justifyContent: 'flex-start',
+  alignItems: 'flex-start',
 })
