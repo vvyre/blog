@@ -13,8 +13,8 @@ export function HamburgerMenu({ onClose }: { onClose: () => void } & ComponentPr
   return (
     <ul className={css.menuList}>
       {YEARS.map(y => (
-        <div key={y}>
-          <li className={css.year}>{y}</li>
+        <li key={y}>
+          <div className={css.year}>{y}</div>
           <ul className={css.articleList}>
             {YEAR_GROUPED_POSTS[y].map(p => (
               <li key={p.id} className={css.articleListRow}>
@@ -24,7 +24,7 @@ export function HamburgerMenu({ onClose }: { onClose: () => void } & ComponentPr
               </li>
             ))}
           </ul>
-        </div>
+        </li>
       ))}
     </ul>
   )
