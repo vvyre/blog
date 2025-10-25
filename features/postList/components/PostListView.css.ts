@@ -4,62 +4,49 @@ import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const postListFrame = style({
-  columnCount: 1,
   paddingInline: layouts.paragraph,
   '@media': {
-    'screen and (min-width: 600px)': {
-      columnCount: 2,
-      columnGap: dp(4),
-    },
+    'screen and (min-width: 600px)': {},
   },
-})
-export const viewGroupFrame = style({
-  breakInside: 'avoid',
-  marginBottom: '0.8rem',
-  display: 'grid',
-  gridTemplateColumns: '1fr 5fr',
-  gap: '1rem',
-})
-
-export const viewYear = style({
-  width: '100%',
-  paddingBlock: '0.4rem',
-})
-
-export const yearText = style({
-  fontSize: dp(3.75),
-  marginTop: dp(1),
-  textAlign: 'left',
-  fontWeight: 500,
-  fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  color: color.accent,
 })
 
 export const viewLink = style({
-  alignSelf: 'right',
+  display: 'flex',
+  width: '100%',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
 })
 
 export const postLinkFrame = style({
-  margin: 0,
+  display: 'block',
   listStyleType: 'none',
-  color: color.accent,
-  '@media': {
-    '(hover: hover) and (pointer: fine)': {
-      ':hover': {
-        color: color.text,
-      },
-    },
-  },
 })
 
 export const postLinkInner = style({
   display: 'block',
-  paddingBlock: '0.4rem',
+  textAlign: 'center',
+  marginBottom: dp(1),
 })
 
 export const postLinkTitle = style({
+  display: 'block',
+  color: color.white,
+  border: '1px solid transparent',
+  backgroundColor: color.notion_default,
+  paddingBlock: dp(1.5),
+  paddingInline: dp(2.5),
   fontSize: '1rem',
   fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
   wordSpacing: '-0.35rem',
-  lineHeight: 1.45,
+  lineHeight: 1,
+  '@media': {
+    '(hover: hover) and (pointer: fine)': {
+      ':hover': {
+        border: `1px solid ${color.notion_default}`,
+        backgroundColor: 'transparent',
+        color: color.text,
+      },
+    },
+  },
 })
