@@ -23,7 +23,10 @@ export const code = style({
   border: 'none',
 })
 
-export const strike = style({})
+export const strike = style({
+  textDecoration: 'line-through',
+  textDecorationThickness: '1px',
+})
 
 export const underline = style({
   textDecoration: 'underline',
