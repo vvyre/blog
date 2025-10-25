@@ -1,6 +1,5 @@
 'use client'
-
-import { ReloadIcon, ShuffleIcon } from '@radix-ui/react-icons'
+import { ReloadIcon } from '@radix-ui/react-icons'
 import { useSetAtom } from 'jotai'
 import { color } from 'styles/vars/color.css'
 import { shuffleAtom } from '../postList.atom'
