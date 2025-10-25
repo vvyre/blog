@@ -37,7 +37,7 @@ export const postLinkTitle = style({
   paddingInline: dp(2),
   fontSize: dp(4),
   fontFamily: '"Mona Sans", "Pretendard", monospace',
-  lineHeight: 1,
+  lineHeight: 1.2,
   '@media': {
     '(hover: hover) and (pointer: fine)': {
       ':hover': {

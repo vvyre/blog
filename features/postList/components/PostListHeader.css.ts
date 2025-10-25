@@ -17,5 +17,5 @@ export const title = style({
   alignItems: 'center',
   textAlign: 'center',
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
-  lineHeight: 1,
+  lineHeight: 1.2,
 })
