@@ -9,8 +9,7 @@ export const title = style({
   textAlign: 'left',
   verticalAlign: 'middle',
   fontWeight: 900,
-  fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: '-0.8rem',
+  fontFamily: '"Mona Sans", "Pretendard", monospace',
   lineHeight: 1.3,
   '@media': {
     'screen and (min-width: 600px)': {

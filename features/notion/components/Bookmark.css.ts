@@ -30,8 +30,7 @@ export const bookmarkTitle = style({
   margin: 0,
   fontSize: dp(4),
   fontWeight: 600,
-  fontFamily: '"IBM Plex Mono", "Pretendard", sans-serif',
-  wordSpacing: '-0.3rem',
+  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   color: color.notion_default,
 })
 
