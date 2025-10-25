@@ -35,7 +35,7 @@ export const postLinkTitle = style({
   backgroundColor: color.notion_default,
   paddingBlock: dp(2),
   paddingInline: dp(2),
-  fontSize: dp(4),
+  fontSize: dp(4.25),
   fontFamily: '"Mona Sans", "Pretendard", monospace',
   lineHeight: 1.2,
   '@media': {
