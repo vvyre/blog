@@ -28,7 +28,7 @@ export const bookmarkTitle = style({
   alignItems: 'center',
   gap: dp(2),
   margin: 0,
-  fontSize: dp(4),
+  fontSize: dp(4.25),
   fontWeight: 600,
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   color: color.notion_default,
