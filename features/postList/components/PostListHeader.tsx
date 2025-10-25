@@ -5,8 +5,8 @@ export function PostListHeader() {
     <div className={css.frame}>
       <h1 className={css.title}>
         <span>RANDOM 7</span>
+        <ShuffleBtn />
       </h1>
-      <ShuffleBtn />
     </div>
   )
 }
