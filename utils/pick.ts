@@ -7,7 +7,7 @@ export function pick(count: number, [min, max]: [number, number]) {
   const result = new Set<number>()
 
   while (result.size < count) {
-    const rNum = Math.floor(Math.random() * (MAX - MIN + 1)) + min
+    const rNum = Math.floor(Math.random() * (MAX - MIN + 1)) + MIN
     result.add(rNum)
   }
 
