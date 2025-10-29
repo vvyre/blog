@@ -7,10 +7,10 @@ export function RichText({ richText }: { richText: RichTextItemResponse }) {
   if (isLink) {
     return (
       <a href={isLink} className={css.link} target="_blank" rel="noreferrer">
-        <Annotations {...richText.annotations}>{richText.plain_text}</Annotations>
+        <Annotations richText={richText}>{richText.plain_text}</Annotations>
       </a>
     )
   }
 
-  return <Annotations {...richText.annotations}>{richText.plain_text}</Annotations>
+  return <Annotations richText={richText}>{richText.plain_text}</Annotations>
 }

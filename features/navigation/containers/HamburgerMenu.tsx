@@ -11,21 +11,24 @@ export function HamburgerMenu({ onClose }: { onClose: () => void } & ComponentPr
   const YEARS = useAtomValue(yearsAtom)
 
   return (
-    <ul className={css.menuList}>
-      {YEARS.map(y => (
-        <li key={y}>
-          <div className={css.year}>{y}</div>
-          <ul className={css.articleList}>
-            {YEAR_GROUPED_POSTS[y].map(p => (
-              <li key={p.id} className={css.articleListRow}>
-                <Link key={p.id} href={`/${y}/${pageMeta(p).slug}`} onClick={() => onClose()}>
-                  {pageMeta(p).title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
-    </ul>
+    <div className={css.hamburgerMenuFrame}>
+      <div className={css.title}>All Posts</div>
+      <ul className={css.menuList}>
+        {YEARS.map(y => (
+          <li key={y}>
+            <div className={css.groupTitle}>{y}</div>
+            <ul className={css.articleList}>
+              {YEAR_GROUPED_POSTS[y].map(p => (
+                <li key={p.id} className={css.articleListRow}>
+                  <Link key={p.id} href={`/${y}/${pageMeta(p).slug}`} onClick={() => onClose()}>
+                    {pageMeta(p).title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))}
+      </ul>
+    </div>
   )
 }

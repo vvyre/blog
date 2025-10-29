@@ -4,9 +4,9 @@ export function PostListHeader() {
   return (
     <div className={css.frame}>
       <h1 className={css.title}>
-        <span>RANDOM 5</span>
+        <span>RANDOM 7</span>
+        <ShuffleBtn />
       </h1>
-      <ShuffleBtn />
     </div>
   )
 }

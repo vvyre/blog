@@ -30,7 +30,7 @@ globalStyle('html[data-mode="light"], html', {
     [color.notion_pink]: '#B35488',
     [color.notion_red]: '#C4554D',
     [color.notion_background_default]: '#FFFFFF',
-    [color.notion_background_gray]: '#F8F9F9',
+    [color.notion_background_gray]: '#F9F9F9',
     [color.notion_background_brown]: '#F3EEEE',
     [color.notion_background_orange]: '#F8ECDF',
     [color.notion_background_yellow]: '#FAF3DD',

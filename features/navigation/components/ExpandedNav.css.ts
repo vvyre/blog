@@ -15,21 +15,13 @@ export const wrapper = style({
 
 export const frame = style({
   backgroundColor: 'transparent',
-  paddingTop: dp(24),
-  paddingBottom: dp(12),
+  paddingTop: dp(12),
   width: '100%',
   height: '100%',
-  '@media': {
-    'screen and (min-width: 600px)': {
-      height: 'auto',
-    },
-  },
 })
 
 export const contentFrame = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '0.5rem',
+  paddingTop: dp(12),
+  overflowY: 'auto',
   height: '100%',
-  justifyItems: 'center',
 })
