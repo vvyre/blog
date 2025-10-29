@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const title = style({
@@ -10,7 +10,7 @@ export const title = style({
   verticalAlign: 'middle',
   fontWeight: 900,
   fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: '-0.8rem',
+  wordSpacing: dp(-3.2),
   lineHeight: 1.3,
   '@media': {
     'screen and (min-width: 600px)': {

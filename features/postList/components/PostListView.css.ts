@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -36,9 +36,9 @@ export const postLinkTitle = style({
   backgroundColor: color.notion_default,
   paddingBlock: dp(1.5),
   paddingInline: dp(2.5),
-  fontSize: '1rem',
+  fontSize: dp(4),
   fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: '-0.35rem',
+  wordSpacing: dp(-1.4),
   lineHeight: 1,
   '@media': {
     '(hover: hover) and (pointer: fine)': {

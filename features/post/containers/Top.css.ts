@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const frame = style({
@@ -24,5 +24,5 @@ export const icon = style({
 })
 
 export const subtitle = style({
-  fontSize: '0.95rem',
+  fontSize: dp(3.8),
 })

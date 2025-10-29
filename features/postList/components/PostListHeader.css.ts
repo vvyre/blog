@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 
 export const frame = style({
   width: '100%',
@@ -15,6 +15,6 @@ export const title = style({
   fontSize: dp(4),
   textAlign: 'center',
   fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: '-0.35rem',
+  wordSpacing: dp(-1.4),
   lineHeight: 1,
 })

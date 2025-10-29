@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const bold = style({
@@ -35,7 +35,7 @@ export const link = style([
   {
     textDecoration: 'underline',
 
-    textUnderlineOffset: '0.25rem',
+    textUnderlineOffset: dp(1),
     textDecorationThickness: '1px',
     '@media': {
       '(hover: hover) and (pointer: fine)': {

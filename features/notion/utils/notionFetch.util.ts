@@ -22,6 +22,7 @@ const GET_DATASRC_ID = async (database_id: string): Promise<{ id: string; name: 
 }
 
 export const getPostList = async (database_id: string): Promise<NotionPageMeta[]> => {
+  'use cache'
   const [dataSrc] = await GET_DATASRC_ID(database_id ?? ENV.NOTION_DATABASE_ID)
   const { id: data_source_id } = dataSrc
 
@@ -54,6 +55,7 @@ export const getPostList = async (database_id: string): Promise<NotionPageMeta[]
 }
 
 export const getCachedPostList = async (database_id: string) => {
+  'use cache'
   if (!POST_LIST_CACHE[database_id]) {
     POST_LIST_CACHE[database_id] = getPostList(database_id)
   } else console.warn(`**${database_id.slice(0, 4)}`, 'vvvv CACHED POSTLIST')
@@ -62,12 +64,14 @@ export const getCachedPostList = async (database_id: string) => {
 }
 
 export const getPostMetaData = async (page_id: string): Promise<NotionPageMeta> => {
+  'use cache'
   const result = await notion.pages.retrieve({ page_id })
 
   return result as NotionPageMeta
 }
 
 const getChildrenBlocks = async (parent_block_id: string): Promise<(BlockObjectResponse | PartialBlockObjectResponse)[]> => {
+  'use cache'
   console.warn(`**${parent_block_id.slice(0, 4)}`, '>>>> CHILDREN BLOCK FETCH')
   let results = []
   let blocks = await notion.blocks.children.list({

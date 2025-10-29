@@ -58,5 +58,5 @@ export const handleBar = style({
 })
 
 export const contentFrame = style({
-  padding: '1.5rem',
+  padding: dp(6),
 })

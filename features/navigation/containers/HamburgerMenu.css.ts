@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 
 export const menuList = style({
   listStyleType: 'none',
   paddingInline: dp(6),
-  margin: '0 0 1rem 0',
+  margin: `0 0 ${dp(4)} 0`,
   lineHeight: 1,
 })
 

@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -14,7 +14,7 @@ export const tag = style({
   display: 'inline-block',
   fontSize: dp(3.75),
   fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: '-0.3rem',
+  wordSpacing: dp(-1.2),
   fontWeight: 500,
   textTransform: 'uppercase',
   color: color.notion_gray,

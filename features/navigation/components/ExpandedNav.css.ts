@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 
 export const wrapper = style({
   width: '100vw',
@@ -29,7 +29,7 @@ export const frame = style({
 export const contentFrame = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.5rem',
+  gap: dp(2),
   height: '100%',
   justifyItems: 'center',
 })
