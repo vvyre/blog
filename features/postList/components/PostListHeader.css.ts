@@ -12,9 +12,10 @@ export const frame = style({
 })
 
 export const title = style({
-  fontSize: dp(4),
+  fontSize: dp(4.25),
+  display: 'flex',
+  alignItems: 'center',
   textAlign: 'center',
-  fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: dp(-1.4),
-  lineHeight: 1,
+  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  lineHeight: 1.2,
 })

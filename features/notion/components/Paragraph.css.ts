@@ -6,7 +6,7 @@ import { layouts } from 'styles/vars/layouts.css'
 export const paragraph = style({
   marginBlock: dp(2),
   lineHeight: 1.65,
-  fontSize: dp(4.5),
+  fontSize: dp(4.25),
   color: color.text,
   marginInline: layouts.paragraph,
   wordBreak: 'break-word',

@@ -15,15 +15,9 @@ export const wrapper = style({
 
 export const frame = style({
   backgroundColor: 'transparent',
-  paddingTop: dp(24),
-  paddingBottom: dp(12),
+  paddingTop: dp(12),
   width: '100%',
   height: '100%',
-  '@media': {
-    'screen and (min-width: 600px)': {
-      height: 'auto',
-    },
-  },
 })
 
 export const contentFrame = style({
@@ -31,5 +25,4 @@ export const contentFrame = style({
   flexDirection: 'column',
   gap: dp(2),
   height: '100%',
-  justifyItems: 'center',
 })

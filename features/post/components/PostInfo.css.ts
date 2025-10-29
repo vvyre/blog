@@ -9,8 +9,8 @@ export const postInfoFrame = style({
 
 export const postInfoText = style({
   fontSize: dp(3.75),
-  fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
   wordSpacing: dp(-1.2),
+  fontFamily: '"Mona Sans", "Pretendard", monospace',
   fontWeight: 500,
   color: color.notion_gray,
 })

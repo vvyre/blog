@@ -6,7 +6,7 @@ export const frame = style({
   zIndex: 9999,
   height: dp(12),
   paddingBottom: 'env(safe-area-inset-bottom)',
-  paddingInline: '0.75rem',
+  paddingInline: dp(3),
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
