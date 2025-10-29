@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 
 export const wrapper = style({
   width: '100vw',
@@ -15,21 +15,14 @@ export const wrapper = style({
 
 export const frame = style({
   backgroundColor: 'transparent',
-  paddingTop: dp(24),
-  paddingBottom: dp(12),
+  paddingTop: dp(12),
   width: '100%',
   height: '100%',
-  '@media': {
-    'screen and (min-width: 600px)': {
-      height: 'auto',
-    },
-  },
 })
 
 export const contentFrame = style({
   display: 'flex',
   flexDirection: 'column',
-  gap: '0.5rem',
+  gap: dp(2),
   height: '100%',
-  justifyItems: 'center',
 })

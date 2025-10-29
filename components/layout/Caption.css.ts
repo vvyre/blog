@@ -1,8 +1,9 @@
 import { style } from '@vanilla-extract/css';
+import { dp } from 'styles/dp';
 
 export const base = style({
-  fontSize: '0.9rem',
+  fontSize: dp(3.6),
   fontWeight: 500,
   lineHeight: 1.3,
-  color: 'gray',
-});
+  color: color.notion_gray,
+})

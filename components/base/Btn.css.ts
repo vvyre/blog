@@ -1,14 +1,15 @@
 import { style } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const base = style({
   border: '1px solid transparent',
-  borderRadius: '0.3rem',
+  borderRadius: dp(1.2),
   cursor: 'pointer',
-  fontSize: '1rem',
-  height: '3.15rem',
+  fontSize: dp(4),
+  height: dp(12.6),
   lineHeight: 1,
-  paddingInline: '0.8rem',
+  paddingInline: dp(3.2),
   transition: 'scale ease 0.1s',
   width: '100%',
   ':disabled': {

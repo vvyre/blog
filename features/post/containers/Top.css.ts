@@ -1,16 +1,19 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const frame = style({
   margin: '0 auto',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
   paddingInline: layouts.paragraph,
   paddingTop: dp(12),
-  maxWidth: '45rem',
+  marginBottom: dp(12),
   '@media': {
     'screen and (min-width: 600px)': {
       backgroundColor: 'transparent',
-      paddingTop: dp(24),
+      paddingTop: dp(12),
     },
   },
 })
@@ -24,5 +27,5 @@ export const icon = style({
 })
 
 export const subtitle = style({
-  fontSize: '0.95rem',
+  fontSize: dp(3.8),
 })

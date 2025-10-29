@@ -28,7 +28,7 @@ export function ExpandedNav({ isOpen, content, onClose, ...props }: { isOpen: bo
         opacity: isOpen ? 1 : 0,
       }}
     >
-      <div data-menu-root className={css.frame} style={{}} {...props}>
+      <div data-menu-root className={css.frame} {...props}>
         <div className={css.contentFrame}>{content}</div>
       </div>
     </div>

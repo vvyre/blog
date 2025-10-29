@@ -1,12 +1,10 @@
 import { globalStyle } from '@vanilla-extract/css'
-import { dp } from './size'
+import { dp } from './dp'
 import { color } from './vars/color.css'
 import { layouts } from './vars/layouts.css'
-import { dp_scale } from './vars/typography.css'
 
 globalStyle(':root', {
   vars: {
-    [dp_scale]: '0.25rem',
     [layouts.full]: dp(3),
     [layouts.paragraph]: dp(6),
   },
@@ -30,7 +28,7 @@ globalStyle('html[data-mode="light"], html', {
     [color.notion_pink]: '#B35488',
     [color.notion_red]: '#C4554D',
     [color.notion_background_default]: '#FFFFFF',
-    [color.notion_background_gray]: '#F8F9F9',
+    [color.notion_background_gray]: '#F9F9F9',
     [color.notion_background_brown]: '#F3EEEE',
     [color.notion_background_orange]: '#F8ECDF',
     [color.notion_background_yellow]: '#FAF3DD',

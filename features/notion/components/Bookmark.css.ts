@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -28,18 +28,17 @@ export const bookmarkTitle = style({
   alignItems: 'center',
   gap: dp(2),
   margin: 0,
-  fontSize: dp(4),
+  fontSize: dp(4.25),
   fontWeight: 600,
-  fontFamily: '"IBM Plex Mono", "Pretendard", sans-serif',
-  wordSpacing: '-0.3rem',
+  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   color: color.notion_default,
 })
 
 export const bookmarkUrl = style({
   fontSize: layouts.full,
   fontWeight: 500,
-  fontFamily: '"IBM Plex Mono", "Pretendard", sans-serif',
-  wordSpacing: '-0.3rem',
+  wordSpacing: dp(-1.2),
+  fontFamily: '"Google Sans Code", "Pretendard", sans-serif',
   color: color.notion_gray,
 })
 

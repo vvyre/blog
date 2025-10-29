@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const frame = style({
   zIndex: 9999,
   height: dp(12),
   paddingBottom: 'env(safe-area-inset-bottom)',
-  paddingInline: '0.75rem',
+  paddingInline: dp(3),
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
@@ -31,7 +31,7 @@ export const categoryBtn = style({
   border: 'none',
   backgroundColor: 'transparent',
   color: 'lightgrey',
-  width: '1.25rem',
-  height: '1.5rem',
+  width: dp(5),
+  height: dp(6),
   cursor: 'pointer',
 })

@@ -17,14 +17,3 @@ export const postGroupByYearAtom = atom<Record<string, NotionPageMeta[]>>(get =>
   )
 )
 export const yearsAtom = atom<number[]>(get => Object.keys(get(postGroupByYearAtom)).map(Number).reverse())
-
-export const shuffleAtom = atom(0)
-export const randomPostsAtom = atom<NotionPageMeta[]>(get => {
-  const posts = get(postsAtom)
-  if (!posts.length) return []
-
-  get(shuffleAtom) //shuffleAtom의 변화에 따라 포스트 5개를 다시 뽑도록 하기 위함
-  const count = Math.min(7, posts.length)
-  const selected = pick(count, [0, posts.length - 1])
-  return selected.map(num => posts[num]).sort((p1, p2) => dayjs(p2.properties.date.date?.start).year() - dayjs(p1.properties.date.date?.start).year())
-})

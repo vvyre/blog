@@ -1,12 +1,12 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const paragraph = style({
-  margin: '0.5rem 0',
+  marginBlock: dp(2),
   lineHeight: 1.65,
-  fontSize: dp(4.5),
+  fontSize: dp(4.25),
   color: color.text,
   marginInline: layouts.paragraph,
   wordBreak: 'break-word',

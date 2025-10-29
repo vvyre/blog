@@ -1,23 +1,24 @@
 import { style, styleVariants } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const frame = style({
   display: 'inline-flex',
   width: '100%',
-  height: '3.15rem',
+  height: dp(12.6),
   position: 'relative',
-  borderRadius: '0.3rem',
+  borderRadius: dp(1.2),
   alignItems: 'center',
-  marginBottom: '1rem',
+  marginBottom: dp(4),
 })
 
 export const iconFrame = style({
   cursor: 'default',
-  width: '3.15rem',
-  height: '3.15rem',
+  width: dp(12.6),
+  height: dp(12.6),
   textAlign: 'center',
-  paddingBlock: '0.9rem',
-  fontSize: '1.25rem',
+  paddingBlock: dp(3.6),
+  fontSize: dp(5),
   position: 'absolute',
 })
 
@@ -25,22 +26,22 @@ const baseInput = style({
   flex: 1,
   position: 'absolute',
   margin: 0,
-  height: '3.15rem',
+  height: dp(12.6),
   width: '100%',
-  fontSize: '1rem',
+  fontSize: dp(4),
   border: '1px solid gray',
-  borderRadius: '0.3rem',
+  borderRadius: dp(1.2),
   ':disabled': {
     backgroundColor: 'gainsboro',
     cursor: 'not-allowed',
   },
   ':focus': {
     outline: `1.5px solid ${color.text}`,
-    outlineOffset: '0.15rem',
+    outlineOffset: dp(0.6),
   },
 })
 
 export const base = styleVariants({
-  default: [baseInput, { padding: '0 0.8rem' }],
-  withIcon: [baseInput, { padding: '0 0.8rem 0 2.75rem' }],
+  default: [baseInput, { padding: `0 ${dp(3.2)}` }],
+  withIcon: [baseInput, { padding: `0 ${dp(3.2)} 0 ${dp(11)}` }],
 })

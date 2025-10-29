@@ -1,21 +1,22 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const tagsFrame = style({
   display: 'flex',
-  flexWrap: 'wrap',
-  gap: layouts.full,
+  gap: dp(2),
   marginBlock: layouts.full,
 })
 
 export const tag = style({
   display: 'inline-block',
-  fontSize: dp(3.75),
-  fontFamily: '"IBM Plex Mono", "Pretendard", monospace',
-  wordSpacing: '-0.3rem',
+  fontSize: dp(3.5),
+  fontFamily: '"Mona Sans", "Pretendard", monospace',
   fontWeight: 500,
-  textTransform: 'uppercase',
-  color: color.notion_gray,
+  lineHeight: 1.2,
+  backgroundColor: color.notion_default,
+  paddingBlock: dp(1.5),
+  paddingInline: dp(2),
+  color: color.white,
 })
