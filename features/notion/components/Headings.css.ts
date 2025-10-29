@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const h1 = style({
@@ -19,9 +19,10 @@ export const h2 = style({
 })
 
 export const h3 = style({
-  fontSize: dp(4.25),
+  fontSize: dp(4),
+  marginBlockStart: dp(4),
+  marginBlockEnd: dp(1.32),
   fontWeight: '500',
-  margin: '1rem 0 0.33rem 0',
   lineHeight: 1.3,
   marginInline: layouts.paragraph,
 })

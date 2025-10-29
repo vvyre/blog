@@ -1,12 +1,10 @@
 import { globalStyle } from '@vanilla-extract/css'
-import { dp } from './size'
+import { dp } from './dp'
 import { color } from './vars/color.css'
 import { layouts } from './vars/layouts.css'
-import { dp_scale } from './vars/typography.css'
 
 globalStyle(':root', {
   vars: {
-    [dp_scale]: '0.25rem',
     [layouts.full]: dp(3),
     [layouts.paragraph]: dp(6),
   },

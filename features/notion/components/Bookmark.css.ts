@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -37,8 +37,8 @@ export const bookmarkTitle = style({
 export const bookmarkUrl = style({
   fontSize: layouts.full,
   fontWeight: 500,
+  wordSpacing: dp(-1.2),
   fontFamily: '"Google Sans Code", "Pretendard", sans-serif',
-  wordSpacing: '-0.3rem',
   color: color.notion_gray,
 })
 

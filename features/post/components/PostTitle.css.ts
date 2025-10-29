@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const title = style({

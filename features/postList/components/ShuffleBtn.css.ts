@@ -1,5 +1,5 @@
-import { keyframes, style } from '@vanilla-extract/css'
-import { dp } from 'styles/size'
+import { style } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
 
 export const shuffleBtn = style({
   display: 'inline-block',
