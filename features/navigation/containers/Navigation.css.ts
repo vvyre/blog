@@ -11,7 +11,7 @@ export const frame = style({
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  transform: 'translateY(calc(100dvh - 100%))',
+  transform: `translateY(calc(100dvh - 100% - ${dp(6)}))`,
   position: 'fixed',
   backgroundColor: 'transparent',
   color: color.notion_default,
@@ -27,11 +27,17 @@ export const frame = style({
 
 export const categoryBtn = style({
   margin: 0,
-  padding: 0,
+  padding: dp(2),
   border: 'none',
-  backgroundColor: 'transparent',
-  color: 'lightgrey',
-  width: dp(5),
-  height: dp(6),
+  borderRadius: dp(6),
+  backgroundColor: color.notion_default,
+  color: color.white,
   cursor: 'pointer',
+  '@media': {
+    'screen and (min-width: 600px)': {
+      padding: 0,
+      color: color.notion_default,
+      backgroundColor: 'transparent',
+    },
+  },
 })
