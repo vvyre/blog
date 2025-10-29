@@ -2,7 +2,6 @@
 import { HamburgerMenuIcon, InfoCircledIcon } from '@radix-ui/react-icons'
 import { About } from 'features/navigation/containers/About'
 import { type MouseEvent, useContext } from 'react'
-import { color } from 'styles/vars/color.css'
 import { ExpandedNav } from '../components/ExpandedNav'
 import { HamburgerMenu } from './HamburgerMenu'
 import { MenuBtn } from './MenuButton'
@@ -41,10 +40,10 @@ function NavigationContent() {
     <>
       <div className={css.frame}>
         <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
-          <HamburgerMenuIcon color={color.notion_default} width="21" height="21" />
+          <HamburgerMenuIcon width="21" height="21" />
         </MenuBtn>
         <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
-          <InfoCircledIcon color={color.notion_default} width="21" height="21" />
+          <InfoCircledIcon width="21" height="21" />
         </MenuBtn>
       </div>
       <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={expandedNavContent(key)} />
