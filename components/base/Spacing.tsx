@@ -1,6 +1,6 @@
-import { memo } from 'react'
 import type { ComponentProps } from 'react'
-import { dp } from 'styles/size'
+import { memo } from 'react'
+import { dp } from 'styles/dp'
 
 export interface SpacingProps extends ComponentProps<'div'> {
   size: number | string

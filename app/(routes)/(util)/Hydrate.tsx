@@ -3,6 +3,7 @@ import { aboutPostBlockAtom } from 'features/navigation/aboutPost.atom'
 import type { NotionPageMeta, TraversableBlock } from 'features/notion'
 import { postsAtom } from 'features/postList/postList.atom'
 import { useSetAtom } from 'jotai'
+import { useHydrateAtoms } from 'jotai/utils'
 import { useEffect } from 'react'
 
 interface Props {
@@ -17,13 +18,10 @@ interface Props {
  * Hydrate 컴포넌트에는 UI 상태를 포함시키지 않습니다.
  */
 export function Hydrate({ state }: Props) {
-  const setPosts = useSetAtom(postsAtom)
-  const setAboutPost = useSetAtom(aboutPostBlockAtom)
-
-  useEffect(() => {
-    setPosts(state.posts)
-    setAboutPost(state.about)
-  }, [setPosts, setAboutPost, state])
+  useHydrateAtoms([
+    [postsAtom, state.posts],
+    [aboutPostBlockAtom, state.about],
+  ])
 
   return null
 }

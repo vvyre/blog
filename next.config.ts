@@ -2,11 +2,11 @@ import { createVanillaExtractPlugin } from '@vanilla-extract/next-plugin'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  experimental: {
-    reactCompiler: {
-      compilationMode: 'annotation',
-    },
+  reactCompiler: {
+    compilationMode: 'annotation',
   },
+  cacheComponents: true,
+  turbopack: {},
 }
 
 const vExPlugin = createVanillaExtractPlugin()

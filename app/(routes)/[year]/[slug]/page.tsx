@@ -1,23 +1,21 @@
+import { BlockObjectResponse } from '@notionhq/client'
+import { Spacing } from 'components/base/Spacing'
 import { Section } from 'components/layout/Section'
-import { Top } from 'features/post/containers/Top'
-import { Metadata } from 'next'
-import { ENV } from 'static/env'
+import { RenderNotion } from 'features/notion'
+import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
 import { processBlock } from 'features/notion/utils/processBlock'
-import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
-import { RenderNotion } from 'features/notion'
-import { Spacing } from 'components/base/Spacing'
-import { BlockObjectResponse } from '@notionhq/client'
 import { Comments } from 'features/post/components/Comments'
+import { Top } from 'features/post/containers/Top'
+import { Metadata } from 'next'
+import { Suspense } from 'react'
+import { ENV } from 'static/env'
 
 export interface PostPageProps {
   params: Promise<{
     slug: string
   }>
 }
-
-export const dynamicParams = false
-export const revalidate = 3600
 
 export async function generateStaticParams() {
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
@@ -63,10 +61,15 @@ export default async function Post({ params }: PostPageProps) {
     <>
       <Top meta={meta} />
       <Spacing size={12} />
+
       <Section>
-        <RenderNotion blocks={blocks} />
-        <Spacing size={12} />
-        <Comments />
+        <Suspense fallback={<>...</>}>
+          <RenderNotion blocks={blocks} />
+          <Spacing size={12} />
+        </Suspense>
+        <Suspense fallback={<>...</>}>
+          <Comments />
+        </Suspense>
       </Section>
       <Spacing size={20} />
     </>
