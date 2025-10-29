@@ -1,5 +1,5 @@
 import { getSingleBlock } from 'features/notion/utils/notionFetch.util'
-import { NextRequest } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export async function POST(req: NextRequest) {
   try {
@@ -9,7 +9,13 @@ export async function POST(req: NextRequest) {
     if (block) return Response.json(block)
     else return Response.json({ block: null })
   } catch (err) {
-    console.error('route-err', err)
-    return Response.json({ block: null })
+    console.error(`reload-img: ${err}`)
+    return Response.json(
+      { block: null },
+      {
+        status: 500,
+        statusText: `reload-img: ${err}`,
+      }
+    )
   }
 }
