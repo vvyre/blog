@@ -5,7 +5,7 @@ import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoin
  * 커스텀 블록을 만들어서 따로 처리함
  */
 const process = (blocks: BlockObjectResponse[]) => {
-  if (!blocks.length) return blocks
+  if (!blocks) return []
 
   const result: BlockObjectResponse[] = []
 
@@ -14,7 +14,7 @@ const process = (blocks: BlockObjectResponse[]) => {
     numbered_list_item: true,
   }
 
-  let prevBlock: BlockObjectResponse['type'] = blocks[0].type
+  let prevBlock: BlockObjectResponse['type'] = blocks[0]?.type
 
   const group: Partial<Record<keyof typeof target, BlockObjectResponse[]>> = {
     bulleted_list_item: [],

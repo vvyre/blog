@@ -79,7 +79,7 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
           width={width}
           height={height}
         />
-        {block.image.caption.length > 0 && <figcaption className={css.figcaption}>{getPlainText(block.image.caption)}</figcaption>}
+        {block.image.caption && <figcaption className={css.figcaption}>{getPlainText(block.image.caption)}</figcaption>}
       </figure>
     </button>
   )
