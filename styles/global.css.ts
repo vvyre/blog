@@ -1,4 +1,5 @@
 import { globalStyle } from '@vanilla-extract/css'
+import { color } from './vars/color.css'
 
 globalStyle('*, *:before, *:after', {
   boxSizing: 'border-box',
@@ -14,7 +15,7 @@ globalStyle('html', {
 globalStyle('body', {
   fontFamily: '"Pretendard"',
   height: 'auto',
-  backgroundColor: 'white',
+  backgroundColor: color.background,
   margin: '0',
   padding: 0,
   lineHeight: 1,
@@ -35,10 +36,11 @@ globalStyle('main', {
 globalStyle('article, section, nav, p, h1, h2, h3, h4, h5, h6', {
   margin: 0,
   padding: 0,
+  color: color.text,
 })
 
-globalStyle('body[data-theme] main, body[data-theme] nav, body[data-theme] section', {
-  transition: 'background-color 0.15s ease, color 0.15s ease',
+globalStyle('body[data-theme], body[data-theme] nav, body[data-theme] section', {
+  transition: 'background-color 0.15s ease-out, color 0.15s ease-out',
 })
 
 globalStyle('a', {
