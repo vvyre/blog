@@ -1,5 +1,6 @@
-import { style } from '@vanilla-extract/css';
-import { dp } from 'styles/dp';
+import { style } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
+import { color } from 'styles/vars/color.css'
 
 export const base = style({
   fontSize: dp(3.6),
