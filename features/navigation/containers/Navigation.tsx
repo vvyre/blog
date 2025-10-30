@@ -1,6 +1,7 @@
 'use client'
 import { HamburgerMenuIcon, InfoCircledIcon } from '@radix-ui/react-icons'
 import { About } from 'features/navigation/containers/About'
+import { ThemeContext } from 'features/theme'
 import { type MouseEvent, useContext } from 'react'
 import { ExpandedNav } from '../components/ExpandedNav'
 import { HamburgerMenu } from './HamburgerMenu'
@@ -17,6 +18,7 @@ export function Navigation() {
 }
 
 function NavigationContent() {
+  const { theme, toggleTheme } = useContext(ThemeContext)
   const { key, setOpenState } = useContext(NavContext)
   const handleMenuClose = () => setOpenState({ type: 'close' })
   const handleMenuButton = (e: MouseEvent, to: MenuKeys) => {
@@ -39,11 +41,23 @@ function NavigationContent() {
   return (
     <>
       <div className={css.frame}>
+        <div className={css.leftButtonGroup}>
+          <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
+            <InfoCircledIcon width="21" height="21" />
+          </MenuBtn>
+          <MenuBtn onClick={toggleTheme}>
+            {(() => {
+              switch (theme) {
+                case 'dark':
+                  return '🌞'
+                case 'light':
+                  return '🌚'
+              }
+            })()}
+          </MenuBtn>
+        </div>
         <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
           <HamburgerMenuIcon width="21" height="21" />
-        </MenuBtn>
-        <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
-          <InfoCircledIcon width="21" height="21" />
         </MenuBtn>
       </div>
       <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={expandedNavContent(key)} />

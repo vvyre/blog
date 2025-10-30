@@ -1,7 +1,7 @@
 /** biome-ignore-all lint/security/noDangerouslySetInnerHtml: render codeblock html */
 'use client'
 import hljs from 'highlight.js'
-import 'highlight.js/styles/github.css'
+import 'styles/hljs.css'
 import { useTextCopy } from '@frfla/react-hooks'
 import { CopyIcon, RocketIcon } from '@radix-ui/react-icons'
 import type { NotionComponentProps } from 'features/notion'

@@ -10,11 +10,13 @@ globalStyle(':root', {
   },
 })
 
-globalStyle('html[data-mode="light"], html', {
+globalStyle('body[data-theme="light"]', {
   vars: {
     [color.white]: '#ffffff',
     [color.background]: '#ffffff',
+    [color.background_invert]: '#222428',
     [color.text]: '#222428',
+    [color.text_invert]: '#ffffff',
     [color.link]: 'springgreen',
     [color.accent]: 'red',
     [color.notion_default]: '#222428',
@@ -40,11 +42,13 @@ globalStyle('html[data-mode="light"], html', {
   },
 })
 
-globalStyle('html[data-mode="dark"]', {
+globalStyle('body[data-theme="dark"]', {
   vars: {
     [color.white]: '#ffffff',
     [color.background]: '#191A1E',
+    [color.background_invert]: '#ffffff',
     [color.text]: '#f2f4f8',
+    [color.text_invert]: '#191A1E',
     [color.link]: 'springgreen',
     [color.accent]: 'red',
     [color.notion_default]: '#f2f4f8',

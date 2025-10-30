@@ -1,8 +1,11 @@
 'use client'
 import Giscus from '@giscus/react'
+import { ThemeContext } from 'features/theme'
+import { useContext } from 'react'
 import * as css from './Comments.css'
 
 export function Comments() {
+  const { theme } = useContext(ThemeContext)
   return (
     <div className={css.commentFrame}>
       <Giscus
@@ -13,7 +16,7 @@ export function Comments() {
         categoryId="DIC_kwDOLR4oCs4CfA8v"
         mapping="title"
         term=""
-        theme="light"
+        theme={theme}
         reactionsEnabled="1"
         inputPosition="top"
         lang="ko"

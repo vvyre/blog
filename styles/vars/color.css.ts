@@ -2,7 +2,9 @@ import { createVar } from '@vanilla-extract/css'
 
 export const color = {
   background: createVar(),
+  background_invert: createVar(),
   text: createVar(),
+  text_invert: createVar(),
   accent: createVar(),
   link: createVar(),
   white: createVar(),
