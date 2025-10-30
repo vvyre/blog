@@ -23,10 +23,13 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const localSetting = typeof window !== 'undefined' ? (localStorage.getItem(localStorageKey) as Theme | null) : null
   const prefersDark = useMediaQuery('(prefers-color-scheme: dark)')
 
-  const [theme, setTheme] = useState<Theme>(() => localSetting ?? (prefersDark ? 'dark' : 'light'))
+  const [theme, setTheme] = useState<Theme>('light')
 
   useIsomorphicLayoutEffect(() => {
-    console.log(theme, localStorage.getItem(localStorageKey))
+    setTheme(localSetting ?? (prefersDark ? 'dark' : 'light'))
+  }, [prefersDark])
+
+  useIsomorphicLayoutEffect(() => {
     document.body.dataset.theme = theme
     localStorage.setItem(localStorageKey, theme)
   }, [theme])

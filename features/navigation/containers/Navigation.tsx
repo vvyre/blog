@@ -1,9 +1,8 @@
 'use client'
-import { useIsomorphicLayoutEffect } from '@frfla/react-hooks'
 import { HamburgerMenuIcon, InfoCircledIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
 import { About } from 'features/navigation/containers/About'
 import { ThemeContext } from 'features/theme'
-import { type MouseEvent, useContext, useState } from 'react'
+import { type MouseEvent, useContext } from 'react'
 import { ExpandedNav } from '../components/ExpandedNav'
 import { HamburgerMenu } from './HamburgerMenu'
 import { MenuBtn } from './MenuButton'
@@ -38,11 +37,6 @@ function NavigationContent() {
         return null
     }
   }
-
-  //Theme Hydration Error 방지
-  const [mounted, setMounted] = useState(false)
-  useIsomorphicLayoutEffect(() => setMounted(true), [])
-  if (!mounted) return null
 
   return (
     <>
