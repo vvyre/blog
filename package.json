@@ -22,10 +22,12 @@
     "jotai": "^2.14.0",
     "linkedom": "^0.18.12",
     "next": "16.0.1",
+    "next-sitemap": "^4.2.3",
     "overlay-kit": "^1.8.5",
     "p-map": "^7.0.3",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "rss": "^1.2.2"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",
