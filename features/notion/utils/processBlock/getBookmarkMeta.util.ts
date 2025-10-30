@@ -1,6 +1,7 @@
-import { ExtendedBookmarkObjectResponse } from 'features/notion'
-import { BookmarkBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
+import type { BookmarkBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
+import type { ExtendedBookmarkObjectResponse } from 'features/notion'
 import { parseHTML } from 'linkedom'
+import { cacheLife } from 'next/cache'
 
 export type BookmarkMeta = {
   url: string
@@ -8,7 +9,10 @@ export type BookmarkMeta = {
   description?: string
   image?: string
 }
+
 const fetchMeta = async (url: string): Promise<BookmarkMeta> => {
+  'use cache'
+  cacheLife('hours')
   try {
     const response = await fetch(url)
     const html = await response.text()

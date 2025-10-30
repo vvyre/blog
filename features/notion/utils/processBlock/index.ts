@@ -1,9 +1,9 @@
-import { getBlurredImg } from './getBlurredImg.util'
-import { groupedBlocks } from './groupedBlocks.util'
+import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
+import type { TraversableBlock } from 'features/notion'
 import pMap from 'p-map'
+import { getBlurredImg } from './getBlurredImg.util'
 import { getBookmarkMetadata } from './getBookmarkMeta.util'
-import { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import { TraversableBlock } from 'features/notion'
+import { groupedBlocks } from './groupedBlocks.util'
 
 export const processBlock = async (blocks: BlockObjectResponse[]) => {
   const PROCESSED = await pMap(
