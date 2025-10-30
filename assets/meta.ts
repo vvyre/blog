@@ -1,5 +1,8 @@
+import dayjs from 'dayjs'
+
+const d = dayjs().date()
 export default {
-  title: 'x_x',
+  title: `(+${'_'.repeat(d)}+)`,
   description: 'Writings',
   author: 'seyu',
 }
