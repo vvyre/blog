@@ -2,9 +2,7 @@
 import { aboutPostBlockAtom } from 'features/navigation/aboutPost.atom'
 import type { NotionPageMeta, TraversableBlock } from 'features/notion'
 import { postsAtom } from 'features/postList/postList.atom'
-import { useSetAtom } from 'jotai'
 import { useHydrateAtoms } from 'jotai/utils'
-import { useEffect } from 'react'
 
 interface Props {
   state: {
