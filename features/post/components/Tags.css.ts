@@ -15,8 +15,8 @@ export const tag = style({
   fontFamily: '"Mona Sans", "Pretendard", monospace',
   fontWeight: 500,
   lineHeight: 1.2,
-  backgroundColor: color.notion_default,
+  backgroundColor: color.background_invert,
   paddingBlock: dp(1.5),
   paddingInline: dp(2),
-  color: color.white,
+  color: color.text_invert,
 })

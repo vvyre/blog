@@ -25,18 +25,23 @@ export const frame = style({
   },
 })
 
+export const rightButtonGroup = style({
+  display: 'flex',
+  gap: dp(2),
+})
+
 export const categoryBtn = style({
   margin: 0,
   padding: dp(2),
   border: 'none',
   borderRadius: dp(6),
-  backgroundColor: color.notion_default,
-  color: color.white,
+  backgroundColor: color.background,
+  color: color.text,
   cursor: 'pointer',
   '@media': {
     'screen and (min-width: 600px)': {
       padding: 0,
-      color: color.notion_default,
+      color: color.text,
       backgroundColor: 'transparent',
     },
   },
