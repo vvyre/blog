@@ -1,5 +1,5 @@
 'use client'
-import { HamburgerMenuIcon, InfoCircledIcon, MoonIcon, SunIcon } from '@radix-ui/react-icons'
+import { HamburgerMenuIcon, InfoCircledIcon } from '@radix-ui/react-icons'
 import { About } from 'features/navigation/containers/About'
 import { ThemeContext } from 'features/theme'
 import { type MouseEvent, useContext } from 'react'
@@ -41,23 +41,23 @@ function NavigationContent() {
   return (
     <>
       <div className={css.frame}>
-        <div className={css.rightButtonGroup}>
+        <div className={css.leftButtonGroup}>
+          <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
+            <InfoCircledIcon width="21" height="21" />
+          </MenuBtn>
           <MenuBtn onClick={toggleTheme}>
             {(() => {
               switch (theme) {
                 case 'dark':
-                  return <SunIcon width="21" height="21" />
+                  return '🌞'
                 case 'light':
-                  return <MoonIcon width="21" height="21" />
+                  return '🌚'
               }
             })()}
           </MenuBtn>
-          <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
-            <HamburgerMenuIcon width="21" height="21" />
-          </MenuBtn>
         </div>
-        <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
-          <InfoCircledIcon width="21" height="21" />
+        <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
+          <HamburgerMenuIcon width="21" height="21" />
         </MenuBtn>
       </div>
       <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={expandedNavContent(key)} />
