@@ -6,7 +6,9 @@ import type {
   PartialBlockObjectResponse,
   QueryDataSourceParameters,
 } from '@notionhq/client/build/src/api-endpoints'
+import { cacheLife } from 'next/cache'
 import { ENV } from 'static/env'
+import { ExtendedBlockTypes, TransformedNotionBlock, TransformedNotionBlocks, TraversableBlock, WithChildren } from '../types'
 import type { NotionPageMeta } from '../types/meta'
 
 const createNotionClient = () => new Client({ auth: ENV.NOTION_KEY })
@@ -56,6 +58,7 @@ export const getPostList = async (database_id: string): Promise<NotionPageMeta[]
 
 export const getCachedPostList = async (database_id: string) => {
   'use cache'
+  cacheLife('minutes')
   if (!POST_LIST_CACHE[database_id]) {
     POST_LIST_CACHE[database_id] = getPostList(database_id)
   } else console.warn(`**${database_id.slice(0, 4)}`, 'vvvv CACHED POSTLIST')
@@ -65,6 +68,7 @@ export const getCachedPostList = async (database_id: string) => {
 
 export const getPostMetaData = async (page_id: string): Promise<NotionPageMeta> => {
   'use cache'
+  cacheLife('minutes')
   const result = await notion.pages.retrieve({ page_id })
 
   return result as NotionPageMeta
@@ -72,6 +76,7 @@ export const getPostMetaData = async (page_id: string): Promise<NotionPageMeta> 
 
 const getChildrenBlocks = async (parent_block_id: string): Promise<(BlockObjectResponse | PartialBlockObjectResponse)[]> => {
   'use cache'
+  cacheLife('minutes')
   console.warn(`**${parent_block_id.slice(0, 4)}`, '>>>> CHILDREN BLOCK FETCH')
   let results = []
   let blocks = await notion.blocks.children.list({
@@ -91,6 +96,8 @@ const getChildrenBlocks = async (parent_block_id: string): Promise<(BlockObjectR
 }
 
 const getAllChildrenBlocks = async (blocks: BlockObjectResponse[]) => {
+  'use cache'
+  cacheLife('minutes')
   const result = await Promise.all(
     blocks.map(async depth_block => {
       if (depth_block.has_children) {

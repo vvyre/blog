@@ -1,5 +1,5 @@
-import { NotionPageMeta } from 'features/notion'
 import dayjs from 'dayjs'
+import type { NotionPageMeta } from 'features/notion'
 import { getPlainText } from './getPlainText.util'
 
 /**
