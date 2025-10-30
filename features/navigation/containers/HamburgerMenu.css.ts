@@ -10,6 +10,7 @@ export const hamburgerMenuFrame = style({
 
 export const menuList = style({
   listStyleType: 'none',
+  marginBottom: dp(20),
 })
 
 export const title = style({

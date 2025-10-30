@@ -3,7 +3,6 @@ import { dp } from 'styles/dp'
 
 export const wrapper = style({
   width: '100vw',
-  height: '100dvh',
   backdropFilter: `blur(${dp(4)})`,
   WebkitBackdropFilter: `blur(${dp(4)})`,
   zIndex: 999,
@@ -14,15 +13,17 @@ export const wrapper = style({
 })
 
 export const frame = style({
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'column',
   backgroundColor: 'transparent',
   paddingTop: dp(12),
-  width: '100%',
-  height: '100%',
+  overflow: 'hidden',
 })
 
 export const contentFrame = style({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: dp(2),
-  height: '100%',
+  height: `calc(100dvh - ${dp(12)})`,
+  overflowY: 'auto',
+  overscrollBehavior: 'contain',
+  marginBottom: dp(6),
 })
