@@ -14,6 +14,7 @@ export const frame = style({
 export const title = style({
   fontSize: dp(4.25),
   display: 'flex',
+  fontWeight: 400,
   alignItems: 'center',
   textAlign: 'center',
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
