@@ -3,7 +3,6 @@ import { processBlock } from 'features/notion/utils/processBlock'
 import { ENV } from 'static/env'
 
 export async function startPageLoader() {
-  'use cache'
   const settled = await Promise.allSettled([getCachedPostList(ENV.NOTION_DATABASE_ID), getPost(ENV.NOTION_POST_ID_ABOUT)])
   settled
     .filter(r => r.status === 'rejected')
