@@ -3,10 +3,10 @@ import { cacheLife } from 'next/cache'
 import * as css from './PostListHeader.css'
 
 export async function PostListHeader() {
-  const dailySiteTitle = (now: Dayjs) => {
-    'use cache' // deterministic render by react.cache()
-    cacheLife('days')
+  'use cache' // deterministic render by react.cache()
+  cacheLife('days')
 
+  const dailySiteTitle = (now: Dayjs) => {
     const date = now.date()
     const day = now.day()
     const eyes = ['∗', 'O', '@', '+', '×', '⌃', 'Θ']
