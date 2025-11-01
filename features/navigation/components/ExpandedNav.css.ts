@@ -5,7 +5,7 @@ export const wrapper = style({
   width: '100vw',
   backdropFilter: `blur(${dp(4)})`,
   WebkitBackdropFilter: `blur(${dp(4)})`,
-  zIndex: 999,
+  zIndex: 9,
   position: 'fixed',
   right: 0,
   top: 0,
