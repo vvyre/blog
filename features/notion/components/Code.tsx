@@ -3,9 +3,10 @@
 import hljs from 'highlight.js'
 import 'styles/hljs.css'
 import { useTextCopy } from '@frfla/react-hooks'
-import { CopyIcon, RocketIcon } from '@radix-ui/react-icons'
+import { CheckIcon, CopyIcon } from '@radix-ui/react-icons'
 import type { NotionComponentProps } from 'features/notion'
 import { getCodeLang } from 'features/notion/utils/getCodeLang.util'
+import { color } from 'styles/vars/color.css'
 import { getPlainText } from '../utils/getPlainText.util'
 import * as css from './Code.css'
 
@@ -23,10 +24,10 @@ export function Code({ block }: NotionComponentProps<'code'>) {
       <div className={css.codeHeader}>
         <span className={css.codeLang}>{codeLang}</span>
         <button type="button" className={css.copyCode} onClick={() => copy(codeText)}>
-          {isCopied ? <RocketIcon /> : <CopyIcon />}
+          {isCopied ? <CheckIcon color={color.ok} /> : <CopyIcon />}
         </button>
       </div>
-      <pre dangerouslySetInnerHTML={{ __html: codeHtml }} />
+      <pre dangerouslySetInnerHTML={{ __html: codeHtml }} className={css.codeBlock} />
     </div>
   )
 }
