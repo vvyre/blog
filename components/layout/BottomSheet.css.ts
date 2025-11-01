@@ -2,7 +2,7 @@ import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
 
 export const frame = style({
-  zIndex: 9999,
+  zIndex: 999,
   position: 'fixed',
   inset: 0,
   pointerEvents: 'none',
