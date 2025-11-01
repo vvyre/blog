@@ -40,7 +40,7 @@ globalStyle('article, section, nav, p, h1, h2, h3, h4, h5, h6', {
 })
 
 globalStyle('body[data-theme], body[data-theme] nav, body[data-theme] section', {
-  transition: 'background-color 0.15s ease-out, color 0.15s ease-out',
+  transition: 'background-color .2s cubic-bezier(.4, 0, .4, 1), color .2s cubic-bezier(.4, 0, .4, 1)',
 })
 
 globalStyle('a', {
