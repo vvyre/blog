@@ -9,7 +9,7 @@ export const wrapper = style({
   position: 'fixed',
   right: 0,
   top: 0,
-  transition: 'transform 0.15s, opacity ease-in-out 0.15s',
+  transition: 'transform .2s cubic-bezier(.4, 0, .4, 1), opacity .2s cubic-bezier(.4, 0, .4, 1)',
 })
 
 export const frame = style({
