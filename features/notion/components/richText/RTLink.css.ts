@@ -1,21 +1,22 @@
 import { style } from '@vanilla-extract/css'
+import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const link = style({
-  color: color.notion_gray,
+  color: color.notion_default,
   textDecoration: 'underline',
-  textUnderlineOffset: '0.25rem',
-  textDecorationColor: color.notion_gray,
-  textDecorationThickness: '1.5px',
+  textUnderlineOffset: dp(0.5),
+  textDecorationColor: color.notion_default,
+  textDecorationThickness: '1px',
   '@media': {
     'screen and (hover: hover)': {
       ':hover': {
-        color: color.accent,
-        textDecorationColor: color.accent,
+        color: color.link,
+        textDecorationColor: color.link,
       },
       ':active': {
-        color: color.accent,
-        textDecorationColor: color.accent,
+        color: color.link,
+        textDecorationColor: color.link,
       },
     },
   },

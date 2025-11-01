@@ -12,11 +12,11 @@ export const italic = style({
 
 export const code = style({
   verticalAlign: 'text-top',
-  fontSize: dp(3.5),
-  padding: '0.2rem 0.4rem 0.2rem 0.4rem',
+  fontSize: dp(3.25),
+  padding: `${dp(0.75)} ${dp(1.6)} ${dp(0.75)} ${dp(1.6)}`,
   fontWeight: 400,
-  color: color.notion_default,
-  marginRight: '0.15rem',
+  color: color.text,
+  marginRight: dp(0.75),
   backgroundColor: color.notion_background_gray,
   fontFamily: 'Google Sans Code, monospace',
   borderRadius: dp(2),
