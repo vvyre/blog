@@ -12,11 +12,12 @@ export const frame = style({
 })
 
 export const title = style({
-  fontSize: dp(4.25),
+  fontSize: 'clamp(0.5rem, 2.66vw, 1rem)',
   display: 'flex',
   fontWeight: 400,
+  wordSpacing: `-${dp(1)}`,
   alignItems: 'center',
   textAlign: 'center',
-  fontFamily: '"Mona Sans", "Pretendard", sans-serif',
+  fontFamily: '"Google Sans Code", "Pretendard", monospace',
   lineHeight: 1.2,
 })
