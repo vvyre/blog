@@ -13,7 +13,7 @@ globalStyle('pre', {
 export const codeFrame = style({
   backgroundColor: color.notion_background_gray,
   borderRadius: dp(1),
-  padding: dp(5),
+  padding: dp(6),
   overflowX: 'auto',
   marginBlock: dp(8),
   marginInline: layouts.full,
@@ -32,10 +32,14 @@ export const codeLang = style({
   color: color.notion_default,
 })
 
+export const codeBlock = style({
+  paddingBottom: dp(3),
+})
 export const copyCode = style({
   paddingInline: dp(1),
   paddingBlock: dp(1),
   backgroundColor: 'transparent',
+  color: color.text,
   border: 'none',
   cursor: 'pointer',
 })
