@@ -5,11 +5,11 @@ export const wrapper = style({
   width: '100vw',
   backdropFilter: `blur(${dp(4)})`,
   WebkitBackdropFilter: `blur(${dp(4)})`,
-  zIndex: 999,
+  zIndex: 9,
   position: 'fixed',
   right: 0,
   top: 0,
-  transition: 'transform 0.15s, opacity ease-in-out 0.15s',
+  transition: 'transform .2s cubic-bezier(.4, 0, .4, 1), opacity .2s cubic-bezier(.4, 0, .4, 1)',
 })
 
 export const frame = style({

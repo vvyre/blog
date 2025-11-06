@@ -3,7 +3,7 @@ import { dp } from 'styles/dp'
 import { color } from 'styles/vars/color.css'
 
 export const frame = style({
-  zIndex: 9999,
+  zIndex: 99,
   height: dp(18),
   paddingTop: dp(3),
   paddingBottom: 'env(safe-area-inset-bottom)',

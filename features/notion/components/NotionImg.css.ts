@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const figureWrapper = style({
@@ -39,20 +40,20 @@ export const figureZoomed = style({
   justifyContent: 'center',
   alignItems: 'center',
   backgroundColor: 'rgba(0,0,0,0.8)',
-  zIndex: 1000,
+  zIndex: 999,
 })
 
 export const figcaptionZoomed = style({
   marginTop: dp(2),
   fontSize: dp(3.5),
-  color: '#fff',
+  color: color.white,
   textAlign: 'center',
 })
 
 export const figcaption = style({
   marginTop: dp(2),
   fontSize: dp(3.5),
-  color: '#555',
+  color: color.notion_gray,
   textAlign: 'center',
 })
 
