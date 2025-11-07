@@ -1,10 +1,7 @@
-import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import { Spacing } from 'components/base/Spacing'
 import type { NotionComponentProps } from 'features/notion'
-import Image from 'next/image'
 import { getPlainText } from '../utils/getPlainText.util'
 import * as css from './Bookmark.css'
-import { RichText } from './richText/RichText'
 
 export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
   const preview = block.bookmarkInfo.image ?? ''

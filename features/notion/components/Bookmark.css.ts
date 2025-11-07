@@ -16,13 +16,6 @@ export const bookmarkFrame = style({
 
 export const bookmarkInner = style({ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' })
 
-export const bookmarkIcon = style({
-  display: 'inline-block',
-  width: 'auto',
-  height: dp(40),
-  backgroundRepeat: 'no-repeat',
-})
-
 export const bookmarkTitle = style({
   marginBottom: dp(1.5),
   fontSize: dp(4.25),
