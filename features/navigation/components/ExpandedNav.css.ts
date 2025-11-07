@@ -1,10 +1,10 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { color } from 'styles/vars/color.css'
 
 export const wrapper = style({
   width: '100vw',
-  backdropFilter: `blur(${dp(4)})`,
-  WebkitBackdropFilter: `blur(${dp(4)})`,
+  backgroundColor: color.background_opacity95,
   zIndex: 9,
   position: 'fixed',
   right: 0,
