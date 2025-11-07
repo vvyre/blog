@@ -1,56 +1,49 @@
-import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import { Spacing } from 'components/base/Spacing'
 import type { NotionComponentProps } from 'features/notion'
+import { getPlainText } from '../utils/getPlainText.util'
 import * as css from './Bookmark.css'
-import { RichText } from './richText/RichText'
 
 export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
-  const icon = block.bookmarkInfo.image ?? ''
+  const preview = block.bookmarkInfo.image ?? ''
   const editedUrl = (url: string) => {
     const edited = url.replace(/^(http?:\/\/)?(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')
     const idx = edited.indexOf('/')
     return idx === -1 ? edited : edited.slice(0, idx)
   }
+  const fallbackTitle = getPlainText(block.bookmark.caption)
 
   const editedTitle = (title: string) => {
-    return title.length > 30 ? `${title.slice(0, 30)}...` : title
+    return title.length > 30 ? `${title.slice(0, 40)}...` : title
   }
+  const editedDescription = (desc: string) => `${desc.slice(0, 80)}...`
 
   return (
     <a
       className={css.bookmarkFrame}
+      style={{
+        backgroundImage: `url(${preview})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'contain',
+        backgroundPositionX: 'right',
+      }}
       href={block.bookmark.url}
       target="_blank"
-      aria-label={`Bookmark: ${block.bookmarkInfo.title ?? 'No title available'}`}
-    >
+      aria-label={`Bookmark: ${block.bookmarkInfo.title ?? fallbackTitle ?? 'No Title Available'}`}>
       <div className={css.bookmarkInner}>
         <h4 className={css.bookmarkTitle}>
-          {icon && (
-            <span
-              className={css.bookmarkIcon}
-              style={{
-                backgroundImage: `url('${icon}')`,
-              }}
-            />
-          )}
-          <span>{editedTitle(block.bookmarkInfo.title ?? '')}</span>
+          <span>{editedTitle(block.bookmarkInfo.title ?? fallbackTitle ?? '')}</span>
         </h4>
-        <div>
-          <span className={css.bookmarkUrl}>{editedUrl(block.bookmark.url)}</span>
-        </div>
+
+        <p className={css.bookmarkUrl}>{editedUrl(block.bookmark.url)}</p>
 
         {block.bookmarkInfo.description && (
           <>
             <Spacing size={3} />
             <p className={css.bookmarkDescription} aria-describedby="bookmark description">
-              {block.bookmarkInfo.description}
+              {editedDescription(block.bookmarkInfo.description)}
             </p>
           </>
         )}
-
-        {block.bookmark.caption.map((txt: RichTextItemResponse, idx) => (
-          <RichText key={`${txt.type}${idx}`} richText={txt} />
-        ))}
       </div>
     </a>
   )
