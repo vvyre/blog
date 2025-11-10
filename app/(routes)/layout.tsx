@@ -2,8 +2,10 @@ import type { Metadata } from 'next'
 import 'styles/global.css'
 import 'styles/font.css'
 import 'styles/themes.css'
+import logo from 'assets/logo.svg'
 import meta from 'assets/meta'
 import { Navigation } from 'features/navigation/containers/Navigation'
+import { ENV } from 'static/env'
 import { Hydrate } from './(util)/Hydrate'
 import { Providers } from './(util)/Providers'
 import { startPageLoader } from './server'
@@ -11,6 +13,12 @@ import { startPageLoader } from './server'
 export const metadata: Metadata = {
   title: meta.title,
   description: meta.description,
+  authors: { name: meta.author, url: ENV.NEXT_PUBLIC_ROOT },
+  openGraph: {
+    images: { url: logo },
+    title: meta.title,
+    description: meta.description,
+  },
 }
 
 export default async function RootLayout({
