@@ -5,7 +5,6 @@ import { RenderNotion } from 'features/notion'
 import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
 import { processBlock } from 'features/notion/utils/processBlock'
-import { Comments } from 'features/post/components/Comments'
 import { Top } from 'features/post/containers/Top'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
@@ -66,9 +65,6 @@ export default async function Post({ params }: PostPageProps) {
         <Suspense fallback={<>...</>}>
           <RenderNotion blocks={blocks} />
           <Spacing size={12} />
-        </Suspense>
-        <Suspense fallback={<>...</>}>
-          <Comments />
         </Suspense>
       </Section>
       <Spacing size={20} />
