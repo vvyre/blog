@@ -30,14 +30,13 @@ export const strike = style({
 
 export const underline = style({
   textDecoration: 'underline',
-  textUnderlineOffset: '0.25rem',
+  textUnderlineOffset: dp(1),
   textDecorationThickness: '1px',
 })
 
 export const link = style([
   {
     textDecoration: 'underline',
-
     textUnderlineOffset: dp(1),
     textDecorationThickness: '1px',
     '@media': {
