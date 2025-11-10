@@ -1,6 +1,6 @@
 import type { BlockObjectResponse } from '@notionhq/client'
 import logo from 'assets/logo.svg'
-import meta from 'assets/meta'
+import siteMeta from 'assets/meta'
 import { Spacing } from 'components/base/Spacing'
 import { Section } from 'components/layout/Section'
 import { RenderNotion } from 'features/notion'
@@ -32,16 +32,16 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
   const { slug } = await params
   const [matchPost] = posts.filter(post => pageMeta(post).slug === slug)
-  const page_meta = pageMeta(matchPost)
-  const title = `${page_meta.title} – ${meta.title}`
-  const description = page_meta.summary
-  const keywords = page_meta.tags.map(t => t.name)
+  const meta = pageMeta(matchPost)
+  const title = `${meta.title} – ${siteMeta.title}`
+  const description = meta.summary
+  const keywords = meta.tags.map(t => t.name)
 
   return {
     title,
     description,
     keywords: keywords,
-    authors: { name: meta.author, url: ENV.NEXT_PUBLIC_ROOT },
+    authors: { name: siteMeta.author, url: ENV.NEXT_PUBLIC_ROOT },
     openGraph: {
       title,
       description,
