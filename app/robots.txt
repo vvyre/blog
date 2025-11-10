@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://www.wyre.run/
+Host: https://www.yooooon.com
 
 # Sitemaps
-Sitemap: https://www.wyre.run/sitemap.xml
+Sitemap: https://www.yooooon.com/sitemap.xml
