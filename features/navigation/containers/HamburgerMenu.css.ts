@@ -4,23 +4,23 @@ import { color } from 'styles/vars/color.css'
 
 export const hamburgerMenuFrame = style({
   paddingInline: dp(6),
-  margin: `0 0 ${dp(4)} 0`,
+  margin: `${dp(8)} 0 ${dp(4)} 0`,
   lineHeight: 1,
   textAlign: 'right',
 })
 
 export const menuList = style({
   listStyleType: 'none',
-  marginBottom: dp(20),
+  marginBottom: dp(48),
 })
 
 export const title = style({
   fontWeight: 600,
-  fontSize: dp(5),
+  fontSize: dp(7.5),
   lineHeight: 1.2,
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   color: color.text,
-  marginBottom: dp(12),
+  marginBottom: dp(4),
 })
 
 export const groupTitle = style({
@@ -28,6 +28,7 @@ export const groupTitle = style({
   lineHeight: 1.2,
   fontFamily: '"Mona Sans", "Pretendard", sans-serif',
   color: color.text,
+  paddingTop: dp(4),
 })
 
 export const articleList = style({
