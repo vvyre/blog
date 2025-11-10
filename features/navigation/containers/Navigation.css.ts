@@ -27,14 +27,14 @@ export const frame = style({
   },
 })
 
-export const leftButtonGroup = style({
+export const buttonGroup = style({
   display: 'flex',
   flexDirection: 'column-reverse',
-  gap: dp(1),
+  gap: dp(2),
   '@media': {
     'screen and (min-width: 600px)': {
       flexDirection: 'column',
-      gap: 0,
+      gap: dp(1),
     },
   },
 })

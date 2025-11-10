@@ -12,7 +12,7 @@ export function HamburgerMenu({ onClose }: { onClose: () => void } & ComponentPr
 
   return (
     <div className={css.hamburgerMenuFrame}>
-      <div className={css.title}>All Posts</div>
+      <div className={css.title}>모든 글</div>
       <ul className={css.menuList}>
         {YEARS.map(y => (
           <li key={y}>

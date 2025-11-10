@@ -1,5 +1,5 @@
 'use client'
-import { aboutPostBlockAtom } from 'features/navigation/aboutPost.atom'
+import { aboutPostBlockAtom } from 'features/about/aboutPost.atom'
 import { RenderNotion } from 'features/notion'
 import { useAtomValue } from 'jotai'
 import * as css from './About.css'

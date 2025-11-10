@@ -2,12 +2,13 @@
 import Giscus from '@giscus/react'
 import { ThemeContext } from 'features/theme'
 import { useContext } from 'react'
-import * as css from './Comments.css'
+import * as css from './Guestbook.css'
 
-export function Comments() {
+export function Guestbook() {
   const { theme } = useContext(ThemeContext)
+  const themeName = theme === 'light' ? 'light' : 'noborder_gray'
   return (
-    <div className={css.commentFrame}>
+    <div className={css.guestBookFrame}>
       <Giscus
         id="comments"
         repo="vvyre/blog-comments"
@@ -16,7 +17,7 @@ export function Comments() {
         categoryId="DIC_kwDOLR4oCs4CfA8v"
         mapping="title"
         term=""
-        theme={theme}
+        theme={themeName}
         reactionsEnabled="1"
         inputPosition="top"
         lang="ko"

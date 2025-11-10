@@ -3,11 +3,11 @@ import { cacheLife } from 'next/cache'
 import * as css from './PostListHeader.css'
 
 export async function PostListHeader() {
-  'use cache' // deterministic render by react.cache()
+  'use cache'
   cacheLife('days')
 
   const dailySiteTitle = (now: Dayjs) => {
-    const date = now.date()
+    const date = now.date() // 'use cache' 로 서버에서 렌더 상황이 결정되기 때문에 hydration error가 발생하지 않습니다
     const day = now.day()
     const eyes = ['∗', 'O', '@', '+', '×', '⌃', 'Θ']
     const index = (day + 6) % 7 // monday -> 0

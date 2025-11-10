@@ -1,7 +1,8 @@
 'use client'
-import { HamburgerMenuIcon, InfoCircledIcon } from '@radix-ui/react-icons'
-import { About } from 'features/navigation/containers/About'
+import { HamburgerMenuIcon, HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons'
 import { ThemeContext } from 'features/theme'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { type MouseEvent, useContext } from 'react'
 import { ExpandedNav } from '../components/ExpandedNav'
 import { HamburgerMenu } from './HamburgerMenu'
@@ -18,6 +19,7 @@ export function Navigation() {
 }
 
 function NavigationContent() {
+  const path = usePathname()
   const { theme, toggleTheme } = useContext(ThemeContext)
   const { key, setOpenState } = useContext(NavContext)
   const handleMenuClose = () => setOpenState({ type: 'close' })
@@ -31,8 +33,6 @@ function NavigationContent() {
     switch (key) {
       case 'hamburger':
         return <HamburgerMenu onClose={handleMenuClose} />
-      case 'about':
-        return <About />
       default:
         return null
     }
@@ -41,9 +41,27 @@ function NavigationContent() {
   return (
     <>
       <div className={css.frame}>
-        <div className={css.leftButtonGroup}>
-          <MenuBtn onClick={e => handleMenuButton(e, 'about')}>
-            <InfoCircledIcon width="21" height="21" />
+        <div className={css.buttonGroup}>
+          {(() => {
+            switch (path) {
+              case '/about':
+                return (
+                  <MenuBtn as={Link} href="/">
+                    <HomeIcon width="21" height="21" />
+                  </MenuBtn>
+                )
+              default:
+                return (
+                  <MenuBtn as={Link} href="/about">
+                    <InfoCircledIcon width="21" height="21" />
+                  </MenuBtn>
+                )
+            }
+          })()}
+        </div>
+        <div className={css.buttonGroup}>
+          <MenuBtn as="button" onClick={e => handleMenuButton(e, 'hamburger')}>
+            <HamburgerMenuIcon width="21" height="21" />
           </MenuBtn>
           <MenuBtn onClick={toggleTheme}>
             {(() => {
@@ -56,9 +74,6 @@ function NavigationContent() {
             })()}
           </MenuBtn>
         </div>
-        <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
-          <HamburgerMenuIcon width="21" height="21" />
-        </MenuBtn>
       </div>
       <ExpandedNav isOpen={key !== null} onClose={handleMenuClose} content={expandedNavContent(key)} />
     </>
