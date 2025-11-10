@@ -42,27 +42,25 @@ function NavigationContent() {
     <>
       <div className={css.frame}>
         <div className={css.buttonGroup}>
-          <MenuBtn>
-            {(() => {
-              switch (path) {
-                case '/about':
-                  return (
-                    <Link href="/">
-                      <HomeIcon width="21" height="21" />
-                    </Link>
-                  )
-                default:
-                  return (
-                    <Link href="/about">
-                      <InfoCircledIcon width="21" height="21" />
-                    </Link>
-                  )
-              }
-            })()}
-          </MenuBtn>
+          {(() => {
+            switch (path) {
+              case '/about':
+                return (
+                  <MenuBtn as={Link} href="/">
+                    <HomeIcon width="21" height="21" />
+                  </MenuBtn>
+                )
+              default:
+                return (
+                  <MenuBtn as={Link} href="/about">
+                    <InfoCircledIcon width="21" height="21" />
+                  </MenuBtn>
+                )
+            }
+          })()}
         </div>
         <div className={css.buttonGroup}>
-          <MenuBtn onClick={e => handleMenuButton(e, 'hamburger')}>
+          <MenuBtn as="button" onClick={e => handleMenuButton(e, 'hamburger')}>
             <HamburgerMenuIcon width="21" height="21" />
           </MenuBtn>
           <MenuBtn onClick={toggleTheme}>
