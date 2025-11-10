@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
     openGraph: {
       title,
       description,
-      images: { url: logo },
+      images: { url: logo.src },
       tags: keywords,
     },
   }

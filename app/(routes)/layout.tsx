@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: meta.description,
   authors: { name: meta.author, url: ENV.NEXT_PUBLIC_ROOT },
   openGraph: {
-    images: { url: logo },
+    images: { url: logo.src },
     title: meta.title,
     description: meta.description,
   },
