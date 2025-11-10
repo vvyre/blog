@@ -1,5 +1,5 @@
 'use client'
-import { aboutPostBlockAtom } from 'features/navigation/aboutPost.atom'
+import { aboutPostBlockAtom } from 'features/about/aboutPost.atom'
 import type { NotionPageMeta, TraversableBlock } from 'features/notion'
 import { postsAtom } from 'features/postList/postList.atom'
 import { useHydrateAtoms } from 'jotai/utils'
