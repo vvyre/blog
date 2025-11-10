@@ -1,6 +1,5 @@
 'use client'
-import { GlobeIcon, HamburgerMenuIcon, HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons'
-import { About } from 'features/about/About'
+import { HamburgerMenuIcon, HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons'
 import { ThemeContext } from 'features/theme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
