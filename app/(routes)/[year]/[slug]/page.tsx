@@ -77,7 +77,7 @@ export default async function Post({ params }: PostPageProps) {
           <Spacing size={12} />
         </Suspense>
       </Section>
-      <Spacing size={20} />
+      <Spacing size={48} />
     </>
   )
 }
