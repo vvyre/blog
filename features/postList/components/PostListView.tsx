@@ -1,17 +1,20 @@
 'use client'
+import { Spacing } from 'components/base/Spacing'
 import type { NotionPageMeta } from 'features/notion'
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
-import { useAtomValue } from 'jotai'
 import Link from 'next/link'
-import { postsAtom } from '../postList.atom'
+import { dp } from 'styles/dp'
+import { useRandomPost } from '../hooks/useRandomPost'
 import * as css from './PostListView.css'
 
 export function PostListView() {
-  const posts = useAtomValue(postsAtom)
+  const [randomPosts] = useRandomPost()
+
   return (
     <div className={css.postListFrame}>
+      <Spacing size={dp(8)} />
       <div className={css.viewLink}>
-        {posts.map(p => (
+        {randomPosts.map(p => (
           <PostLink key={p.id} meta={p} />
         ))}
       </div>
