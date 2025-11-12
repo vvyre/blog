@@ -12,7 +12,7 @@ export const frame = style({
 })
 
 export const title = style({
-  fontSize: 'clamp(0.5rem, 2.66vw, 1rem)',
+  fontSize: dp(4),
   display: 'flex',
   fontWeight: 400,
   wordSpacing: `-${dp(1)}`,
