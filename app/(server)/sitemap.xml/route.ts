@@ -18,11 +18,17 @@ export async function GET() {
       loc: `${ENV.NEXT_PUBLIC_ROOT}/${dayjs(meta.date).year()}/${meta.slug}`,
       lastmod: dayjs(meta.date).toISOString(),
       changefreq: 'daily',
-      priority: 0.8,
+      priority: 1.0,
     }
   })
 
   const staticRssFields: ISitemapField[] = [
+    {
+      loc: `${ENV.NEXT_PUBLIC_ROOT}`,
+      lastmod: dayjs().toISOString(),
+      changefreq: 'daily',
+      priority: 1.0,
+    },
     {
       loc: `${ENV.NEXT_PUBLIC_ROOT}/about`,
       lastmod: dayjs().toISOString(),
@@ -31,7 +37,7 @@ export async function GET() {
     },
   ]
 
-  const fullRssFields = staticRssFields.concat(postRssFields)
+  const sitemapFields = staticRssFields.concat(postRssFields)
 
-  return getServerSideSitemap(fullRssFields)
+  return getServerSideSitemap(sitemapFields)
 }
