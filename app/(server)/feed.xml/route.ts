@@ -15,7 +15,7 @@ export async function GET() {
     title: siteMeta.title,
     description: siteMeta.description,
     site_url: `${ENV.NEXT_PUBLIC_ROOT}`,
-    feed_url: `${ENV.NEXT_PUBLIC_ROOT}/feed`,
+    feed_url: `${ENV.NEXT_PUBLIC_ROOT}/feed.xml`,
     copyright: siteMeta.author,
     language: 'ko',
     pubDate: dayjs().tz('Asia/Seoul').format('YYYY-MM-DD'),
@@ -32,6 +32,7 @@ export async function GET() {
         author: siteMeta.author,
       })
     })
+
     return new Response(feed.xml(), {
       headers: {
         'Content-Type': 'application/atom+xml; charset=utf-8',

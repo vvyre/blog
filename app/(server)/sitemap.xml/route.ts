@@ -12,15 +12,32 @@ dayjs.extend(timezone)
 export async function GET() {
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
 
-  const rssFields: ISitemapField[] = posts.map(post => {
+  const postRssFields: ISitemapField[] = posts.map(post => {
     const meta = pageMeta(post)
     return {
       loc: `${ENV.NEXT_PUBLIC_ROOT}/${dayjs(meta.date).year()}/${meta.slug}`,
       lastmod: dayjs(meta.date).toISOString(),
       changefreq: 'daily',
-      priority: 0.8,
+      priority: 1.0,
     }
   })
 
-  return getServerSideSitemap(rssFields)
+  const staticRssFields: ISitemapField[] = [
+    {
+      loc: `${ENV.NEXT_PUBLIC_ROOT}`,
+      lastmod: dayjs().toISOString(),
+      changefreq: 'daily',
+      priority: 1.0,
+    },
+    {
+      loc: `${ENV.NEXT_PUBLIC_ROOT}/about`,
+      lastmod: dayjs().toISOString(),
+      changefreq: 'monthly',
+      priority: 0.5,
+    },
+  ]
+
+  const sitemapFields = staticRssFields.concat(postRssFields)
+
+  return getServerSideSitemap(sitemapFields)
 }
