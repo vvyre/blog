@@ -7,6 +7,15 @@ import { useEffect, useState } from 'react'
 import { pick } from 'utils/pick'
 import { postsAtom, randomPostsAtom } from '../postList.atom'
 
+const pickRandomPosts = (posts: NotionPageMeta[], select: number) => {
+  if (posts.length === 0) return []
+  const cnt = Math.min(select, posts.length)
+
+  return pick(cnt, [0, posts.length - 1])
+    .map(i => posts[i])
+    .sort((p1, p2) => dayjs(p2.properties.date.date?.start).diff(dayjs(p1.properties.date.date?.start)))
+}
+
 export function useRandomPost(): [NotionPageMeta[], () => void] {
   const posts = useAtomValue(postsAtom)
   const [randomPosts, setRandomPosts] = useAtom(randomPostsAtom)
@@ -15,9 +24,7 @@ export function useRandomPost(): [NotionPageMeta[], () => void] {
   const shuffle = () => s(p => p + 1)
 
   useEffect(() => {
-    const p = pick(7, [0, posts.length - 1])
-      .map(i => posts[i])
-      .sort((p1, p2) => dayjs(p2.properties.date.date?.start).diff(dayjs(p1.properties.date.date?.start)))
+    const p = pickRandomPosts(posts, 7)
     setRandomPosts(p)
   }, [posts, c])
 
