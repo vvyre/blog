@@ -1,27 +1,16 @@
-import dayjs, { type Dayjs } from 'dayjs'
-import { cacheLife } from 'next/cache'
+'use client'
+import { useRandomPost } from '../hooks/useRandomPost'
 import * as css from './PostListHeader.css'
+import { ShuffleBtn } from './ShuffleBtn'
 
-export async function PostListHeader() {
-  'use cache'
-  cacheLife('days')
-
-  const dailySiteTitle = (now: Dayjs) => {
-    const date = now.date() // 'use cache' 로 서버에서 렌더 상황이 결정되기 때문에 hydration error가 발생하지 않습니다
-    const day = now.day()
-    const eyes = ['∗', 'O', '@', '+', '×', '⌃', 'Θ']
-    const index = (day + 6) % 7 // monday -> 0
-    const eye = eyes[index]
-
-    return `${eye}${'＿'.repeat(date)}${eye}`
-  }
-
-  const title = dailySiteTitle(dayjs())
-
+export function PostListHeader() {
+  const title = 'RANDOM 7'
+  const [_, shuffle] = useRandomPost()
   return (
     <div className={css.frame}>
       <h1 className={css.title}>
         <span>{title}</span>
+        <ShuffleBtn onClick={shuffle} />
       </h1>
     </div>
   )

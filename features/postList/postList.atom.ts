@@ -1,10 +1,9 @@
 import dayjs from 'dayjs'
 import type { NotionPageMeta } from 'features/notion'
 import { atom } from 'jotai'
-import { pick } from 'utils/pick'
 
 export const postsAtom = atom<NotionPageMeta[]>([])
-
+export const randomPostsAtom = atom<NotionPageMeta[]>([])
 export const postGroupByYearAtom = atom<Record<string, NotionPageMeta[]>>(get =>
   get(postsAtom).reduce(
     (prev, post) => {
