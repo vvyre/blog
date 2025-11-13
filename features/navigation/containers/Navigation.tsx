@@ -1,6 +1,6 @@
 'use client'
 import { HamburgerMenuIcon, HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons'
-import { ThemeContext } from 'features/theme'
+import { nextTheme, ThemeContext } from 'features/theme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { type MouseEvent, useContext } from 'react'
@@ -46,13 +46,13 @@ function NavigationContent() {
             switch (path) {
               case '/about':
                 return (
-                  <MenuBtn as={Link} href="/">
+                  <MenuBtn as={Link} href="/" aria-label={`메인 화면으로 이동합니다`}>
                     <HomeIcon width="21" height="21" />
                   </MenuBtn>
                 )
               default:
                 return (
-                  <MenuBtn as={Link} href="/about">
+                  <MenuBtn as={Link} href="/about" aria-label={`프로필 페이지로 이동합니다`}>
                     <InfoCircledIcon width="21" height="21" />
                   </MenuBtn>
                 )
@@ -60,16 +60,21 @@ function NavigationContent() {
           })()}
         </div>
         <div className={css.buttonGroup}>
-          <MenuBtn as="button" onClick={e => handleMenuButton(e, 'hamburger')}>
+          <MenuBtn type="button" onClick={e => handleMenuButton(e, 'hamburger')} aria-label={`모든 글 리스트를 펼칩니다`}>
             <HamburgerMenuIcon width="21" height="21" />
           </MenuBtn>
-          <MenuBtn onClick={toggleTheme}>
+          <MenuBtn
+            type="button"
+            onClick={toggleTheme}
+            aria-label={`현재 색상 테마는 ${theme}입니다. 버튼을 누르면 ${nextTheme(theme)} 테마로 바뀝니다.`}>
             {(() => {
               switch (theme) {
-                case 'dark':
+                case 'system':
                   return '🌞'
                 case 'light':
                   return '🌚'
+                case 'dark':
+                  return '👽'
               }
             })()}
           </MenuBtn>
