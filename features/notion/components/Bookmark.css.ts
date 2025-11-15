@@ -5,16 +5,30 @@ import { layouts } from 'styles/vars/layouts.css'
 import { link } from './richText/RTLink.css'
 
 export const bookmarkFrame = style({
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
+
   marginBlock: dp(4),
   backgroundColor: color.notion_background_gray,
   borderRadius: dp(2.5),
-  padding: layouts.paragraph,
+
   marginInline: layouts.full,
   wordBreak: 'break-all',
+  '@media': {
+    'screen and (min-width: 600px)': {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+    },
+  },
 })
 
-export const bookmarkInner = style({ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start' })
+export const bookmarkInner = style({
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  padding: layouts.paragraph,
+  alignItems: 'flex-start',
+})
 
 export const bookmarkTitle = style({
   marginBottom: dp(1.5),
@@ -38,6 +52,36 @@ export const bookmarkDescription = style({
   color: color.notion_gray,
   margin: 0,
   lineHeight: 1.35,
+})
+
+export const bookmarkThumbnailWrapper = style({
+  height: 'auto',
+  '@media': {
+    'screen and (min-width: 600px)': {
+      display: 'flex',
+      alignItems: 'stretch',
+    },
+  },
+})
+
+export const bookmarkThumbnail = style({
+  width: '100%',
+  height: 'auto',
+  objectFit: 'cover',
+  borderBottomRightRadius: dp(2.5),
+  borderBottomLeftRadius: dp(2.5),
+
+  '@media': {
+    'screen and (min-width: 600px)': {
+      height: '100%',
+      maxHeight: dp(35),
+      width: 'auto',
+      objectFit: 'cover',
+      borderBottomRightRadius: dp(2.5),
+      borderBottomLeftRadius: 0,
+      borderTopRightRadius: dp(2.5),
+    },
+  },
 })
 
 export const fallbackBookmark = style([

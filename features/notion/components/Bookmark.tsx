@@ -1,3 +1,4 @@
+'use client'
 import { Spacing } from 'components/base/Spacing'
 import type { NotionComponentProps } from 'features/notion'
 import { getPlainText } from '../utils/getPlainText.util'
@@ -5,6 +6,7 @@ import * as css from './Bookmark.css'
 
 export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
   const preview = block.bookmarkInfo.image ?? ''
+
   const editedUrl = (url: string) => {
     const edited = url.replace(/^(http?:\/\/)?(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')
     const idx = edited.indexOf('/')
@@ -20,12 +22,6 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
   return (
     <a
       className={css.bookmarkFrame}
-      style={{
-        backgroundImage: `url(${preview})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'contain',
-        backgroundPositionX: 'right',
-      }}
       href={block.bookmark.url}
       target="_blank"
       aria-label={`Bookmark: ${block.bookmarkInfo.title ?? fallbackTitle ?? 'No Title Available'}`}>
@@ -44,6 +40,9 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
             </p>
           </>
         )}
+      </div>
+      <div className={css.bookmarkThumbnailWrapper}>
+        <img src={preview} alt="Thumbnail" className={css.bookmarkThumbnail} />
       </div>
     </a>
   )
