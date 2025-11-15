@@ -1,9 +1,17 @@
 'use client'
 import { useIsomorphicLayoutEffect } from '@frfla/react-hooks'
 import { useMediaQuery } from 'hooks/useMediaQuery.hook'
-import { createContext, type Dispatch, type ReactNode, type SetStateAction, useCallback, useState } from 'react'
 
-export type Theme = 'dark' | 'light'
+import { createContext, type Dispatch, type ReactNode, type SetStateAction, useState } from 'react'
+
+const theme = ['system', 'light', 'dark'] as const
+type Theme = (typeof theme)[number]
+
+export function nextTheme(current: Theme) {
+  const i = theme.indexOf(current)
+  return theme[(i + 1) % theme.length]
+}
+
 export type ThemeContext = {
   theme: Theme
   setTheme: Dispatch<SetStateAction<Theme>>
@@ -11,7 +19,7 @@ export type ThemeContext = {
 }
 
 const initialThemeContextValue: ThemeContext = {
-  theme: 'light',
+  theme: 'system',
   setTheme: () => {},
   toggleTheme: () => {},
 }
@@ -19,22 +27,26 @@ const initialThemeContextValue: ThemeContext = {
 export const ThemeContext = createContext<ThemeContext>(initialThemeContextValue)
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const localStorageKey = `SeyuInTheme`
+  const localStorageKey = `YooooonBlogTheme`
   const localSetting = typeof window !== 'undefined' ? (localStorage.getItem(localStorageKey) as Theme | null) : null
   const prefersDark = useMediaQuery('(prefers-color-scheme: dark)')
 
-  const [theme, setTheme] = useState<Theme>('light')
+  const [theme, setTheme] = useState<Theme>('system')
 
+  const convertTheme = (theme: Theme) => (theme !== 'system' ? theme : prefersDark ? 'dark' : 'light')
+
+  // theme이 system일 때
   useIsomorphicLayoutEffect(() => {
-    setTheme(localSetting ?? (prefersDark ? 'dark' : 'light'))
+    if (theme === 'system') setTheme(localSetting ?? (prefersDark ? 'dark' : 'light'))
   }, [prefersDark])
 
+  // theme, storage 동기화
   useIsomorphicLayoutEffect(() => {
-    document.body.dataset.theme = theme
+    document.body.dataset.theme = convertTheme(theme)
     localStorage.setItem(localStorageKey, theme)
   }, [theme])
 
-  const toggleTheme = useCallback(() => setTheme(t => (t === 'light' ? 'dark' : 'light')), [])
+  const toggleTheme = () => setTheme(prev => nextTheme(prev))
 
   return (
     <ThemeContext.Provider
@@ -42,8 +54,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         theme,
         setTheme,
         toggleTheme,
-      }}
-    >
+      }}>
       {children}
     </ThemeContext.Provider>
   )
