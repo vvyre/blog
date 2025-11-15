@@ -7,6 +7,7 @@ import { link } from './richText/RTLink.css'
 export const bookmarkFrame = style({
   display: 'flex',
   flexDirection: 'column',
+
   marginBlock: dp(4),
   backgroundColor: color.notion_background_gray,
   borderRadius: dp(2.5),
@@ -16,6 +17,7 @@ export const bookmarkFrame = style({
   '@media': {
     'screen and (min-width: 600px)': {
       flexDirection: 'row',
+      justifyContent: 'space-between',
     },
   },
 })
@@ -52,15 +54,32 @@ export const bookmarkDescription = style({
   lineHeight: 1.35,
 })
 
+export const bookmarkThumbnailWrapper = style({
+  height: 'auto',
+  '@media': {
+    'screen and (min-width: 600px)': {
+      display: 'flex',
+      alignItems: 'stretch',
+    },
+  },
+})
+
 export const bookmarkThumbnail = style({
   width: '100%',
   height: 'auto',
-  borderBottomLeftRadius: dp(2.5),
+  objectFit: 'cover',
   borderBottomRightRadius: dp(2.5),
+  borderBottomLeftRadius: dp(2.5),
+
   '@media': {
     'screen and (min-width: 600px)': {
-      borderTopRightRadius: dp(2.5),
+      height: '100%',
+      maxHeight: dp(35),
+      width: 'auto',
+      objectFit: 'cover',
       borderBottomRightRadius: dp(2.5),
+      borderBottomLeftRadius: 0,
+      borderTopRightRadius: dp(2.5),
     },
   },
 })

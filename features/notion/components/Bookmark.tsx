@@ -1,22 +1,11 @@
 'use client'
 import { Spacing } from 'components/base/Spacing'
 import type { NotionComponentProps } from 'features/notion'
-import { useEffect, useState } from 'react'
 import { getPlainText } from '../utils/getPlainText.util'
 import * as css from './Bookmark.css'
 
 export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
   const preview = block.bookmarkInfo.image ?? ''
-  const [ratio, setRatio] = useState<number | null>(null)
-
-  useEffect(() => {
-    if (!preview) return
-    const img = new Image()
-    img.src = preview
-    img.onload = () => {
-      setRatio(img.width / img.height)
-    }
-  }, [preview])
 
   const editedUrl = (url: string) => {
     const edited = url.replace(/^(http?:\/\/)?(https?:\/\/)?(www\.)?/, '').replace(/\/$/, '')
@@ -52,16 +41,9 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
           </>
         )}
       </div>
-      <div
-        className={css.bookmarkThumbnail}
-        style={{
-          backgroundImage: `url(${preview})`,
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          ...(ratio && { aspectRatio: String(ratio) }),
-        }}
-      />
+      <div className={css.bookmarkThumbnailWrapper}>
+        <img src={preview} alt="Thumbnail" className={css.bookmarkThumbnail} />
+      </div>
     </a>
   )
 }
