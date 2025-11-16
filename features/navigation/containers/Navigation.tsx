@@ -70,11 +70,11 @@ function NavigationContent() {
             {(() => {
               switch (theme) {
                 case 'system':
-                  return '🌞'
-                case 'light':
-                  return '🌚'
-                case 'dark':
                   return '👽'
+                case 'light':
+                  return '🌞'
+                case 'dark':
+                  return '🌚'
               }
             })()}
           </MenuBtn>
