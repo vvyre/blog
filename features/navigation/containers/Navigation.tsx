@@ -66,7 +66,8 @@ function NavigationContent() {
           <MenuBtn
             type="button"
             onClick={toggleTheme}
-            aria-label={`현재 색상 테마는 ${theme}입니다. 버튼을 누르면 ${nextTheme(theme)} 테마로 바뀝니다.`}>
+            aria-label={`현재 색상 테마는 ${theme}입니다. 버튼을 누르면 ${nextTheme(theme)} 테마로 바뀝니다.`}
+            onHoverComponent={hovered => (hovered ? <div className={css.tooltip}>{theme}</div> : null)}>
             {(() => {
               switch (theme) {
                 case 'system':
