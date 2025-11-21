@@ -5,9 +5,11 @@ import { layouts } from 'styles/vars/layouts.css'
 
 export const postListFrame = style({
   paddingInline: layouts.paragraph,
-  paddingBottom: dp(24),
+  paddingBottom: dp(12),
   '@media': {
-    'screen and (min-width: 600px)': {},
+    'screen and (min-width: 600px)': {
+      paddingBottom: dp(24),
+    },
   },
 })
 
