@@ -2,7 +2,7 @@
 'use client'
 import hljs from 'highlight.js'
 import 'styles/hljs.css'
-import { useTextCopy } from '@frfla/react-hooks'
+import { useTextCopy } from '@fische/react'
 import { CheckIcon, CopyIcon } from '@radix-ui/react-icons'
 import type { NotionComponentProps } from 'features/notion'
 import { getCodeLang } from 'features/notion/utils/getCodeLang.util'

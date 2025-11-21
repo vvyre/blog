@@ -1,7 +1,5 @@
 'use client'
-import { useIsomorphicLayoutEffect } from '@frfla/react-hooks'
-import { useMediaQuery } from 'hooks/useMediaQuery.hook'
-
+import { useIsomorphicLayoutEffect, useMediaQuery } from '@fische/react'
 import { createContext, type Dispatch, type ReactNode, type SetStateAction, useState } from 'react'
 
 const theme = ['system', 'light', 'dark'] as const
@@ -29,7 +27,7 @@ export const ThemeContext = createContext<ThemeContext>(initialThemeContextValue
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const localStorageKey = `YooooonBlogTheme`
   const localSetting = typeof window !== 'undefined' ? (localStorage.getItem(localStorageKey) as Theme | null) : null
-  const prefersDark = useMediaQuery('(prefers-color-scheme: dark)')
+  const [prefersDark] = useMediaQuery('(prefers-color-scheme: dark)')
 
   const [theme, setTheme] = useState<Theme>('system')
 
