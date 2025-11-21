@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -62,7 +63,7 @@ export const imgDefault = style({
   height: 'auto',
   maxWidth: '100%',
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       maxWidth: '100%',
     },
   },

@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 import { link } from './richText/RTLink.css'
@@ -15,7 +16,7 @@ export const bookmarkFrame = style({
   marginInline: layouts.full,
   wordBreak: 'break-all',
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       flexDirection: 'row',
       justifyContent: 'space-between',
     },
@@ -57,7 +58,7 @@ export const bookmarkDescription = style({
 export const bookmarkThumbnailWrapper = style({
   height: 'auto',
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       display: 'flex',
       alignItems: 'stretch',
     },
@@ -72,7 +73,7 @@ export const bookmarkThumbnail = style({
   borderBottomLeftRadius: dp(2.5),
 
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       height: '100%',
       maxHeight: dp(35),
       width: 'auto',

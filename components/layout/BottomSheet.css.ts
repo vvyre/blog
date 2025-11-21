@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 
 export const frame = style({
   zIndex: 999,
@@ -31,7 +32,7 @@ export const base = style({
   flexDirection: 'column',
   paddingBottom: 'env(safe-area-inset-bottom)',
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       height: 'calc(100dvh)',
     },
   },
