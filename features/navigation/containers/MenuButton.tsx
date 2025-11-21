@@ -1,5 +1,5 @@
 'use client'
-import { useBooleanState } from '@frfla/react-hooks'
+import { useBooleanState } from '@fische/react'
 import clsx from 'clsx'
 import Link from 'next/link'
 import type { ComponentProps, ElementType, MouseEvent, ReactNode } from 'react'
