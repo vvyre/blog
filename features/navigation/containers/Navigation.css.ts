@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 
 export const frame = style({
@@ -18,7 +19,7 @@ export const frame = style({
   color: color.notion_default,
   flexDirection: 'row',
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       borderTop: 'none',
       height: dp(12),
       transform: 'translateY(0)',
@@ -32,7 +33,7 @@ export const buttonGroup = style({
   flexDirection: 'column-reverse',
   gap: dp(2),
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       flexDirection: 'column',
       gap: dp(1),
     },
@@ -54,7 +55,7 @@ export const categoryBtn = style({
   color: color.text,
   cursor: 'pointer',
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       padding: 0,
       color: color.text,
       borderRadius: 0,

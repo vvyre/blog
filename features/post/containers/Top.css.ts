@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 import { layouts } from 'styles/vars/layouts.css'
 
 export const frame = style({
@@ -11,7 +12,7 @@ export const frame = style({
   paddingTop: dp(12),
   marginBottom: dp(12),
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       backgroundColor: 'transparent',
       paddingTop: dp(12),
     },

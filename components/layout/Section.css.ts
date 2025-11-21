@@ -1,4 +1,5 @@
 import { style } from '@vanilla-extract/css'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 
 export const base = style({
   display: 'flex',
@@ -6,6 +7,6 @@ export const base = style({
   maxWidth: '45rem',
   margin: '0 auto',
   '@media': {
-    'screen and (min-width: 600px)': {},
+    [breakpoints.desktop]: {},
   },
 })

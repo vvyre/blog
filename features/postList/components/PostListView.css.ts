@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
 
@@ -7,7 +8,7 @@ export const postListFrame = style({
   paddingInline: layouts.paragraph,
   paddingBottom: dp(12),
   '@media': {
-    'screen and (min-width: 600px)': {
+    [breakpoints.desktop]: {
       paddingBottom: dp(24),
     },
   },
