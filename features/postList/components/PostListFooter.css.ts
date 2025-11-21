@@ -10,14 +10,3 @@ export const frame = style({
   marginBottom: dp(4),
   gap: dp(4),
 })
-
-export const title = style({
-  fontSize: dp(4),
-  display: 'flex',
-  fontWeight: 400,
-  wordSpacing: `-${dp(1)}`,
-  alignItems: 'center',
-  textAlign: 'center',
-  fontFamily: '"Google Sans Code", "Pretendard", monospace',
-  lineHeight: 1.2,
-})
