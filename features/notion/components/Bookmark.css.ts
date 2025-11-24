@@ -3,18 +3,16 @@ import { dp } from 'styles/dp'
 import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 import { layouts } from 'styles/vars/layouts.css'
-import { link } from './richText/RTLink.css'
 
 export const bookmarkFrame = style({
   display: 'flex',
   flexDirection: 'column',
-
   marginBlock: dp(4),
-  backgroundColor: color.notion_background_gray,
   borderRadius: dp(2.5),
-
   marginInline: layouts.full,
   wordBreak: 'break-all',
+  backgroundSize: '25%',
+  backgroundPosition: 'center center',
   '@media': {
     [breakpoints.desktop]: {
       flexDirection: 'row',
@@ -25,6 +23,9 @@ export const bookmarkFrame = style({
 
 export const bookmarkInner = style({
   display: 'flex',
+  width: '100%',
+  borderRadius: dp(2.2),
+  backgroundColor: color.background_opacity95,
   flexDirection: 'column',
   justifyContent: 'center',
   padding: layouts.paragraph,
@@ -64,36 +65,3 @@ export const bookmarkThumbnailWrapper = style({
     },
   },
 })
-
-export const bookmarkThumbnail = style({
-  width: '100%',
-  height: 'auto',
-  objectFit: 'cover',
-  borderBottomRightRadius: dp(2.5),
-  borderBottomLeftRadius: dp(2.5),
-
-  '@media': {
-    [breakpoints.desktop]: {
-      height: '100%',
-      maxHeight: dp(35),
-      width: 'auto',
-      objectFit: 'cover',
-      borderBottomRightRadius: dp(2.5),
-      borderBottomLeftRadius: 0,
-      borderTopRightRadius: dp(2.5),
-    },
-  },
-})
-
-export const fallbackBookmark = style([
-  link,
-  bookmarkUrl,
-  {
-    display: 'block',
-    backgroundColor: color.notion_background_gray,
-    borderRadius: dp(2.5),
-    padding: layouts.paragraph,
-    marginBlock: dp(4),
-    marginInline: layouts.full,
-  },
-])
