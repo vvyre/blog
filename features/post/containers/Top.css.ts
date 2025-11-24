@@ -13,12 +13,8 @@ export const frame = style({
   marginBottom: dp(12),
   backgroundColor: 'transparent',
   '@media': {
-    [breakpoints.desktop_wide]: {
-      paddingTop: dp(12),
-    },
-    [breakpoints.desktop]: {
-      paddingTop: dp(12),
-    },
+    [breakpoints.desktop_wide]: {},
+    [breakpoints.desktop]: {},
   },
 })
 
