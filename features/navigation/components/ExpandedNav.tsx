@@ -1,10 +1,7 @@
-import { useMediaQuery } from '@fische/react'
 import { type ReactNode, useEffect } from 'react'
-import { breakpoints } from 'styles/vars/breakpoints.css'
 import * as css from './ExpandedNav.css'
 
 export function ExpandedNav({ isOpen, content, onClose, ...props }: { isOpen: boolean; content: ReactNode; onClose: () => void }) {
-  const [isDesktop] = useMediaQuery(breakpoints.desktop)
   useEffect(() => {
     if (!isOpen) return
 
@@ -19,15 +16,7 @@ export function ExpandedNav({ isOpen, content, onClose, ...props }: { isOpen: bo
   }, [isOpen, onClose])
 
   return (
-    <div
-      className={css.wrapper}
-      style={{
-        visibility: isOpen ? 'visible' : 'hidden',
-        pointerEvents: isOpen ? 'auto' : 'none',
-        translate: isOpen ? 0 : '100%',
-        transform: isOpen ? 'translateY(0)' : !isDesktop ? 'translateY(5%)' : 'translateY(-5%)',
-        opacity: isOpen ? 1 : 0,
-      }}>
+    <div className={css.wrapper} data-open={isOpen}>
       <div data-menu-root className={css.frame} {...props}>
         <div className={css.contentFrame}>{content}</div>
       </div>
