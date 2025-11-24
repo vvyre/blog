@@ -6,7 +6,7 @@ import logo from 'assets/logo.svg'
 import meta from 'assets/meta'
 import { Navigation } from 'features/navigation/containers/Navigation'
 import { ENV } from 'static/env'
-import { Hydrate } from './(util)/Hydrate'
+import { HydrateOnce } from './(util)/HydrateOnce'
 import { Providers } from './(util)/Providers'
 import { startPageLoader } from './server'
 
@@ -31,7 +31,7 @@ export default async function RootLayout({
     <html lang="ko">
       <body>
         <Providers>
-          <Hydrate state={{ posts, about }} />
+          <HydrateOnce state={{ posts, about }} />
           <Navigation />
           <main>{children}</main>
         </Providers>
