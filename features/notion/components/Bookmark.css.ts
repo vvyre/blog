@@ -13,7 +13,6 @@ export const bookmarkFrame = style({
   wordBreak: 'break-all',
   backgroundSize: '25%',
   backgroundPosition: 'center center',
-  objectFit: 'cover',
   '@media': {
     [breakpoints.desktop]: {
       flexDirection: 'row',
