@@ -1,6 +1,6 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { NotionComponentProps } from 'features/notion'
-import { getHeadingId } from 'features/notion/utils/get-heading-id'
+import { getHeadingId } from 'features/notion/utils/getHeadingId'
 import { h1, h2, h3 } from './Headings.css'
 
 export function Heading_1({ block }: NotionComponentProps<'heading_1'>) {
