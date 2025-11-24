@@ -1,5 +1,6 @@
 import { style } from '@vanilla-extract/css'
 import { dp } from 'styles/dp'
+import { breakpoints } from 'styles/vars/breakpoints.css'
 import { color } from 'styles/vars/color.css'
 
 export const wrapper = style({
@@ -9,7 +10,19 @@ export const wrapper = style({
   position: 'fixed',
   right: 0,
   top: 0,
-  transition: 'transform .2s cubic-bezier(.4, 0, .4, 1), opacity .2s cubic-bezier(.4, 0, .4, 1)',
+  transition: 'opacity .2s cubic-bezier(.4, 0, .4, 1)',
+  selectors: {
+    '&[data-open="false"]': {
+      opacity: 0,
+      pointerEvents: 'none',
+      visibility: 'hidden',
+    },
+    '&[data-open="true"]': {
+      opacity: 1,
+      pointerEvents: 'auto',
+      visibility: 'visible',
+    },
+  },
 })
 
 export const frame = style({
@@ -19,6 +32,18 @@ export const frame = style({
   backgroundColor: 'transparent',
   paddingTop: dp(12),
   overflow: 'hidden',
+  transition: 'transform .2s cubic-bezier(.4, 0, .4, 1)',
+  transform: 'translateY(5%)',
+  '@media': {
+    [breakpoints.desktop]: {
+      transform: 'translateY(-5%)',
+    },
+  },
+  selectors: {
+    '[data-open="true"] &': {
+      transform: 'translateY(0)',
+    },
+  },
 })
 
 export const contentFrame = style({
