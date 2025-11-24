@@ -3,8 +3,7 @@ import type { NotionComponentProps } from 'features/notion'
 import { getPlainText } from '../utils/getPlainText.util'
 import * as css from './Bookmark.css'
 
-export async function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
-  'use cache'
+export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
   const preview = block.bookmarkInfo.image ?? ''
 
   const editedUrl = (url: string) => {
