@@ -1,6 +1,6 @@
 import type { RichTextItemResponse } from '@notionhq/client'
 
-export function cleanUrl(richText: RichTextItemResponse[]) {
+export function getHeadingId(richText: RichTextItemResponse[]) {
   const text = richText[0].plain_text
   //특수문자 제거
   let result = text

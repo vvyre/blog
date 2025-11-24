@@ -1,5 +1,5 @@
+import { getHeadingId } from 'features/notion/utils/get-heading-id'
 import { getPlainText } from 'features/notion/utils/getPlainText.util'
-import { cleanUrl } from 'utils/clean-url'
 import { getHeadingLevel } from '../util/getHeadingLevel'
 import type { TableOfContentBlock } from '../util/processHeadings'
 import * as css from './TableOfContents.css'
@@ -18,11 +18,11 @@ export function HeadingItem({ heading }: { heading: TableOfContentBlock }) {
   const url = (() => {
     switch (heading.type) {
       case 'heading_1':
-        return cleanUrl(heading.heading_1.rich_text)
+        return getHeadingId(heading.heading_1.rich_text)
       case 'heading_2':
-        return cleanUrl(heading.heading_2.rich_text)
+        return getHeadingId(heading.heading_2.rich_text)
       case 'heading_3':
-        return cleanUrl(heading.heading_3.rich_text)
+        return getHeadingId(heading.heading_3.rich_text)
     }
   })()
 
