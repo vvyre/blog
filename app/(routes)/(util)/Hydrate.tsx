@@ -14,7 +14,7 @@ export function Hydrate({ state }: Props) {
   const setCurrentPost = useSetAtom(currentPostAtom)
   useEffect(() => {
     setCurrentPost(state.currentPost)
-  }, [state, setCurrentPost])
+  }, [state.currentPost, setCurrentPost])
 
   return null
 }
