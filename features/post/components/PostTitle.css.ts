@@ -15,6 +15,11 @@ export const title = style({
   '@media': {
     [breakpoints.desktop]: {
       fontSize: dp(8),
+      textAlign: 'left',
+    },
+    [breakpoints.desktop_wide]: {
+      fontSize: dp(8),
+      textAlign: 'left',
     },
   },
 })

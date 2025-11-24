@@ -1,4 +1,5 @@
 import type { BlockObjectResponse } from '@notionhq/client'
+import { Hydrate } from 'app/(routes)/(util)/Hydrate'
 import logo from 'assets/logo.svg'
 import siteMeta from 'assets/meta'
 import { Spacing } from 'components/base/Spacing'
@@ -8,6 +9,7 @@ import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.ut
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
 import { processBlock } from 'features/notion/utils/processBlock'
 import { Top } from 'features/post/containers/Top'
+import { TableOfContentsContainer } from 'features/tableOfContents'
 import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import { ENV } from 'static/env'
@@ -64,16 +66,20 @@ export default async function Post({ params }: PostPageProps) {
     console.info(err)
   }
 
-  const blocks = await processBlock(post)
+  const currentPost = await processBlock(post)
 
   return (
     <>
+      <Hydrate state={{ currentPost }} />
+
       <Top meta={meta} />
+
+      <TableOfContentsContainer />
       <Spacing size={12} />
 
       <Section>
         <Suspense fallback={<>...</>}>
-          <RenderNotion blocks={blocks} />
+          <RenderNotion blocks={currentPost} />
           <Spacing size={12} />
         </Suspense>
       </Section>
