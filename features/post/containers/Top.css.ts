@@ -11,9 +11,12 @@ export const frame = style({
   paddingInline: layouts.paragraph,
   paddingTop: dp(12),
   marginBottom: dp(12),
+  backgroundColor: 'transparent',
   '@media': {
+    [breakpoints.desktop_wide]: {
+      paddingTop: dp(12),
+    },
     [breakpoints.desktop]: {
-      backgroundColor: 'transparent',
       paddingTop: dp(12),
     },
   },
