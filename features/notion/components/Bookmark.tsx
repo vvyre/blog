@@ -1,10 +1,10 @@
-'use client'
 import { Spacing } from 'components/base/Spacing'
 import type { NotionComponentProps } from 'features/notion'
 import { getPlainText } from '../utils/getPlainText.util'
 import * as css from './Bookmark.css'
 
-export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
+export async function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
+  'use cache'
   const preview = block.bookmarkInfo.image ?? ''
 
   const editedUrl = (url: string) => {
