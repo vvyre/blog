@@ -32,7 +32,8 @@ export const frame = style({
   backgroundColor: 'transparent',
   paddingTop: dp(12),
   overflow: 'hidden',
-  transition: 'transform .2s cubic-bezier(.4, 0, .4, 1), opacity .2s cubic-bezier(.4, 0, .4, 1)',
+  transition: 'transform .2s cubic-bezier(.4, 0, .4, 1)',
+  transform: 'translateY(5%)',
   '@media': {
     [breakpoints.desktop]: {
       transform: 'translateY(-5%)',
