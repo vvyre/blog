@@ -1,4 +1,4 @@
-import { RichTextItemResponse } from '@notionhq/client'
+import type { RichTextItemResponse } from '@notionhq/client'
 
 export function cleanUrl(richText: RichTextItemResponse[]) {
   const text = richText[0].plain_text
