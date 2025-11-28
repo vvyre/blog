@@ -14,12 +14,14 @@ export type ThemeContext = {
   theme: Theme
   setTheme: Dispatch<SetStateAction<Theme>>
   toggleTheme: () => void
+  appliedTheme: Exclude<Theme, 'system'>
 }
 
 const initialThemeContextValue: ThemeContext = {
   theme: 'system',
   setTheme: () => {},
   toggleTheme: () => {},
+  appliedTheme: 'light',
 }
 
 export const ThemeContext = createContext<ThemeContext>(initialThemeContextValue)
@@ -31,7 +33,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   const [theme, setTheme] = useState<Theme>('system')
 
-  const convertTheme = (theme: Theme) => (theme !== 'system' ? theme : prefersDark ? 'dark' : 'light')
+  const convertTheme = () => (theme !== 'system' ? theme : prefersDark ? 'dark' : 'light')
 
   // theme이 system일 때
   useIsomorphicLayoutEffect(() => {
@@ -40,7 +42,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 
   // theme, storage 동기화
   useIsomorphicLayoutEffect(() => {
-    document.body.dataset.theme = convertTheme(theme)
+    document.body.dataset.theme = convertTheme()
     localStorage.setItem(localStorageKey, theme)
   }, [theme])
 
@@ -50,9 +52,11 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     <ThemeContext.Provider
       value={{
         theme,
+        appliedTheme: convertTheme(),
         setTheme,
         toggleTheme,
-      }}>
+      }}
+    >
       {children}
     </ThemeContext.Provider>
   )
