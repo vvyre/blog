@@ -53,7 +53,7 @@ globalStyle('body[data-theme="dark"]', {
     [color.text]: '#ffffff',
     [color.text_invert]: '#262626',
     [color.link]: '#AD70FF',
-    [color.accent]: 'red',
+    [color.accent]: '#AD70FF',
     [color.ok]: 'springgreen',
     [color.notion_default]: '#ffffff',
     [color.notion_gray]: '#CFD4D6',
