@@ -28,7 +28,7 @@ function PostLink({ meta }: { meta: NotionPageMeta }) {
   return (
     <li className={css.postLinkFrame}>
       <Link href={path} className={css.postLinkInner}>
-        <span className={css.postLinkTitle}>{`${pageMeta(meta).title}`}</span>
+        <span className={css.postLinkTitle}>{`${postMeta.title}`}</span>
       </Link>
     </li>
   )
@@ -43,7 +43,7 @@ function FirstPostLink({ meta }: { meta: NotionPageMeta }) {
 
   useEffect(() => {
     const id = setInterval(() => {
-      const i = Math.floor(Math.random() * COLORS.length) === COLORS.length ? COLORS.length - 1 : Math.floor(Math.random() * COLORS.length)
+      const i = Math.floor(Math.random() * COLORS.length)
       setIndex(i)
     }, 800)
 
@@ -53,7 +53,7 @@ function FirstPostLink({ meta }: { meta: NotionPageMeta }) {
   return (
     <li className={css.postLinkFrame}>
       <Link href={path} className={css.postLinkInner}>
-        <span className={css.firstPostLinkTitle} style={{ color: COLORS[index] }}>{`${pageMeta(meta).title}`}</span>
+        <span className={css.firstPostLinkTitle} style={{ color: COLORS[index] }}>{`${postMeta.title}`}</span>
       </Link>
     </li>
   )
