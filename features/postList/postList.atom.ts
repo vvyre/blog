@@ -3,7 +3,6 @@ import type { NotionPageMeta } from 'features/notion'
 import { atom } from 'jotai'
 
 export const postsAtom = atom<NotionPageMeta[]>([])
-export const randomPostsAtom = atom<NotionPageMeta[]>([])
 export const postGroupByYearAtom = atom<Record<string, NotionPageMeta[]>>(get =>
   get(postsAtom).reduce(
     (prev, post) => {
