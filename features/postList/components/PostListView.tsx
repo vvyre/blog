@@ -1,5 +1,4 @@
 'use client'
-
 import { Spacing } from 'components/base/Spacing'
 import type { NotionPageMeta } from 'features/notion'
 import { pageMeta } from 'features/notion/utils/pageMeta.util'
@@ -8,7 +7,6 @@ import { dp } from 'styles/dp'
 import * as css from './PostListView.css'
 import { postsAtom } from '../postList.atom'
 import { useAtomValue } from 'jotai'
-import { LightningBoltIcon } from '@radix-ui/react-icons'
 import { color } from 'styles/vars/color.css'
 import { useEffect, useState } from 'react'
 
