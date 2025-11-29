@@ -19,6 +19,12 @@ export const viewLink = style({
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
+  gap: dp(4),
+  '@media': {
+    [breakpoints.desktop]: {
+      gap: dp(7),
+    },
+  },
 })
 
 export const postLinkFrame = style({
@@ -27,28 +33,45 @@ export const postLinkFrame = style({
 })
 
 export const postLinkInner = style({
-  display: 'inline-block',
+  display: 'inline-flex',
+  gap: dp(1),
+  alignItems: 'center',
   textAlign: 'center',
-  marginBottom: dp(2),
+  border: '1px solid transparent',
 })
 
-export const postLinkTitle = style({
-  display: 'inline-block',
-  color: color.text_invert,
-  border: '1px solid transparent',
-  backgroundColor: color.background_invert,
-  paddingBlock: dp(2),
-  paddingInline: dp(2),
-  fontSize: dp(4.25),
+const postLinkTitleBase = style({
+  fontSize: dp(5),
   fontFamily: '"Mona Sans", "Pretendard", monospace',
+  fontWeight: 700,
   lineHeight: 1.2,
   '@media': {
-    '(hover: hover) and (pointer: fine)': {
-      ':hover': {
-        border: `1px solid ${color.background_invert}`,
-        backgroundColor: color.background,
-        color: color.text,
+    [breakpoints.desktop]: {
+      fontSize: dp(8),
+    },
+    '(hover: hover)': {
+      selectors: {
+        '&:hover': {
+          textDecoration: 'underline',
+          textUnderlineOffset: dp(2),
+        },
       },
     },
   },
 })
+
+export const postLinkTitle = style([
+  postLinkTitleBase,
+  {
+    display: 'inline-block',
+    color: color.text,
+  },
+])
+
+export const firstPostLinkTitle = style([
+  postLinkTitleBase,
+  {
+    display: 'inline-block',
+    transition: 'color .2s cubic-bezier(.4, 0, .4, 1)',
+  },
+])
