@@ -5,8 +5,9 @@ import { useContext } from 'react'
 import * as css from './Guestbook.css'
 
 export function Guestbook() {
-  const { theme } = useContext(ThemeContext)
-  const themeName = theme === 'light' ? 'light' : 'noborder_gray'
+  const { appliedTheme } = useContext(ThemeContext)
+  const themeName = appliedTheme === 'light' ? 'light' : 'noborder_gray'
+
   return (
     <div className={css.guestBookFrame}>
       <Giscus
