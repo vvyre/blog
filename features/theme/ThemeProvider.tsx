@@ -32,17 +32,16 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [prefersDark] = useMediaQuery('(prefers-color-scheme: dark)')
 
   const [theme, setTheme] = useState<Theme>('system')
+  const appliedTheme: Theme = theme !== 'system' ? theme : prefersDark ? 'dark' : 'light'
 
-  const convertTheme = () => (theme !== 'system' ? theme : prefersDark ? 'dark' : 'light')
-
-  // theme이 system일 때
+  // 처음 렌더링될 때
   useIsomorphicLayoutEffect(() => {
-    if (theme === 'system') setTheme(localSetting ?? (prefersDark ? 'dark' : 'light'))
+    theme === 'system' && setTheme(localSetting ?? appliedTheme)
   }, [prefersDark])
 
   // theme, storage 동기화
   useIsomorphicLayoutEffect(() => {
-    document.body.dataset.theme = convertTheme()
+    document.body.dataset.theme = appliedTheme
     localStorage.setItem(localStorageKey, theme)
   }, [theme])
 
@@ -52,7 +51,7 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     <ThemeContext.Provider
       value={{
         theme,
-        appliedTheme: convertTheme(),
+        appliedTheme,
         setTheme,
         toggleTheme,
       }}
