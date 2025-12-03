@@ -17,7 +17,8 @@ import { Quote } from '../components/Quote'
 import { Bookmark } from '../components/Bookmark'
 import { Toggle } from '../components/Toggle'
 import { NotionDivider } from '../components/NotionDivider'
-import { ExtendedBlockTypes, NotionBlockComponent } from 'features/notion'
+import type { ExtendedBlockTypes, NotionBlockComponent } from 'features/notion'
+import { Equation } from '../components/Equation'
 
 export const blockComponentMap: Partial<{ [K in ExtendedBlockTypes]: NotionBlockComponent<K> }> = {
   bookmark: Bookmark,
@@ -32,7 +33,7 @@ export const blockComponentMap: Partial<{ [K in ExtendedBlockTypes]: NotionBlock
   column_list: ColumnList,
   divider: NotionDivider,
   // embed: NotionFile,
-  // equation: <></>,
+  equation: Equation,
   file: NotionFile,
   heading_1: Headings.Heading_1,
   heading_2: Headings.Heading_2,
