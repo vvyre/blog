@@ -18,5 +18,6 @@ export const tag = style({
   backgroundColor: color.background_invert,
   paddingBlock: dp(1.5),
   paddingInline: dp(2),
+  borderRadius: dp(1.2),
   color: color.text_invert,
 })
