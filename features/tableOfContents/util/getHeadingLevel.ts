@@ -1,4 +1,4 @@
-import type { TraversableBlock } from 'features/notion'
+import type { TraversableBlock } from 'features/notion/types'
 import type { TableOfContentBlock } from './processHeadings'
 
 export const getHeadingLevel = (block: TraversableBlock | TableOfContentBlock) => {

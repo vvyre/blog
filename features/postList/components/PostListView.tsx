@@ -1,6 +1,7 @@
 'use client'
 import { Spacing } from 'components/base/Spacing'
-import { type NotionPageMeta, getNotionPageMeta } from 'features/notion'
+import { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
+import type { NotionPageMeta } from 'features/notion/types'
 import Link from 'next/link'
 import { dp } from 'styles/dp'
 import * as css from './PostListView.css'

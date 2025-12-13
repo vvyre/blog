@@ -1,4 +1,4 @@
-import type { NotionComponentProps } from 'features/notion'
+import type { NotionComponentProps } from 'features/notion/types'
 import { ol } from './NumberedList.css'
 import { NumberedListItem } from './NumberedListItem'
 

@@ -1,6 +1,6 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import type { NotionComponentProps } from 'features/notion'
-import { RichText } from '../_richText/RichText'
+import type { NotionComponentProps } from 'features/notion/types'
+import { RichText } from '../richText/RichText'
 
 export function Callout({ block }: NotionComponentProps<'callout'>) {
   return (

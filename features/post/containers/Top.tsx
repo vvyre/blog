@@ -1,5 +1,5 @@
 'use client'
-import type { getNotionPageMeta } from 'features/notion'
+import type { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
 import { PostInfo } from '../components/PostInfo'
 import { PostTitle } from '../components/PostTitle'
 import { Tags } from '../components/Tags'

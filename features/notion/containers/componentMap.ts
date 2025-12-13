@@ -17,7 +17,7 @@ import { Quote } from '../components/quote/Quote'
 import { Bookmark } from '../components/bookmark/Bookmark'
 import { Toggle } from '../components/toggle/Toggle'
 import { NotionDivider } from '../components/divider/NotionDivider'
-import type { ExtendedBlockTypes, NotionBlockComponent } from 'features/notion'
+import type { ExtendedBlockTypes, NotionBlockComponent } from 'features/notion/types'
 import { Equation } from '../components/equation/Equation'
 
 export const blockComponentMap: Partial<{ [K in ExtendedBlockTypes]: NotionBlockComponent<K> }> = {

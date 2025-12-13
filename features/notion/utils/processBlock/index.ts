@@ -1,7 +1,7 @@
 import './processor'
 import { processors } from './registry'
 import pMap from 'p-map'
-import type { ExtendedBlockObjectResponse, TraversableBlock } from 'features/notion'
+import type { ExtendedBlockObjectResponse, TraversableBlock } from 'features/notion/types'
 import type { BlockObjectResponse } from '@notionhq/client'
 import { group } from './group'
 

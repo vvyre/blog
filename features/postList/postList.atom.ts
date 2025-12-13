@@ -1,5 +1,5 @@
 import dayjs from 'dayjs'
-import type { NotionPageMeta } from 'features/notion'
+import type { NotionPageMeta } from 'features/notion/types'
 import { atom } from 'jotai'
 
 export const postsAtom = atom<NotionPageMeta[]>([])

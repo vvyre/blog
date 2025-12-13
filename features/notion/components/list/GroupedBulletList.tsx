@@ -1,4 +1,4 @@
-import type { NotionComponentProps } from 'features/notion'
+import type { NotionComponentProps } from 'features/notion/types'
 import { ul } from './BulletedList.css'
 import { BulletedListItem } from './BulletedListItem'
 

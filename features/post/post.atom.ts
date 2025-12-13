@@ -1,4 +1,4 @@
-import type { TraversableBlock } from 'features/notion'
+import type { TraversableBlock } from 'features/notion/types'
 import { atom } from 'jotai'
 
 export const currentPostAtom = atom<TraversableBlock[]>([])

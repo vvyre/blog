@@ -1,5 +1,5 @@
 import { Spacing } from 'components/base/Spacing'
-import type { NotionComponentProps } from 'features/notion'
+import type { NotionComponentProps } from 'features/notion/types'
 import { getPlainText } from '../richText/getPlainText'
 import * as css from './Bookmark.css'
 

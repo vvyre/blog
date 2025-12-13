@@ -1,9 +1,9 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import type { NotionComponentProps } from 'features/notion'
-import { hasChildren } from 'features/notion'
+import type { NotionComponentProps } from 'features/notion/types'
+import { hasChildren } from 'features/notion/types'
 import { ChildrenBlocks } from '../../containers/ChildrenBlocks'
 import * as css from './Quote.css'
-import { RichText } from '../_richText/RichText'
+import { RichText } from '../richText/RichText'
 
 export function Quote({ block }: NotionComponentProps<'quote'>) {
   return (

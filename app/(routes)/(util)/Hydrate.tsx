@@ -1,5 +1,5 @@
 'use client'
-import type { TraversableBlock } from 'features/notion'
+import type { TraversableBlock } from 'features/notion/types'
 import { currentPostAtom } from 'features/post/post.atom'
 import { useSetAtom } from 'jotai'
 import { useEffect } from 'react'
