@@ -8,7 +8,7 @@ import type {
   ParagraphBlockObjectResponse,
   RichTextItemResponse,
 } from '@notionhq/client'
-import type { BookmarkMeta } from 'features/notion/utils/processBlock/processor/bookmark'
+import type { BookmarkMeta } from 'features/notion/utils/processBlock/processor/bookmark.server'
 
 type BaseBlock = Omit<ParagraphBlockObjectResponse, 'type' | 'paragraph'>
 

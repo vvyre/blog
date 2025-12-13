@@ -28,7 +28,8 @@
     "p-map": "^7.0.3",
     "react": "19.2.1",
     "react-dom": "19.2.1",
-    "rss": "^1.2.2"
+    "rss": "^1.2.2",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@biomejs/biome": "2.2.0",

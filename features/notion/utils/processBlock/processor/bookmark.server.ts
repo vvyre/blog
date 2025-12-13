@@ -3,7 +3,7 @@ import type { BookmarkBlockObjectResponse } from '@notionhq/client/build/src/api
 import type { ExtendedBookmarkObjectResponse } from 'features/notion/types'
 import { parseHTML } from 'linkedom'
 import { cacheLife } from 'next/cache'
-import { registerProcessor } from '../registry'
+import { registerProcessor } from '../registry.server'
 
 export type BookmarkMeta = {
   url: string

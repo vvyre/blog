@@ -1,5 +1,5 @@
 import type { ImageBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import { registerProcessor } from '../registry'
+import { registerProcessor } from '../registry.server'
 import type { ExtendedImageBlockObjectResponse } from 'features/notion/types'
 
 export const getBlurredImg = async (block: ImageBlockObjectResponse): Promise<ExtendedImageBlockObjectResponse> => {

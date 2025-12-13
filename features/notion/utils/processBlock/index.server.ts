@@ -1,9 +1,10 @@
-import './processor'
-import { processors } from './registry'
+import 'server-only'
+import './processor/index.server'
+import { processors } from './registry.server'
 import pMap from 'p-map'
 import type { ExtendedBlockObjectResponse, TraversableBlock } from 'features/notion/types'
 import type { BlockObjectResponse } from '@notionhq/client'
-import { group } from './group'
+import { group } from './group.server'
 
 export const processBlock = async (blocks: BlockObjectResponse[]): Promise<TraversableBlock[]> =>
   group(
