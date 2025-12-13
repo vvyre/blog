@@ -1,4 +1,4 @@
-import type { TraversableBlock } from 'features/notion'
+import type { TraversableBlock } from 'features/notion/types'
 import { getHeadingLevel } from './getHeadingLevel'
 
 export type TableOfContentBlock = TraversableBlock & { childrenHeadings: TableOfContentBlock[] }

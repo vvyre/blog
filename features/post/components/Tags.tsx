@@ -1,4 +1,4 @@
-import type { getNotionPageMeta } from 'features/notion'
+import type { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
 import * as css from './Tags.css'
 
 type Tag = ReturnType<typeof getNotionPageMeta>['tags'][number]

@@ -1,4 +1,4 @@
-import type { ExtendedImageBlockObjectResponse } from 'features/notion'
+import type { ExtendedImageBlockObjectResponse } from 'features/notion/types'
 
 export const getImgUrl = (block: ExtendedImageBlockObjectResponse): string => {
   const imageProps = block

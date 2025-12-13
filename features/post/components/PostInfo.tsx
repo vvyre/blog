@@ -1,5 +1,5 @@
 'use client'
-import type { getNotionPageMeta } from 'features/notion'
+import type { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
 import * as css from './PostInfo.css'
 
 export function PostInfo({ meta }: { meta: ReturnType<typeof getNotionPageMeta> }) {

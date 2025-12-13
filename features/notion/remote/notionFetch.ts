@@ -8,7 +8,7 @@ import type {
 } from '@notionhq/client/build/src/api-endpoints'
 import { cacheLife } from 'next/cache'
 import { ENV } from 'static/env'
-import type { NotionPageMeta } from '../../types'
+import type { NotionPageMeta } from '../types'
 
 const createNotionClient = () => new Client({ auth: ENV.NOTION_KEY })
 export const notion: Client = createNotionClient()

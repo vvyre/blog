@@ -1,4 +1,4 @@
-import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
+import { getCachedPostList, getPost } from 'features/notion/remote/notionFetch'
 import { processBlock } from 'features/notion/utils/processBlock'
 import { ENV } from 'static/env'
 

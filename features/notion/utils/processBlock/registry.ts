@@ -1,5 +1,5 @@
 import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import type { ExtendedBlockObjectResponse, ExtendedBlockTypes } from 'features/notion'
+import type { ExtendedBlockObjectResponse, ExtendedBlockTypes } from 'features/notion/types'
 
 export type BlockType = BlockObjectResponse['type']
 

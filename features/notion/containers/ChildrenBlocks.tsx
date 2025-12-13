@@ -1,6 +1,6 @@
 import { Block } from './Block'
 import { Fragment } from 'react'
-import type { TraversableBlock } from 'features/notion'
+import type { TraversableBlock } from 'features/notion/types'
 
 export function ChildrenBlocks({ childrenBlocks }: { childrenBlocks: TraversableBlock[] }) {
   return (

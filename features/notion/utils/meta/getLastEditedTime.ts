@@ -1,4 +1,4 @@
-import type { NotionPageMeta } from 'features/notion'
+import type { NotionPageMeta } from 'features/notion/types'
 
 export function getLastEditedTime(post: NotionPageMeta) {
   const date = new Date(post.last_edited_time)

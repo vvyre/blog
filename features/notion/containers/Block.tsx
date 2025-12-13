@@ -1,5 +1,5 @@
 import { blockComponentMap } from './componentMap'
-import type { ExtendedBlockTypes, NotionBlockComponent, TransformedNotionBlock } from 'features/notion'
+import type { ExtendedBlockTypes, NotionBlockComponent, TransformedNotionBlock } from 'features/notion/types'
 
 export function Block<T extends ExtendedBlockTypes>({ block }: { block: TransformedNotionBlock<T> }) {
   const Component = blockComponentMap[block.type] as NotionBlockComponent<T> | null

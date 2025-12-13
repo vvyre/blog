@@ -1,5 +1,5 @@
 'use client'
-import { getNotionPageMeta } from 'features/notion'
+import { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
 import { postGroupByYearAtom, yearsAtom } from 'features/postList/postList.atom'
 import { useAtomValue } from 'jotai'
 import Link from 'next/link'

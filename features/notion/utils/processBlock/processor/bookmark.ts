@@ -1,6 +1,6 @@
 import https, { Agent } from 'node:https'
 import type { BookmarkBlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import type { ExtendedBookmarkObjectResponse } from 'features/notion'
+import type { ExtendedBookmarkObjectResponse } from 'features/notion/types'
 import { parseHTML } from 'linkedom'
 import { cacheLife } from 'next/cache'
 import { registerProcessor } from '../registry'

@@ -1,4 +1,4 @@
-import type { ExtendedImageBlockObjectResponse } from 'features/notion'
+import type { ExtendedImageBlockObjectResponse } from 'features/notion/types'
 import { getImgUrl } from './getImgUrl'
 import { useEffect, useState } from 'react'
 

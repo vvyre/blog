@@ -1,5 +1,5 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
-import type { NotionComponentProps } from 'features/notion'
+import type { NotionComponentProps } from 'features/notion/types'
 import { getHeadingId } from './getHeadingId'
 import { h1, h2, h3 } from './Headings.css'
 

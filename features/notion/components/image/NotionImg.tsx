@@ -1,5 +1,5 @@
 'use client'
-import type { NotionComponentProps } from 'features/notion'
+import type { NotionComponentProps } from 'features/notion/types'
 import { getPlainText } from '../richText/getPlainText'
 import { useNotionImg } from './useNotionImg'
 import { default as Img } from 'next/image'
