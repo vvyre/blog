@@ -1,5 +1,5 @@
 import type { ExtendedImageBlockObjectResponse } from 'features/notion'
-import { getImgUrl } from 'features/notion/utils/getImgUrl.util'
+import { getImgUrl } from './getImgUrl'
 import { useEffect, useState } from 'react'
 
 export const useNotionImg = (block: ExtendedImageBlockObjectResponse) => {

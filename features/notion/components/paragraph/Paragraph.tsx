@@ -2,7 +2,7 @@ import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoi
 import type { NotionComponentProps } from 'features/notion'
 import { hasChildren } from 'features/notion'
 import { ChildrenBlocks } from '../../containers/ChildrenBlocks'
-import { getPlainText } from '../../utils/getPlainText.util'
+import { getPlainText } from '../richText/getPlainText'
 import { Youtube } from '../_customBlocks/Youtube'
 import * as css from './Paragraph.css'
 import { RichText } from '../richText/RichText'

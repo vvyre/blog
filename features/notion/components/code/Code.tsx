@@ -5,9 +5,9 @@ import 'styles/hljs.css'
 import { useTextCopy } from '@fische/react'
 import { CheckIcon, CopyIcon } from '@radix-ui/react-icons'
 import type { NotionComponentProps } from 'features/notion'
-import { getCodeLang } from 'features/notion/utils/getCodeLang.util'
+import { getCodeLang } from './getCodeLang'
 import { color } from 'styles/vars/color.css'
-import { getPlainText } from 'features/notion/utils/getPlainText.util'
+import { getPlainText } from '../richText/getPlainText'
 import * as css from './Code.css'
 
 export function Code({ block }: NotionComponentProps<'code'>) {
