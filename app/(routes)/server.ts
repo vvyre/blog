@@ -1,5 +1,6 @@
-import { getCachedPostList, getPost } from 'features/notion/remote/notionFetch'
-import { processBlock } from 'features/notion/utils/processBlock'
+import { getCachedPostList, getPost } from 'features/notion/remote/notionFetch.server'
+import { processBlock } from 'features/notion/utils/processBlock/index.server'
+
 import { ENV } from 'static/env'
 
 export async function startPageLoader() {

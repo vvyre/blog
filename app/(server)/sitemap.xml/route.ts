@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
 import { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
-import { getCachedPostList } from 'features/notion/remote/notionFetch'
+import { getCachedPostList } from 'features/notion/remote/notionFetch.server'
 import { getServerSideSitemap, type ISitemapField } from 'next-sitemap'
 import { ENV } from 'static/env'
 
