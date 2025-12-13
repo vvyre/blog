@@ -4,10 +4,7 @@ import logo from 'assets/logo.svg'
 import siteMeta from 'assets/meta'
 import { Spacing } from 'components/base/Spacing'
 import { Section } from 'components/layout/Section'
-import { RenderNotion } from 'features/notion'
-import { getCachedPostList, getPost } from 'features/notion/utils/notionFetch.util'
-import { pageMeta } from 'features/notion/utils/pageMeta.util'
-import { processBlock } from 'features/notion/utils/processBlock'
+import { processBlock, RenderNotion, getCachedPostList, getPost, getNotionPageMeta } from 'features/notion'
 import { Top } from 'features/post/containers/Top'
 import { TableOfContentsContainer } from 'features/tableOfContents'
 import type { Metadata } from 'next'
@@ -24,8 +21,8 @@ export async function generateStaticParams() {
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
   return posts.map(post => {
     return {
-      year: String(pageMeta(post).date.slice(0, 4)),
-      slug: pageMeta(post).slug,
+      year: String(getNotionPageMeta(post).date.slice(0, 4)),
+      slug: getNotionPageMeta(post).slug,
     }
   })
 }
@@ -33,8 +30,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: PostPageProps): Promise<Metadata> {
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
   const { slug } = await params
-  const [matchPost] = posts.filter(post => pageMeta(post).slug === slug)
-  const meta = pageMeta(matchPost)
+  const [matchPost] = posts.filter(post => getNotionPageMeta(post).slug === slug)
+  const meta = getNotionPageMeta(matchPost)
   const title = `${meta.title} – ${siteMeta.title}`
   const description = meta.summary
   const keywords = meta.tags.map(t => t.name)
@@ -56,8 +53,8 @@ export async function generateMetadata({ params }: PostPageProps): Promise<Metad
 export default async function Post({ params }: PostPageProps) {
   const posts = await getCachedPostList(ENV.NOTION_DATABASE_ID)
   const { slug } = await params
-  const [matchPost] = posts.filter(post => pageMeta(post).slug === slug)
-  const meta = pageMeta(matchPost)
+  const [matchPost] = posts.filter(post => getNotionPageMeta(post).slug === slug)
+  const meta = getNotionPageMeta(matchPost)
   let post: BlockObjectResponse[] = []
 
   try {

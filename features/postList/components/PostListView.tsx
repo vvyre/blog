@@ -1,7 +1,6 @@
 'use client'
 import { Spacing } from 'components/base/Spacing'
-import type { NotionPageMeta } from 'features/notion'
-import { pageMeta } from 'features/notion/utils/pageMeta.util'
+import { type NotionPageMeta, getNotionPageMeta } from 'features/notion'
 import Link from 'next/link'
 import { dp } from 'styles/dp'
 import * as css from './PostListView.css'
@@ -22,7 +21,7 @@ export function PostListView() {
 }
 
 function PostLink({ meta }: { meta: NotionPageMeta }) {
-  const postMeta = pageMeta(meta)
+  const postMeta = getNotionPageMeta(meta)
   const year = postMeta.date.slice(0, 4)
   const path = `/${year}/${postMeta.slug}`
   return (
@@ -35,7 +34,7 @@ function PostLink({ meta }: { meta: NotionPageMeta }) {
 }
 
 function FirstPostLink({ meta }: { meta: NotionPageMeta }) {
-  const postMeta = pageMeta(meta)
+  const postMeta = getNotionPageMeta(meta)
   const year = postMeta.date.slice(0, 4)
   const path = `/${year}/${postMeta.slug}`
 

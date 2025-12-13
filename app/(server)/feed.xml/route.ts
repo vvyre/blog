@@ -2,8 +2,8 @@ import siteMeta from 'assets/meta'
 import dayjs from 'dayjs'
 import timezone from 'dayjs/plugin/timezone'
 import utc from 'dayjs/plugin/utc'
-import { getCachedPostList } from 'features/notion/utils/notionFetch.util'
-import { pageMeta } from 'features/notion/utils/pageMeta.util'
+import { getCachedPostList } from 'features/notion/utils/remote/notionFetch'
+import { getNotionPageMeta } from 'features/notion/utils/meta/getNotionPageMeta'
 import RSS from 'rss'
 import { ENV } from 'static/env'
 
@@ -23,7 +23,7 @@ export async function GET() {
   try {
     const postList = await getCachedPostList(ENV.NOTION_DATABASE_ID)
     postList.forEach(post => {
-      const meta = pageMeta(post)
+      const meta = getNotionPageMeta(post)
       feed.item({
         title: meta.title,
         description: meta.summary,

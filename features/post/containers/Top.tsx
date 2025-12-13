@@ -1,11 +1,11 @@
 'use client'
-import type { pageMeta } from 'features/notion/utils/pageMeta.util'
+import type { getNotionPageMeta } from 'features/notion'
 import { PostInfo } from '../components/PostInfo'
 import { PostTitle } from '../components/PostTitle'
 import { Tags } from '../components/Tags'
 import * as css from './Top.css'
 
-export function Top({ meta }: { meta: ReturnType<typeof pageMeta> }) {
+export function Top({ meta }: { meta: ReturnType<typeof getNotionPageMeta> }) {
   const title = meta.title
   return (
     <div className={css.frame}>

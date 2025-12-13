@@ -1,5 +1,5 @@
 'use client'
-import { pageMeta } from 'features/notion/utils/pageMeta.util'
+import { getNotionPageMeta } from 'features/notion'
 import { postGroupByYearAtom, yearsAtom } from 'features/postList/postList.atom'
 import { useAtomValue } from 'jotai'
 import Link from 'next/link'
@@ -20,8 +20,8 @@ export function HamburgerMenu({ onClose }: { onClose: () => void } & ComponentPr
             <ul className={css.articleList}>
               {YEAR_GROUPED_POSTS[y].map(p => (
                 <li key={p.id} className={css.articleListRow}>
-                  <Link key={p.id} href={`/${y}/${pageMeta(p).slug}`} onClick={() => onClose()}>
-                    {pageMeta(p).title}
+                  <Link key={p.id} href={`/${y}/${getNotionPageMeta(p).slug}`} onClick={() => onClose()}>
+                    {getNotionPageMeta(p).title}
                   </Link>
                 </li>
               ))}
