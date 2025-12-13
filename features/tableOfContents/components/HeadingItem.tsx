@@ -1,5 +1,5 @@
-import { getHeadingId } from 'features/notion/utils/getHeadingId'
-import { getPlainText } from 'features/notion/utils/getPlainText.util'
+import { getHeadingId } from 'features/notion/components/heading/getHeadingId'
+import { getPlainText } from '../richText/getPlainText'
 import { getHeadingLevel } from '../util/getHeadingLevel'
 import type { TableOfContentBlock } from '../util/processHeadings'
 import * as css from './TableOfContents.css'

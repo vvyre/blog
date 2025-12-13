@@ -1,7 +1,7 @@
-import type { pageMeta } from 'features/notion/utils/pageMeta.util'
+import type { getNotionPageMeta } from 'features/notion'
 import * as css from './Tags.css'
 
-type Tag = ReturnType<typeof pageMeta>['tags'][number]
+type Tag = ReturnType<typeof getNotionPageMeta>['tags'][number]
 export function Tags({ tags }: { tags: Tag[] }) {
   return (
     <div className={css.tagsFrame}>
