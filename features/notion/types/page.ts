@@ -3,7 +3,7 @@ import type { PageObjectResponse } from '@notionhq/client/build/src/api-endpoint
 type PropertyTypes = PageObjectResponse['properties'][string]['type']
 type Property<T extends PropertyTypes> = Extract<PageObjectResponse['properties'][string], { type: T }>
 
-type BlogProps = {
+type PageProperties = {
   published: Property<'checkbox'>
   date: Property<'date'>
   slug: Property<'rich_text'>
@@ -13,4 +13,4 @@ type BlogProps = {
   title: Property<'title'>
 }
 
-export type NotionPageMeta = Omit<PageObjectResponse, 'properties'> & { properties: BlogProps }
+export type NotionPageMeta = Omit<PageObjectResponse, 'properties'> & { properties: PageProperties }
