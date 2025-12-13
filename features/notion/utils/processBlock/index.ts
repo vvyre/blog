@@ -1,23 +1,26 @@
-import type { BlockObjectResponse } from '@notionhq/client/build/src/api-endpoints'
-import type { TraversableBlock } from 'features/notion'
+import './processor'
+import { processors } from './registry'
 import pMap from 'p-map'
-import { getBlurredImg } from './getBlurredImg.util'
-import { getBookmarkMetadata } from './getBookmarkMeta.util'
-import { groupedBlocks } from './groupedBlocks.util'
+import type { ExtendedBlockObjectResponse, TraversableBlock } from 'features/notion'
+import type { BlockObjectResponse } from '@notionhq/client'
+import { group } from './group'
 
-export const processBlock = async (blocks: BlockObjectResponse[]) => {
-  const PROCESSED = await pMap(
-    blocks,
-    async block => {
-      if (block.type === 'image') return (await getBlurredImg(block)) ?? block
-      else if (block.type === 'bookmark') return (await getBookmarkMetadata(block)) ?? block
-      else return block
-    },
-    {
-      concurrency: 5,
-    }
+export const processBlock = async (blocks: BlockObjectResponse[]): Promise<TraversableBlock[]> =>
+  group(
+    await pMap(
+      blocks,
+      async block => {
+        if (block.has_children) {
+          const content = (block as any)[block.type]
+          if (content && Array.isArray(content.children)) {
+            content.children = await processBlock(content.children)
+          }
+        }
+
+        const processor = processors[block.type]
+        if (processor) return (await processor(block)) as ExtendedBlockObjectResponse
+        return block
+      },
+      { concurrency: 5 }
+    )
   )
-
-  const LIST_GROUPPED = groupedBlocks(PROCESSED)
-  return LIST_GROUPPED as TraversableBlock[]
-}

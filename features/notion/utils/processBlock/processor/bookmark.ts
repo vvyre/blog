@@ -3,6 +3,7 @@ import type { BookmarkBlockObjectResponse } from '@notionhq/client/build/src/api
 import type { ExtendedBookmarkObjectResponse } from 'features/notion'
 import { parseHTML } from 'linkedom'
 import { cacheLife } from 'next/cache'
+import { registerProcessor } from '../registry'
 
 export type BookmarkMeta = {
   url: string
@@ -60,7 +61,8 @@ const fetchMeta = async (url: string): Promise<BookmarkMeta> => {
     return { url }
   }
 }
-export const getBookmarkMetadata = async (block: BookmarkBlockObjectResponse): Promise<ExtendedBookmarkObjectResponse> => {
+
+registerProcessor('bookmark', async (block: BookmarkBlockObjectResponse): Promise<ExtendedBookmarkObjectResponse> => {
   const url = block.bookmark.url
 
   const bookmarkInfo = await fetchMeta(url)
@@ -68,4 +70,4 @@ export const getBookmarkMetadata = async (block: BookmarkBlockObjectResponse): P
     ...block,
     bookmarkInfo,
   }
-}
+})
