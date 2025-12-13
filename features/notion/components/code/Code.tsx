@@ -7,7 +7,7 @@ import { CheckIcon, CopyIcon } from '@radix-ui/react-icons'
 import type { NotionComponentProps } from 'features/notion'
 import { getCodeLang } from 'features/notion/utils/getCodeLang.util'
 import { color } from 'styles/vars/color.css'
-import { getPlainText } from '../utils/getPlainText.util'
+import { getPlainText } from 'features/notion/utils/getPlainText.util'
 import * as css from './Code.css'
 
 export function Code({ block }: NotionComponentProps<'code'>) {

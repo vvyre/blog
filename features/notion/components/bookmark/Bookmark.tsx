@@ -1,6 +1,6 @@
 import { Spacing } from 'components/base/Spacing'
 import type { NotionComponentProps } from 'features/notion'
-import { getPlainText } from '../utils/getPlainText.util'
+import { getPlainText } from '../../utils/getPlainText.util'
 import * as css from './Bookmark.css'
 
 export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
@@ -26,7 +26,8 @@ export function Bookmark({ block }: NotionComponentProps<'bookmark'>) {
       aria-label={`Bookmark: ${block.bookmarkInfo.title ?? fallbackTitle ?? 'No Title Available'}`}
       style={{
         backgroundImage: `url(${preview})`,
-      }}>
+      }}
+    >
       <div className={css.bookmarkInner}>
         <h4 className={css.bookmarkTitle}>
           <span>{editedTitle(block.bookmarkInfo.title ?? fallbackTitle ?? '')}</span>

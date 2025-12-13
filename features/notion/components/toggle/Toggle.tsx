@@ -1,7 +1,7 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import { hasChildren, type NotionComponentProps } from 'features/notion'
-import { ChildrenBlocks } from '../containers/ChildrenBlocks'
-import { RichText } from './richText/RichText'
+import { ChildrenBlocks } from '../../containers/ChildrenBlocks'
+import { RichText } from '../_richText/RichText'
 
 export function Toggle({ block }: NotionComponentProps<'toggle'>) {
   return (
