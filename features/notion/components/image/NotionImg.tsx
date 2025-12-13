@@ -1,7 +1,7 @@
 'use client'
 import type { NotionComponentProps } from 'features/notion'
 import { getPlainText } from 'features/notion/utils/getPlainText.util'
-import { useNotionImg } from 'features/notion/utils/processBlock/useNotionImg.hook'
+import { useNotionImg } from './useNotionImg'
 import { default as Img } from 'next/image'
 import { overlay } from 'overlay-kit'
 import { useEffect, useState } from 'react'
@@ -43,6 +43,7 @@ export function NotionImg({ block }: NotionComponentProps<'image'>) {
             className={css.imgZoomed}
             unoptimized
             key={imgUrl}
+            blurDataURL={block.blurDataURL}
             src={isReloading ? '' : imgUrl}
             alt={getPlainText(block?.image?.caption)}
             priority

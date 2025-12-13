@@ -1,11 +1,11 @@
 import type { RichTextItemResponse } from '@notionhq/client/build/src/api-endpoints'
 import type { NotionComponentProps } from 'features/notion'
 import { hasChildren } from 'features/notion'
-import { ChildrenBlocks } from '../containers/ChildrenBlocks'
-import { getPlainText } from '../utils/getPlainText.util'
-import { Youtube } from './customBlocks/Youtube'
+import { ChildrenBlocks } from '../../containers/ChildrenBlocks'
+import { getPlainText } from '../../utils/getPlainText.util'
+import { Youtube } from '../_customBlocks/Youtube'
 import * as css from './Paragraph.css'
-import { RichText } from './richText/RichText'
+import { RichText } from '../richText/RichText'
 
 export function Paragraph({ block }: NotionComponentProps<'paragraph'>) {
   const flattenTxt: string = getPlainText(block.paragraph.rich_text)
