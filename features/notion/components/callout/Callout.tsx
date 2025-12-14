@@ -14,5 +14,3 @@ export function Callout({ block }: NotionComponentProps<'callout'>) {
     </div>
   )
 }
-
-// 'icon' in block.callout && 'emoji' in block.callout.icon! && block.callout.icon.emoji

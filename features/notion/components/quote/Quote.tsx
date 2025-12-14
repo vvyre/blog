@@ -17,5 +17,3 @@ export function Quote({ block }: NotionComponentProps<'quote'>) {
     </div>
   )
 }
-
-// 'icon' in block.callout && 'emoji' in block.callout.icon! && block.callout.icon.emoji

@@ -4,6 +4,7 @@ import { hasChildren } from 'features/notion/types'
 import { ChildrenBlocks } from '../../containers/ChildrenBlocks'
 import { li } from './NumberedList.css'
 import { RichText } from '../richText/RichText'
+
 export function BulletedListItem({ block }: NotionComponentProps<'bulleted_list_item'>) {
   return (
     <li>

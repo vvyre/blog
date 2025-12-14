@@ -1,8 +1,6 @@
 import * as css from './Youtube.css'
-export function Youtube({ src }: { src: string }) {
-  const IDX = src.lastIndexOf('/')
-  const ID = src.slice(IDX + 1, -2)
-  const url = `https://www.youtube.com/embed/${ID}`
+export function Youtube({ videoId }: { videoId: string }) {
+  const url = `https://www.youtube.com/embed/${videoId}`
   const caption = `Youtube Video - ${url}`
 
   return (
