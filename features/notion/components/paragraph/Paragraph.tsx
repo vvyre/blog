@@ -7,20 +7,21 @@ import { Youtube } from '../_customBlocks/Youtube'
 import * as css from './Paragraph.css'
 import { RichText } from '../richText/RichText'
 
+const YOUTUBE_REGEX = /<<(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/watch\?v=|youtu\.be\/)([\w-]+)(?:[^\s>]*)?>>/
+
 export function Paragraph({ block }: NotionComponentProps<'paragraph'>) {
   const flattenTxt: string = getPlainText(block.paragraph.rich_text)
-  if (flattenTxt.includes('<<https://youtu.be') && flattenTxt.includes('>>')) {
-    return <Youtube src={flattenTxt} />
-  }
+  const [_, captured] = flattenTxt.match(YOUTUBE_REGEX) ?? ['', '']
+  if (captured.length) return <Youtube videoId={captured} />
 
   return (
-    <p className={css.paragraph}>
-      {block.paragraph.rich_text.map((txt: RichTextItemResponse, idx: number) => (
-        <RichText key={`${txt.type}${idx}`} richText={txt} />
-      ))}
+    <div>
+      <p className={css.paragraph}>
+        {block.paragraph.rich_text.map((txt: RichTextItemResponse, idx: number) => (
+          <RichText key={`${txt.type}${idx}`} richText={txt} />
+        ))}
+      </p>
       {hasChildren(block) && <ChildrenBlocks childrenBlocks={block.paragraph.children} />}
-    </p>
+    </div>
   )
 }
-
-// 'icon' in block.callout && 'emoji' in block.callout.icon! && block.callout.icon.emoji
