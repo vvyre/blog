@@ -1,5 +1,5 @@
 import type { BlockObjectResponse } from '@notionhq/client'
-import { Hydrate } from 'app/(routes)/(util)/Hydrate'
+import { Hydrate } from 'app/(routes)/[year]/[slug]/(client)/Hydrate'
 import logo from 'assets/logo.svg'
 import siteMeta from 'assets/meta'
 import { Spacing } from 'components/base/Spacing'
