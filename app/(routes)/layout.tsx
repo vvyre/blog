@@ -6,8 +6,8 @@ import logo from 'assets/logo.svg'
 import meta from 'assets/meta'
 import { Navigation } from 'features/navigation/containers/Navigation'
 import { ENV } from 'static/env'
-import { HydrateOnce } from './(util)/HydrateOnce'
-import { Providers } from './(util)/Providers'
+import { HydrateOnce } from './(client)/HydrateOnce'
+import { Providers } from './(client)/Providers'
 import { startPageLoader } from './server'
 
 export const metadata: Metadata = {
