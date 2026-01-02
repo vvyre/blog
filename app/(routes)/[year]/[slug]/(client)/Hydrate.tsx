@@ -1,8 +1,7 @@
 'use client'
 import type { TraversableBlock } from 'features/notion/types'
 import { currentPostAtom } from 'features/post/post.atom'
-import { useSetAtom } from 'jotai'
-import { useEffect } from 'react'
+import { useHydrateAtoms } from 'jotai/utils'
 
 interface Props {
   state: {
@@ -11,10 +10,7 @@ interface Props {
 }
 
 export function Hydrate({ state }: Props) {
-  const setCurrentPost = useSetAtom(currentPostAtom)
-  useEffect(() => {
-    setCurrentPost(state.currentPost)
-  }, [state.currentPost, setCurrentPost])
+  useHydrateAtoms([[currentPostAtom, state.currentPost]])
 
   return null
 }
