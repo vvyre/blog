@@ -1,5 +1,5 @@
 'use client'
-import { HamburgerMenuIcon, HomeIcon, InfoCircledIcon } from '@radix-ui/react-icons'
+import { HamburgerMenuIcon } from '@radix-ui/react-icons'
 import { nextTheme, ThemeContext } from 'features/theme'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -47,13 +47,13 @@ function NavigationContent() {
               case '/about':
                 return (
                   <MenuBtn as={Link} href="/" aria-label={`메인 화면으로 이동합니다`}>
-                    <HomeIcon width="21" height="21" />
+                    ←
                   </MenuBtn>
                 )
               default:
                 return (
                   <MenuBtn as={Link} href="/about" aria-label={`프로필 페이지로 이동합니다`}>
-                    <InfoCircledIcon width="21" height="21" />
+                    YOOOOON
                   </MenuBtn>
                 )
             }

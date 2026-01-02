@@ -34,7 +34,7 @@ export const buttonGroup = style({
   gap: dp(2),
   '@media': {
     [breakpoints.desktop]: {
-      flexDirection: 'column',
+      flexDirection: 'row-reverse',
       gap: dp(1),
     },
   },
@@ -42,33 +42,25 @@ export const buttonGroup = style({
 
 export const categoryBtn = style({
   margin: 0,
-  padding: 0,
   display: 'inline-flex',
+  paddingInline: dp(0),
+  paddingBlock: dp(0),
+  justifyContent: 'flex-start',
   alignItems: 'center',
-  justifyContent: 'center',
-  width: dp(7),
-  height: dp(7),
   border: 'none',
-  borderRadius: dp(20),
-  fontSize: dp(5),
-  backgroundColor: color.background,
+  fontSize: dp(4),
+  backgroundColor: 'transparent',
   color: color.text,
+  fontWeight: 500,
+  fontFamily: '"Mona Sans", "Pretendard", monospace',
   cursor: 'pointer',
-  '@media': {
-    [breakpoints.desktop]: {
-      padding: 0,
-      color: color.text,
-      borderRadius: 0,
-      backgroundColor: 'transparent',
-    },
-  },
 })
 
 export const tooltip = style({
   position: 'absolute',
-  top: 0,
+  top: dp(5),
   right: dp(10),
-  padding: dp(1),
+  paddingBlock: dp(1),
   paddingInline: dp(2),
   border: `1px solid ${color.background_invert}`,
   color: color.text,
@@ -78,7 +70,8 @@ export const tooltip = style({
   zIndex: 100,
   '@media': {
     'screen and (min-width: 600px)': {
-      top: dp(11.75),
+      top: dp(3.5),
+      right: dp(16),
     },
   },
 })
